@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Tablerate;
 use App\Imports\TablerateImport;
@@ -15,7 +16,26 @@ class TablerateController extends Controller
     {
         $this->excel = $excel;
     }
-    
+	
+	
+    public function premium(Request $request){
+		$dob = new DateTime($request->dob);
+		$new = new DateTime();
+		$diff = $new->diff($dob);
+echo "your current age is ".$diff->y."year".$diff->m." months and ".$diff->d."days";
+$age = $diff->y;
+if($diff->m>=5){
+$age = $diff->y + 1; 
+	}
+	//calculate age integer
+		$term = $request->term;		
+
+		$tablerate = DB::table('tablerates')->where('age',$age)->where('term',$term)->value('rate');
+		
+		$sum = $request->sum;
+		// find table rate from the table
+	`	$premium = ($sum/1000)*$tablerate; 
+	}    
     public function import(Request $request){
       
 

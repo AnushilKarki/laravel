@@ -17,4 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/premium',function () {
+	return view('input');
+}
+
 Route::post('import-file', 'App\Http\Controllers\TablerateController@import')->name('import');
+
+Route::post('premium','App\Http\Controllers\TablerateController@premium')->name('premium');
