@@ -25,7 +25,7 @@
             .formfields {
                 display:flex;
                 flex-direction:column;
-               height:500px;
+               height:300px;
                width:500px;
                background-color:lightblue;
             }
