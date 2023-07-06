@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Result</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,65 +18,39 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
-            .formhead {
+            .result {
                 display:flex;
-                width:500px;;
-                height:400px;
-                background-color:grey;
-                border:1px solid black;
+                   flex-direction:column;
+                flex-wrap:wrap;
+                background-color:snow;
+                justify-content:center;
+                width:100%;
+                height:500px;
+            }
+
+            .heading {
+                display:flex;
                 justify-content:center;
             }
-            .formfull {
-                width:100px;
-                height:400px;
+            .value{
                 display:flex;
-                flex-direction:column;
-                flex-wrap:wrap;
-                justify-content: center;
-               
-            }
-            .field{
-                height:60px;
-                width:350px;
-                background-color:snow;
-                color:black;
-                font-size:20px;
-                border: 1px solid black;
-                margin-top:5px;
-                margin-bottom:5px;
-            }
-            h1{
-                text-align:center;
-                color:grey;
-                text-decoration-line: underline;
-                text-decoration-style: solid;
+                justify-content:center;
             }
         </style>
     </head>
     <body class="antialiased">
-    <h1>Fill the request for your premium information </h1>
-    <div class="formhead">
-    <form action="{{ route('premium') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-	<div class="formfull">
-<div class="">
-    <label>enter your date of birth:</label>
-    <input class="field" type="date" name="dob">
-</div>
-<div class="">
-<label>enter your term of insurance(5-50):</label>
-	<input class="field" type="number" name="term">
-	</div>
-<div class="">
-<label>enter your insurance amount:</label>
-<input class="field" type="number" name="sum">
-</div>
-<div class="">
-<label>submit your request:</label>
-    <button class="field" type="submit">Submit</button>
-</div>
-</div>
-</form>
+        <div class="all">
+        <div class="result">
+            <div class="heading">
+<h2>Result of your request </h2>
+        </div>
+<div class="value">
+<pre>
+your premium will be 
+Rs {{ $premium }}
+        </pre>
+        </div>
+        </div>
         </div>
     </body>
 </html>

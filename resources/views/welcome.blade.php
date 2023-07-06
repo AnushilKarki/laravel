@@ -18,14 +18,48 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            .allform{
+                display:flex;
+                justify-content:center;
+            }
+            .formfields {
+                display:flex;
+                flex-direction:column;
+               height:500px;
+               width:500px;
+               background-color:lightblue;
+            }
+            .field{
+                display:flex;
+                height:60px;
+                width:350px;
+                color:black;
+                background-color:white;
+                margin-top:10px;
+                margin-left:10px;
+                margin-bottom:10px;
+                justify-content:center;
+            }
+            h1{
+                text-align:center;
+            }
         </style>
     </head>
     <body class="antialiased">
+        <h1>import life insurance table rate excel file</h1>
+        <div class="allform">
     <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <input type="file" name="excel_file">
-    <button type="submit">Import</button>
+    <div class="formfields">
+    <div class="">
+        <label>please select excel file to import </label>
+    <input class="field" type="file" name="excel_file">
+        </div>
+        <div class="">
+    <button class="field" type="submit">Import</button>
+        </div>
+        </div>
 </form>
-
+        </div>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TablerateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +19,10 @@ Route::get('/', function () {
 
 Route::get('/premium',function () {
 	return view('input');
-}
+});
 
-Route::post('import-file', 'App\Http\Controllers\TablerateController@import')->name('import');
+Route::post('import-file', [TablerateController::class,'import'])->name('import');
 
-Route::post('premium','App\Http\Controllers\TablerateController@premium')->name('premium');
+Route::post('premium', [TablerateController::class,'premium'])->name('premium');
+
+// Route::post('premium','App\Http\Controllers\TablerateController@premium')->name('premium');

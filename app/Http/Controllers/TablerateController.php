@@ -8,6 +8,7 @@ use App\Models\Tablerate;
 use App\Imports\TablerateImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\HeadingRowImport;
+use Carbon\Carbon;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class TablerateController extends Controller
@@ -19,23 +20,31 @@ class TablerateController extends Controller
 	
 	
     public function premium(Request $request){
-		$dob = new DateTime($request->dob);
-		$new = new DateTime();
-		$diff = $new->diff($dob);
-echo "your current age is ".$diff->y."year".$diff->m." months and ".$diff->d."days";
+		// $dob = new \DateTime($request->dob);
+        $d = Carbon::parse($request->dob);
+		$new = Carbon::now();
+
+		$diff = $new->diff($d);
+
+// dd("your current age is ".$diff->y."year".$diff->m." months and ".$diff->d."days");
 $age = $diff->y;
 if($diff->m>=5){
 $age = $diff->y + 1; 
 	}
+    // dd("your current age is ".$age."year".$diff->m." months and ".$diff->d."days");
 	//calculate age integer
 		$term = $request->term;		
 
-		$tablerate = DB::table('tablerates')->where('age',$age)->where('term',$term)->value('rate');
+		$tablerate = DB::table('tablerates')->where('age',$age)->where('term',$term)->value('table_rate');
+ 
 		
 		$sum = $request->sum;
 		// find table rate from the table
-	`	$premium = ($sum/1000)*$tablerate; 
-	}    
+		$premium = ($sum/1000)*$tablerate; 
+
+        return view('result',compact('premium'));
+	} 
+   
     public function import(Request $request){
       
 
@@ -69,7 +78,10 @@ $age = $diff->y + 1;
     
                 $rows[] = $rowData;
             }
-    // dd($rows);
+    // dd(count($rows[0])-1);
+    // we reduce count values by 1 inorder to work on forloop within forloop to enter each value into table
+    $agecount=count($rows)-1;
+    $termcount=count($rows[0])-1;
     // a1 and a2 is age coordinate
     $a1 = 1;
     $a2 = 0;
@@ -79,9 +91,9 @@ $age = $diff->y + 1;
     //t1 and t2 are term coordinate
     $t1=0;
     $t2=1;
-
-    for($i=0;$i<45;$i++){
-        for($j=0;$j<46;$j++){
+dd(count($rows));
+    for($i=0;$i<$agecount;$i++){
+        for($j=0;$j<$termcount;$j++){
             $age = $rows[$a1][$a2];
             $rate = $rows[$r1][$r2];
             $term = $rows[$t1][$t2];
