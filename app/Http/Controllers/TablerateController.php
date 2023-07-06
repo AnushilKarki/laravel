@@ -28,6 +28,7 @@ class TablerateController extends Controller
 
 // dd("your current age is ".$diff->y."year".$diff->m." months and ".$diff->d."days");
 $age = $diff->y;
+//we are checking the month and if month is equal or greater then 5 we round up age value by +1
 if($diff->m>=5){
 $age = $diff->y + 1; 
 	}
@@ -91,7 +92,7 @@ $age = $diff->y + 1;
     //t1 and t2 are term coordinate
     $t1=0;
     $t2=1;
-dd(count($rows));
+// dd(count($rows));
     for($i=0;$i<$agecount;$i++){
         for($j=0;$j<$termcount;$j++){
             $age = $rows[$a1][$a2];
@@ -117,102 +118,7 @@ if($r2<45){
         // dd($r2);
     }
     
-    //  $highestColumn = $sheet->getHighestColumn();
-    //         $columnCount = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
-    
-    //         for ($columnIndex = 1; $columnIndex <= $columnCount; $columnIndex++) {
-    //             $columnData = [];
-    
-    //             foreach ($sheet->getColumnIteratorByColumn($columnIndex) as $cell) {
-    //                 $columnData[] = $cell->getValue();
-    //             }
-    
-    //             $columns[] = $columnData;
-    //         }
-    
-            // Do something with the extracted data
-    
-            // ...
-    
-            return response()->json([
-                'rows' => $rows,
-                // 'columns' => $columns,
-            ]);
-      
-      
-      
-      
-        // $file = $request->file('excel_file');
-       
-//         // Read the Excel file
-//         $data = Excel::toArray([], $file)[0];
-
-//         // Extract row and column data
-//         $rows = [];
-//         $columns = [];
-
-     
-//         // Do something with the extracted data
-// foreach($rows as $row){
-
-// foreach($columns as $column){
-//     $data[$row][$column]=
-// }
-
-// }
-//         // ...
-
-//         return response()->json([
-//             'rows' => $rows,
-//             'columns' => $columns,
-//         ]);
-        // $headings = (new HeadingRowImport)->toArray('users.xlsx');
-
-        // Excel::import($file,function($rows){
-    
-        //     foreach($rows as $row) {
-         
-
-        // // row couynt is 46 for 
-        //             for ($i = 1; $i < count($row); $i++) {
-        //                 // Assuming each column represents a different attribute of the product
-        //                 $rate = new Tablerate;
-        //                 $rate->age = $row[$i];
-        //                 $rate->term = $row[$i];
-        //                 $rate->table_rate = $row[$i];
-        //                 $rate->save();
-        //                 // Update the product attribute with the corresponding column data
-        //                 // $rate->$columnName = $row[$i];
-        //             }
-           
-        //     }
-        // });
-//  $path = "public/users.xlsx";
- 
-
-        // $data= Excel::import(new TablerateImport, 'users.xlsx');
-        // dd($data->toArray());
-// $path ="users";
-//         $data = Excel::import($path,function($rows){
-//             dd($data);
-//         });
-
-// $data = Excel::load($path)->get();
-
-//             foreach ($data as $key => $value) {
-
-//                 $arr[] = ['title' => $value->title, 'body' => $value->body];
-//             }
-
-//             if(!empty($arr)){
-
-//                 DB::table('tablerates')->insert($arr);
-
-//                 dd('Insert Recorded successfully.');
-
-//             }
-
-        
+         return view('input');
 
     }
     }
