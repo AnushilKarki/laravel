@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TablerateController;
+use App\Http\Controllers\ImapController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +27,5 @@ Route::post('import-file', [TablerateController::class,'import'])->name('import'
 Route::post('premium', [TablerateController::class,'premium'])->name('premium');
 
 // Route::post('premium','App\Http\Controllers\TablerateController@premium')->name('premium');
+
+Route::get('/imap',[ImapController::class,'imap'])->name('imap');
