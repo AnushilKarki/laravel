@@ -62,30 +62,123 @@ class ImapController extends Controller
     //             $params[strtolower($x->attribute)] = $x->value;
     
     }
-    foreach ($mails as $emailId) {
-        $emailStructure = imap_fetchstructure($mbox, $emailId);
-    $saveFolderPath = '../public/';
-        if (isset($emailStructure->parts) && count($emailStructure->parts) > 0) {
-            for ($i = 0; $i < count($emailStructure->parts); $i++) {
-                $part = $emailStructure->parts[$i];
-    dd($part);
-                if (isset($part->disposition) && strtoupper($part->disposition) === 'ATTACHMENT') {
-                    $filename = $part->dparameters[0]->value;
-                    $attachmentData = imap_fetchbody($mbox, $emailId, $i + 1);
+    // foreach ($mails as $emailId) {
+    //     $emailStructure = imap_fetchstructure($mbox, $emailId);
+    //     dd($emailStructure);
+    // $saveFolderPath = '../public/';
+    //     if (isset($emailStructure->parts) && count($emailStructure->parts) > 0) {
+    //         for ($i = 0; $i < count($emailStructure->parts); $i++) {
+    //             $part = $emailStructure->parts[$i];
+    //             if (isset($part->disposition) && strtoupper($part->disposition) === 'ATTACHMENT') {
+    //                 $filename = $part->dparameters[0]->value;
+    //                 $attachmentData = imap_fetchbody($mbox, $emailId, $i + 1);
   
-                    // Save the attachment to the public folder
-                    $savePath = $saveFolderPath . $filename;
-                    file_put_contents($savePath, $attachmentData);
+    //                 // Save the attachment to the public folder
+    //                 $savePath = $saveFolderPath . $filename;
+    //                 file_put_contents($savePath, $attachmentData);
     
-                    echo "Attachment saved: $filename\n";
+    //                 echo "Attachment saved: $filename\n";
+    //             }
+    //         }
+    //     }
+    // }
+    // foreach ($mails as $emailId) {
+    //     // Fetch the email structure
+    //     $emailStructure = imap_fetchstructure($mbox, $emailId);
+    //     $saveFolderPath = '../public/';
+    //     // Loop through the email parts to find attachments
+    //     foreach ($emailStructure->parts as $partNum => $partData) {
+    //         // Check if it's an attachment
+    //         if (isset($partData->disposition) && $partData->disposition === 'attachment') {
+    //             // Generate a unique filename for each attachment
+    //             $filename = 'attachment_' . uniqid() . '_' . $partData->dparameters[0]->value;
+    //             $filePath = $saveFolderPath . $filename;
+    
+    //             // Fetch and save the attachment
+    //             $attachment = imap_fetchbody($mbox, $emailId, $partNum + 1);
+    //             $fileSaved = file_put_contents($filePath, $attachment);
+    
+    //             if ($fileSaved === false) {
+    //                 echo 'Failed to save the attachment: ' . $filename . PHP_EOL;
+    //                 dd($filesaved);
+    //             } else {
+    //                 echo 'Attachment saved successfully: ' . $filename . PHP_EOL;
+    //                 dd($filesaved);
+    //             }
+    //         }
+    //     }
+    // }
+     $attachments = array();
+    foreach ($mails as $emailId) {
+        // Fetch the email structure
+        $emailStructure = imap_fetchstructure($mbox, $emailId);
+
+        // Loop through the email parts to find attachments
+        foreach ($emailStructure->parts as $partNum => $partData) {
+              $attachments[$partNum] = array(
+                'is_attachment' => false,
+                'filename' => '',
+                'name' => '',
+                'attachment' => ''
+            );
+           
+            if($emailStructure->parts[$partNum]->ifdparameters) {
+                foreach($emailStructure->parts[$partNum]->dparameters as $object) {
+                    if(strtolower($object->attribute) == 'filename') {
+                        $attachments[$partNum]['is_attachment'] = true;
+                        $attachments[$partNum]['filename'] = $object->value;
+                    }
                 }
+            }
+           
+            if($emailStructure->parts[$partNum]->ifparameters) {
+                foreach($emailStructure->parts[$partNum]->parameters as $object) {
+                    if(strtolower($object->attribute) == 'name') {
+                        $attachments[$partNum]['is_attachment'] = true;
+                        $attachments[$partNum]['name'] = $object->value;
+                    }
+                }
+            }
+           
+            if($attachments[$partNum]['is_attachment']) {
+                $attachments[$partNum]['attachment'] = imap_fetchbody($mbox, $emailId, $partNum+1);
+                if($emailStructure->parts[$partNum]->encoding == 3) { // 3 = BASE64
+                    $attachments[$partNum]['attachment'] = base64_decode($attachments[$partNum]['attachment']);
+                }
+                elseif($emailStructure->parts[$partNum]->encoding == 4) { // 4 = QUOTED-PRINTABLE
+                    $attachments[$partNum]['attachment'] = quoted_printable_decode($attachments[$partNum]['attachment']);
+                }
+            }
+            // Check if it's an attachment
+            if (isset($partData->disposition) && $partData->disposition === 'ATTACHMENT') {
+                // Generate a unique filename for each attachment
+                $filename = 'attachment_' . uniqid() . '_' . $partData->dparameters[0]->value;
+                $filePath = '../public/' . $filename;
+                $file = imap_fetchbody($mbox, $emailId, $partNum+1);
+                // check partdata encoding and decode accordingly so file saved
+                // can be viewed after downloaded
+                    if($partData->encoding==3){
+                        $file = base64_decode($file);
+                    }
+                    elseif($partData->encoding==4){
+                        $file = quoted_printable_decode($file);
+                    }
+              
+                $fileSaved = file_put_contents($filePath, $file);
+                dd($fileSaved);
+                // Save the attachment to the file
+                // $attachmentSaved = imap_savebody($mbox, $filePath, $emailId, $partNum + 1);
+                // if ($attachmentSaved) {
+                //     echo 'Attachment saved successfully: ' . $filename . PHP_EOL;
+                // } else {
+                //     echo 'Failed to save the attachment: ' . $filename . PHP_EOL;
+                // }
             }
         }
     }
     
- 
-        echo $message;
-        dd($data);
+        // echo $message;
+        // dd($data);
         imap_close($mbox);
         //imap close closes the stream of imap
     }
