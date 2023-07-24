@@ -21,10 +21,14 @@ Route::get('/', function () {
 Route::get('/premium',function () {
 	return view('input');
 });
-
+Route::get('/emailform',function(){
+    return view('email');
+});
 Route::post('import-file', [TablerateController::class,'import'])->name('import');
 
 Route::post('premium', [TablerateController::class,'premium'])->name('premium');
+
+Route::post('email',[ImapController::class,'emailreq'])->name('email');
 
 // Route::post('premium','App\Http\Controllers\TablerateController@premium')->name('premium');
 

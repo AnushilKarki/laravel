@@ -6,13 +6,120 @@ use Illuminate\Http\Request;
 
 class ImapController extends Controller
 {
+    public function emailreq(Request $request){
+        // email : taxplextest@gmail.com
+        //password : nniiabtvmmfpgyjr
+        $email = $request->email;
+        $password = $request->password;
+        $mbox = imap_open ("{imap.gmail.com:993/imap/ssl/novalidate-cert}INBOX", $email, $password) or die("can't connect: " . imap_last_error());
+        $MC = imap_check($mbox);
+        $result = imap_fetch_overview($mbox,"1:{$MC->Nmsgs}",0);
+        $mails = imap_search($mbox,'ALL');
+        foreach ($mails as $email) {
+            //uid = uid + 1 
+            $header = imap_headerinfo($mbox,$email);
+            $uid = imap_uid($mbox,$email);
+           
+            $emailStructure = imap_fetchstructure($mbox, $email);
+            // dd($emailStructure);
+            $encoding = $emailStructure->encoding;
+          
+    // Fetch the email body based on the encoding type
+    switch ($encoding) {
+        case 0: // 7bit
+            if(isset($emailStructure->parts)){
+            foreach ($emailStructure->parts as $partNum => $partData) {
+                if($partData->encoding==3){
+                    $body = imap_fetchbody($mbox, $email, 1.1);
+                }
+                elseif($partData->encoding==4){
+                    $body = imap_fetchbody($mbox, $email, 1);
+                }
+                else {
+                    $body = imap_fetchbody($mbox, $email, 1);
+                }
+            }
+        }else{
+            $body = imap_fetchbody($mbox, $email, 1);
+        }
+            break;
+        default:
+            $body = imap_body($mbox, $email);
+            $body = quoted_printable_decode($body);
+            break;
+    }
+    $strip = array("\r\n","=CD=8F","=C2=B7","=E2=80=A6","=F0=9F=92=B8","1=E2=80=8C000","=F0=9F=9A=80","-","=CD=","=8F","=");
+    $body = str_replace($strip,"",$body);
+$body = strip_tags($body);
+  
+    $date = date("d F, Y", strtotime($result[0]->date));
+    $data[$email]=[
+        "overview"=>$result,
+        "message"=>$body,
+        "date"=>$date,
+        "type"=>$emailStructure->type,
+        "encoding"=>$emailStructure->encoding
+    ];
+    }
+    // dd($data);
+    foreach ($mails as $emailId) {
+        // Fetch the email structure
+        $emailStructure = imap_fetchstructure($mbox, $emailId);
+
+        // Loop through the email parts to find attachments
+        if(isset($emailStructure->parts)){
+        foreach ($emailStructure->parts as $partNum => $partData) {
+           
+            // Check if it's an attachment
+            if (isset($partData->disposition) && $partData->disposition === 'ATTACHMENT') {
+                // Generate a unique filename for each attachment
+                $filename = 'attachment_' . uniqid() . '_' . $partData->dparameters[0]->value;
+                $filePath = '../public/' . $filename;
+                $file = imap_fetchbody($mbox, $emailId, $partNum+1);
+                // check partdata encoding and decode accordingly so file saved
+                // can be viewed after downloaded
+                    if($partData->encoding==3){
+                        $file = base64_decode($file);
+                    }
+                    elseif($partData->encoding==4){
+                        $file = quoted_printable_decode($file);
+                    }
+              
+                $fileSaved = file_put_contents($filePath, $file);
+           
+            }
+        }
+    }
+    }
+    imap_close($mbox);
+    return view('emailresponse',compact('data'));
+}
     public function imap(){
         //this is an algorith to fetch and list mail from gmail
-        $mbox = imap_open ("{imap.gmail.com:993/imap/ssl/novalidate-cert}INBOX", "taxplextest@gmail.com", "nniiabtvmmfpgyjr") or die("can't connect: " . imap_last_error());
+        // INBOX , [Gmail]/Sent Mail, [Gmail]/All Mail , [Gmail]/Drafts , [Gmail]/Important , [Gmail]/Spam , 
+        // [Gmail]/Starred / [Gmail]/Trash
+        $mbox = imap_open ("{imap.gmail.com:993/imap/ssl/novalidate-cert}[Gmail]/Sent Mail", "taxplextest@gmail.com", "nniiabtvmmfpgyjr") or die("can't connect: " . imap_last_error());
         // imap_open setup the connection for imap 
+        // dd($mbox);
+        // $emails = imap_search($mbox, 'MAILBOX "Sent"');
+//         $emails = imap_search($mbox,'ALL');
+// dd($emails);
+// get mailboxex
+// $list = imap_getmailboxes($mbox, "{imap.gmail.com}", "*");
+// if (is_array($list)) {
+//     foreach ($list as $key => $val) {
+//         echo "($key) ";
+//         echo imap_utf7_decode($val->name) . ",";
+//         echo "'" . $val->delimiter . "',";
+//         echo $val->attributes . "<br />\n";
+//     }
+// }
+// dd($list);
         $MC = imap_check($mbox);
-        $h = imap_header($mbox);
-        dd($h);
+        // dd($MC);
+        // $sent = imap_reopen($mbox, "{imap.gmail.com:993}INBOX.Sent") or die(implode(", ", imap_errors()));
+    //     $emails = imap_search($sent,'ALL');
+    //   dd($emails);
         //imap checks gets date,driver,mailbox,no of msgs and no of recents
         $result = imap_fetch_overview($mbox,"1:{$MC->Nmsgs}",0);
         // imap fetch overview fetches all mailbox messages details
@@ -32,10 +139,11 @@ class ImapController extends Controller
         // 'SINCE "2023-7-21"' , 'ALL', 'BEFORE "2023-7-21"' , 'ON "2023-7-21"', 'FROM "anushil.karki34@gmail.com"',UNSEEN
         // 'TO "anushil.karki34@gmail.com"'
         $mails = imap_search($mbox,'ALL');
+        // dd($mails);
    // set uid to total count if count incresed then fetch remaining email else donot fetch
    // uid = 0 
    $uid = imap_uid($mbox,2);
-   dd($uid);
+//    dd($uid);
         foreach ($mails as $email) {
             //uid = uid + 1 
             $header = imap_headerinfo($mbox,$email);
@@ -52,10 +160,11 @@ class ImapController extends Controller
             $emailStructure = imap_fetchstructure($mbox, $email);
             // dd($emailStructure);
             $encoding = $emailStructure->encoding;
-
+            // if(isset($emailStructure->parts)){
     // Fetch the email body based on the encoding type
     switch ($encoding) {
         case 0: // 7bit
+            if(isset($emailStructure->parts)){
             foreach ($emailStructure->parts as $partNum => $partData) {
                 if($partData->encoding==3){
                     $body = imap_fetchbody($mbox, $email, 1.1);
@@ -67,6 +176,9 @@ class ImapController extends Controller
                     $body = imap_fetchbody($mbox, $email, 1);
                 }
             }
+        }else{
+            $body = imap_fetchbody($mbox, $email, 1);
+        }
             break;
         //     $body = imap_fetchbody($mbox, $email, 1);
         //    $body = quoted_printable_decode($body);
@@ -90,7 +202,7 @@ class ImapController extends Controller
             $body = quoted_printable_decode($body);
             break;
     }
-
+            // }
 // dd($emailStructure);
 
 // if($emailStructure->type!=0){
@@ -172,7 +284,19 @@ class ImapController extends Controller
             // $message = imap_fetchbody($mbox, $email, '1');
             //fetch body with set 1 works for plain text and 1.1 for attachment messages
             // $message = imap_fetchbody($mbox, $email, '1.1');
-            $body = str_replace("\r\n"," ",$body);
+            $strip = array("\r\n","=CD=8F","=C2=B7","=E2=80=A6","=F0=9F=92=B8","1=E2=80=8C000","=F0=9F=9A=80","-","=CD=","=8F","=");
+            $body = str_replace($strip,"",$body);
+            // $body = str_replace("\r\n"," ",$body);
+            // $body = str_replace("=CD=8F"," ",$body);
+            // $body = str_replace("=C2=B7"," ",$body);
+            // $body = str_replace("=E2=80=A6"," ",$body);
+            // $body = str_replace("=F0=9F=92=B8"," ",$body);
+            // $body = str_replace("1=E2=80=8C000"," ",$body);
+            // $body = str_replace("=F0=9F=9A=80"," ",$body);
+            // $body = str_replace("-"," ",$body);
+            // $body = str_replace("=CD="," ",$body);
+            // $body = str_replace("=8F"," ",$body);
+            // $body = str_replace("="," ",$body);
             $body = strip_tags($body);
           
             $date = date("d F, Y", strtotime($result[0]->date));
@@ -263,6 +387,7 @@ class ImapController extends Controller
         $emailStructure = imap_fetchstructure($mbox, $emailId);
 
         // Loop through the email parts to find attachments
+        if(isset($emailStructure->parts)){
         foreach ($emailStructure->parts as $partNum => $partData) {
             //   $attachments[$partNum] = array(
             //     'is_attachment' => false,
@@ -324,6 +449,7 @@ class ImapController extends Controller
                 // }
             }
         }
+    }
     }
     
         // echo $message;
