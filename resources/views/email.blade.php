@@ -54,22 +54,22 @@
         </style>
     </head>
     <body class="antialiased">
-    <h1>Fill the Form for your Email information </h1>
+    <h1>Get your Email Inbox </h1>
     <div class="formhead">
     <form action="{{ route('email') }}" method="POST" enctype="multipart/form-data">
     @csrf
 	<div class="formfull">
-<div class="">
+<!-- <div class="">
     <label>enter your email:</label>
     <input class="field" type="text" name="email">
 </div>
 <div class="">
 <label>enter your password:</label>
 	<input class="field" type="password" name="password">
-	</div>
+	</div> -->
 <div class="">
-<label>submit your request:</label>
-    <button class="field" type="submit">Submit</button>
+<label>Get Email</label>
+    <button class="field" type="submit">Get</button>
 </div>
 </div>
 </form>

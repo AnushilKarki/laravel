@@ -17,13 +17,18 @@
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  display:flex;
+
 }
 
 td, th {
   border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+  text-align: justify;
+  text-justify: inter-word;
+  padding:5px;
+  max-height:80px;
+  min-width:80px;
+ max-width:300px;
 }
 
 tr:nth-child(even) {
@@ -34,16 +39,20 @@ tr:nth-child(even) {
             }
             .result {
                 display:flex;
-                   flex-direction:column;
-                flex-wrap:wrap;
+`               flex-direction:column;
+flex-wrap:wrap;
                 background-color:snow;
                 justify-content:center;
                 width:100%;
                 height:500px;
             }
-
+.all {
+  display:flex;
+}
             .heading {
                 display:flex;
+                flex:100%;
+                width:100%;
                 justify-content:center;
             }
             .value{
@@ -63,13 +72,21 @@ tr:nth-child(even) {
 <table>
   <tr>
     <th>Date</th>
+    <th>Email</th>
+    <!-- <th>subject</th>
+    <th>From Address</th>
+    <th>To Address</th> -->
     <th>Message</th>
+    <th>file</th>
   </tr>
   @foreach($data as $d)
 
   <tr>
     <td>{{ $d['date'] }}</td>
+    <td>{{ $d['email'] }}</td>
+ 
     <td>{{ $d['message'] }}</td>
+    <td>{{ $d['file'] }}</td>
   </tr>
  @endforeach
 </table>
