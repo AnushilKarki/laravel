@@ -62,6 +62,10 @@
             h2:hover {
                 color:blue;
             }
+            h3 {
+                color:red;
+                text-align:center;
+            }
             label {
                 color:snow;
                 font-size:20px;
@@ -70,6 +74,9 @@
     </head>
     <body class="antialiased">
     <h1>Add Email and App password for your student Email information </h1>
+    @if(isset($msg))
+        <h3>{{$msg}} </h3>
+    @endif
     <h2><a href="/emailform">View Inbox</a> </h2>
     <div class="formhead">
     <form action="{{ route('addstudent') }}" method="POST" enctype="multipart/form-data">

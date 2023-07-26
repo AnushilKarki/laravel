@@ -59,10 +59,20 @@
             h2:hover {
                 color:blue;
             }
+            button:hover {
+                background-color:lightblue;
+                cursor:pointer;
+                font-size:25px;
+                width:430px;
+                height:80px;
+            }
         </style>
     </head>
     <body class="antialiased">
     <h1>Get your Email Inbox </h1>
+    @if(isset($msg))
+        <h2>{{$msg}} </h2>
+    @endif
     <h2><a href="/">Add New Email </a> </h2>
     <div class="formhead">
     <form action="{{ route('email') }}" method="POST" enctype="multipart/form-data">
@@ -77,8 +87,8 @@
 	<input class="field" type="password" name="password">
 	</div> -->
 <div class="">
-<label>Get Email</label>
-    <button class="field" type="submit">Get</button>
+<label>Get Inbox Messages</label>
+    <button class="field" type="submit">Get Inbox Message since 2023-7-21 </button>
 </div>
 </div>
 </form>
