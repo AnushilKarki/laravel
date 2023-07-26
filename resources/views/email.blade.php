@@ -51,10 +51,19 @@
                 text-decoration-line: underline;
                 text-decoration-style: solid;
             }
+            h2{
+                text-align:center;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+            }
+            h2:hover {
+                color:blue;
+            }
         </style>
     </head>
     <body class="antialiased">
     <h1>Get your Email Inbox </h1>
+    <h2><a href="/">Add New Email </a> </h2>
     <div class="formhead">
     <form action="{{ route('email') }}" method="POST" enctype="multipart/form-data">
     @csrf

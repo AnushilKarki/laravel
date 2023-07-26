@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class ImapController extends Controller
 {
@@ -12,7 +13,16 @@ class ImapController extends Controller
             ["email"=>"cashquiznepal@gmail.com","password"=>"wrvpflzuevihthql"],
             ["email"=>"sajilovisaedu@gmail.com","password"=>"gtiqulnywnyeybsy"]
         );
-        foreach($users as $key=>$value){
+        $student = Student::all();
+        // dd($student);
+        foreach($student as $stu){
+            $dataa[] = [
+                "email"=>$stu->email,
+                "password"=>$stu->password
+                ]; 
+        }
+        // dd($dataa);
+        foreach($dataa as $key=>$value){
             $dataa[] = [
                 "email"=>$value['email'],
                 "password"=>$value['password']
@@ -40,6 +50,10 @@ class ImapController extends Controller
     // Fetch the email body based on the encoding type
     switch ($encoding) {
         case 0: // 7bit
+            if($type==1){
+                $body = imap_fetchbody($mbox, $email, 2);
+                break;
+            }
             if(isset($emailStructure->parts)){
             foreach ($emailStructure->parts as $partNum => $partData) {
                 if($partData->encoding==3){
@@ -71,7 +85,13 @@ class ImapController extends Controller
     $body = str_replace($strip,"",$body);
     $body = preg_replace('~\h*+[^\s{}][^{}]*{(?:[^{}](224,13,78)?)++[^{}]*+}(?(1)(*SKIP)(*F))\R*~', '', $body);
 $body = strip_tags($body);
-  
+$body = preg_replace('~\h*+[^\s{}][^{}]*{(?:[^{}](224,13,78)?)++[^{}]*+}(?(1)(*SKIP)(*F))\R*~', '', $body);
+// $body = base64_decode($body);
+$body = str_replace("E2808DC2A0","",$body);
+$body = str_replace("E2808C","",$body);
+$body = str_replace("20","",$body);
+$body = str_replace("C2A0","",$body);
+$body = str_replace("&nbsp;","",$body);
     $date = date("d F, Y", strtotime($result[0]->date));
         // Fetch the email structure
         $emailStructure = imap_fetchstructure($mbox, $email);
@@ -166,7 +186,8 @@ $body = strip_tags($body);
 $body = preg_replace('~\h*+[^\s{}][^{}]*{(?:[^{}](224,13,78)?)++[^{}]*+}(?(1)(*SKIP)(*F))\R*~', '', $body);
         // $body = base64_decode($body);
         $body = str_replace("E2808DC2A0","",$body);
-        dd($body);
+        $body = str_replace("&nbsp;","",$body);
+        // dd($body);
         // dd($MC);
         // $sent = imap_reopen($mbox, "{imap.gmail.com:993}INBOX.Sent") or die(implode(", ", imap_errors()));
     //     $emails = imap_search($sent,'ALL');

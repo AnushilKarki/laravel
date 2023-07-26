@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TablerateController;
 use App\Http\Controllers\ImapController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,18 +16,25 @@ use App\Http\Controllers\ImapController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('addstudent');
 });
 
 Route::get('/premium',function () {
 	return view('input');
 });
+
+Route::get('/student',function(){
+    return view('addstudent');
+});
+
 Route::get('/emailform',function(){
     return view('email');
 });
 Route::post('import-file', [TablerateController::class,'import'])->name('import');
 
 Route::post('premium', [TablerateController::class,'premium'])->name('premium');
+
+Route::post('addstudent',[StudentController::class,'add'])->name('addstudent');
 
 Route::post('email',[ImapController::class,'emailreq'])->name('email');
 
