@@ -71,12 +71,15 @@
                 color: black;
                 font-size:20px;
             }
+            .msg {
+                color:red;
+            }
         </style>
     </head>
     <body class="antialiased">
     <h1>Get your Email Inbox </h1>
     @if(isset($msg))
-        <h2>{{$msg}} </h2>
+        <h2 class="msg">{{$msg}} !!</h2>
     @endif
     <h2><a href="/">Add New Email </a> </h2>
     <div class="formhead">

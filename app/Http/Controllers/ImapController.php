@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 
 class ImapController extends Controller
 {
@@ -13,15 +14,21 @@ class ImapController extends Controller
             ["email"=>"cashquiznepal@gmail.com","password"=>"wrvpflzuevihthql"],
             ["email"=>"sajilovisaedu@gmail.com","password"=>"gtiqulnywnyeybsy"]
         );
-        $student = Student::all();
+        $userid = Auth::id();
+        $student = Student::where('user_id',$userid)->get();
+      $check = 0;
         // dd($student);
         foreach($student as $stu){
             $dataa[] = [
                 "email"=>$stu->email,
                 "password"=>$stu->password
                 ]; 
+                $check = 1;
         }
-        // dd($dataa);
+        if($check==0){
+            $msg = 'no any email stored plz add email and try again';
+            return view('email',compact('msg'));
+        }
         foreach($dataa as $key=>$value){
             $dataa[] = [
                 "email"=>$value['email'],
