@@ -17,7 +17,7 @@ use App\Http\Controllers\StudentController;
 
 Route::get('/', function () {
     return view('addstudent');
-});
+})->middleware('auth');
 
 Route::get('/premium',function () {
 	return view('input');
@@ -25,18 +25,18 @@ Route::get('/premium',function () {
 
 Route::get('/student',function(){
     return view('addstudent');
-});
+})->middleware('auth');
 
 Route::get('/emailform',function(){
     return view('email');
-});
+})->middleware('auth');
 Route::post('import-file', [TablerateController::class,'import'])->name('import');
 
 Route::post('premium', [TablerateController::class,'premium'])->name('premium');
 
-Route::post('addstudent',[StudentController::class,'add'])->name('addstudent');
+Route::post('addstudent',[StudentController::class,'add'])->name('addstudent')->middleware('auth');
 
-Route::post('email',[ImapController::class,'emailreq'])->name('email');
+Route::post('email',[ImapController::class,'emailreq'])->name('email')->middleware('auth');
 
 // Route::post('premium','App\Http\Controllers\TablerateController@premium')->name('premium');
 

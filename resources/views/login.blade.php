@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Add student</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
             .formhead {
                 display:flex;
                 width:500px;;
-                height:400px;
-                background-color:#F2A60C;
+                height:450px;
+                background-color: #F2A60C;
                 border:1px solid black;
                 justify-content:center;
                 margin:10px;
@@ -46,11 +46,20 @@
                 margin-top:5px;
                 margin-bottom:5px;
             }
+            .field:hover {
+                color:#08851b;
+            }
             h1{
                 text-align:center;
-                color:#08851b;
+                color:#F2A60C;
                 text-decoration-line: underline;
                 text-decoration-style: solid;
+            }
+            h1.login:hover {
+                color: #08851b;
+            }
+            h1.register:hover {
+                color : #08851b;
             }
             h2{
                 text-align:center;
@@ -60,41 +69,46 @@
             h2:hover {
                 color:#F2A60C;
             }
-            button:hover {
-                color:#08851b;
-                cursor:pointer;
-                /* font-size:25px; */
-                /* width:430px;
-                height:80px; */
+            h3 {
+                color:#F2A60C;
+                text-align:center;
             }
             label {
-                color: black;
+                color:snow;
                 font-size:20px;
+            }
+            h4{
+                /* font-size:15px; */
+                color:white;
             }
         </style>
     </head>
     <body class="antialiased">
-    <h1>Get your Email Inbox </h1>
+    <h1 class="register"><a href="/register">Click to visit Register Page</a> </h1>
+    <h1 class="login"> <a href="/login">Please Login into your Account</a> </h1>
+    
+
     @if(isset($msg))
-        <h2>{{$msg}} </h2>
+        <h3>{{$msg}} </h3>
     @endif
-    <h2><a href="/">Add New Email </a> </h2>
     <div class="formhead">
-    <form action="{{ route('email') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
     @csrf
+    
 	<div class="formfull">
-<!-- <div class="">
-    <label>enter your email:</label>
-    <input class="field" type="text" name="email">
+        <h4>Login form:</h4>
+    <div class="">
+<label>enter your email address:</label>
+<input class="field" type="text" placeholder="Enter your email address" name="email">
 </div>
+
 <div class="">
 <label>enter your password:</label>
-	<input class="field" type="password" name="password">
-	</div> -->
+<input class="field" type="password" placeholder="Enter your password" name="password">
+</div>
 <div class="">
-<label>Get Inbox Messages</label>
-
-    <button class="field" type="submit">Get Inbox Message since 2023-7-21 </button>
+<label>submit your request:</label>
+    <button class="field" type="submit">Submit</button>
 </div>
 </div>
 </form>

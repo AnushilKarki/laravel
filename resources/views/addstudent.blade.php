@@ -22,9 +22,19 @@
                 display:flex;
                 width:500px;;
                 height:400px;
-                background-color:grey;
+                background-color:#F2A60C;
                 border:1px solid black;
                 justify-content:center;
+                margin:10px;
+                float:left;
+            }
+            .formdescription {
+                background-color:snow;
+                color:black;
+                width:500px;;
+                height:400px;
+                float:right;
+                
             }
             .formfull {
                 width:100px;
@@ -46,11 +56,11 @@
                 margin-bottom:5px;
             }
             .field:hover {
-                color:blue;
+                color:#F2A60C;
             }
             h1{
                 text-align:center;
-                color:grey;
+                color:#08851b;
                 text-decoration-line: underline;
                 text-decoration-style: solid;
             }
@@ -60,35 +70,77 @@
                 text-decoration-style: solid;
             }
             h2:hover {
-                color:blue;
+                color:#08851b;
             }
             h3 {
                 color:red;
                 text-align:center;
             }
             label {
-                color:snow;
+                color:black;
                 font-size:20px;
+            }
+            .logout {
+                width : 150px;
+                height: 70px;
+                color: red;
+                background-color:white;
+                text-align:center;
+                margin:20px;
+                justify-content:center;
+                border: 1px solid red;
+            }
+            .logout:hover {
+                font-size:20px;
+            }
+             .but {
+               
+            }
+            .content {
+                display:flex;
+                flex-wrap:wrap;
+                justify-content:space-around;
+            }
+            .logoutform {
+              
+               display:flex;
+               justify-content:center;
+            } 
+            pre {
+                font-size:15px;
+                text-align:left;
             }
         </style>
     </head>
     <body class="antialiased">
     <h1>Add Email and App password for your student Email information </h1>
+    @auth()
+    <div class="logoutform">
+    <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="but">
+
+    <button class="logout" type="submit">Logout</button>
+</div>
+        </form>
+        </div>
+        @endauth
     @if(isset($msg))
         <h3>{{$msg}} </h3>
     @endif
     <h2><a href="/emailform">View Inbox</a> </h2>
+    <div class="content">
     <div class="formhead">
     <form action="{{ route('addstudent') }}" method="POST" enctype="multipart/form-data">
     @csrf
 	<div class="formfull">
     <div class="">
-<label>enter your email address:</label>
+<label>Enter your email address:</label>
 <input class="field" type="text" name="email">
 </div>
 
 <div class="">
-<label>enter your App password:</label>
+<label>Enter your App password:</label>
 <input class="field" type="password" name="password">
 </div>
 <div class="">
@@ -97,6 +149,17 @@
 </div>
 </div>
 </form>
+        </div>
+        <div class="formdescription">
+            <h1>Guide to add email and app password</h1>
+            <pre>
+                1) use your email address 
+                2) Enable & Goto 2factor Authentication Setting
+                3) select App Mail and device to generate App password
+                3) Add your Email and App password in form
+                4) click submit to store email and credentials  
+        </pre>
+        </div>
         </div>
     </body>
 </html>

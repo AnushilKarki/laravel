@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Add student</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,11 +21,11 @@
             .formhead {
                 display:flex;
                 width:500px;;
-                height:400px;
-                background-color:#F2A60C;
+                height:450px;
+                background-color:#08851b;
                 border:1px solid black;
                 justify-content:center;
-                margin:10px;
+                margin:20px;
             }
             .formfull {
                 width:100px;
@@ -46,11 +46,20 @@
                 margin-top:5px;
                 margin-bottom:5px;
             }
+            .field:hover {
+                color: #F2A60C;
+            }
             h1{
                 text-align:center;
-                color:#08851b;
+                color: #08851b;
                 text-decoration-line: underline;
                 text-decoration-style: solid;
+            }
+            h1.login:hover {
+                color: #F2A60C;
+            }
+            h1.register:hover {
+                color: #F2A60C;
             }
             h2{
                 text-align:center;
@@ -58,43 +67,52 @@
                 text-decoration-style: solid;
             }
             h2:hover {
-                color:#F2A60C;
+                color: #F2A60C;
             }
-            button:hover {
+            h3 {
                 color:#08851b;
-                cursor:pointer;
-                /* font-size:25px; */
-                /* width:430px;
-                height:80px; */
+                text-align:center;
             }
             label {
-                color: black;
+                color:snow;
                 font-size:20px;
+            }
+            button {
+                margin-left:10px;
             }
         </style>
     </head>
     <body class="antialiased">
-    <h1>Get your Email Inbox </h1>
+    <h1 class="login"> <a href="/login">Click to visit Login Page</a> </h1>
+    <h1 class="register"><a href="/register">Please Register your Account</a> </h1>
     @if(isset($msg))
-        <h2>{{$msg}} </h2>
+        <h3>{{$msg}} </h3>
     @endif
-    <h2><a href="/">Add New Email </a> </h2>
+ 
     <div class="formhead">
-    <form action="{{ route('email') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
     @csrf
 	<div class="formfull">
-<!-- <div class="">
-    <label>enter your email:</label>
-    <input class="field" type="text" name="email">
+    <div class="">
+<label>enter your name:</label>
+<input class="field" type="text" placeholder="Enter your name" name="name">
 </div>
+    <div class="">
+<label>enter your email address:</label>
+<input class="field" type="text" placeholder="Enter your email" name="email">
+</div>
+
 <div class="">
 <label>enter your password:</label>
-	<input class="field" type="password" name="password">
-	</div> -->
+<input class="field" type="password" placeholder="Enter your password" name="password">
+</div>
 <div class="">
-<label>Get Inbox Messages</label>
-
-    <button class="field" type="submit">Get Inbox Message since 2023-7-21 </button>
+<label>confirm your password:</label>
+<input class="field" type="password" placeholder="Confirm your password" name="password_confirmation">
+</div>
+<div class="">
+<label>Register:</label>
+    <button class="field" type="submit">Submit</button>
 </div>
 </div>
 </form>
