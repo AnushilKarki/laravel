@@ -84,7 +84,7 @@
         </style>
     </head>
     <body class="antialiased">
-    <h1 class="register"><a href="/register">Click to visit Register Page</a> </h1>
+    <!-- <h1 class="register"><a href="/register">Click to visit Register Page</a> </h1> -->
     <h1 class="login"> <a href="/login">Please Login into your Account</a> </h1>
     
 
