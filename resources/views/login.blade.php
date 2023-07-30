@@ -15,6 +15,11 @@
         </style>
 
         <style>
+            @media screen and (max-width: 800px) {
+                .formhead {
+                    width:100px;
+                }
+}
             body {
                 font-family: 'Nunito', sans-serif;
             }

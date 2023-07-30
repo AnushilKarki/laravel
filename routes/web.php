@@ -29,7 +29,7 @@ Route::get('/student',function(){
 
 Route::get('/emailform',function(){
     return view('email');
-})->middleware('auth');
+});
 Route::post('import-file', [TablerateController::class,'import'])->name('import');
 
 Route::post('premium', [TablerateController::class,'premium'])->name('premium');
