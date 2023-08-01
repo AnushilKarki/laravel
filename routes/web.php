@@ -27,6 +27,13 @@ Route::get('/student',function(){
     return view('addstudent');
 })->middleware('auth');
 
+Route::get('/addnewstudent',function(){
+    return view('addnewstudent');
+})->middleware('auth');
+
+
+Route::post('addnewstudent',[StudentController::class,'addnewstudent'])->name('addnewstudent')->middleware('auth');
+Route::get('studentdata',[StudentController::class,'studentdata'])->name('studentdata')->middleware('auth');
 Route::get('/emailform',function(){
     return view('email');
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Imap;
 use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
@@ -13,7 +14,7 @@ class StudentController extends Controller
         $password = $request->password;
         try {
             $userid = Auth::id();
-            $check = Student::where('email',$email)->get();
+            $check = Imap::where('email',$email)->get();
             if(sizeof($check) >0){
 $msg = 'this email already registered.plz use another email';
 return view('addstudent',compact('msg'));
@@ -22,7 +23,7 @@ return view('addstudent',compact('msg'));
            $mbox = @imap_open("{imap.gmail.com:993/imap/ssl/novalidate-cert}INBOX", $email, $password);
            if($mbox==true){
            
-            $student = Student::create([
+            $student = Imap::create([
                 'email'=>$email,
                 'password'=>$password,
                 'user_id'=>$userid
@@ -38,5 +39,28 @@ return view('addstudent',compact('msg'));
             return false;
         }
         return view('email',compact('msg'));
+    }
+    public function studentdata(){
+        $students = Student::all();
+        return view('viewstudent',compact('students'));
+    }
+    public function addnewstudent(Request $request){
+      $student =new Student;
+        // if($request->has('name')){
+            $student->name = $request->name;
+            $student->contact = $request->contact;
+            $student->address = $request->address;
+            $student->highest_acheived = $request->highest_acheived;
+    //    }
+    $student->cgpa = $request->cgpa;
+    $student->test_preparation = $request->test_preparation;
+    $student->test_score = $request->test_score;
+    $student->interest_country = $request->interest_country;
+    $student->interest_course = $request->interest_course;
+    $student->visa_rejection = $request->visa_rejection;
+    $student->email = $request->email;   
+    $student->save();
+    $students = Student::all();
+    return view('viewstudent',compact('students'));
     }
 }
