@@ -18,7 +18,9 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   display:flex;
-
+margin: 20px;
+margin-right: 30px;;
+padding: 20px;
 }
 
 td, th {
@@ -108,6 +110,7 @@ flex-wrap:wrap;
 
 <table>
   <tr>
+    <th>id</th>
     <th>name</th>
     <th>Email</th>
     <th>address</th>
@@ -124,6 +127,7 @@ flex-wrap:wrap;
   @foreach($students as $d)
 
   <tr>
+    <td>{{$d['id']}}</td>
     <td>{{ $d['name'] }}</td>
     <td>{{ $d['email'] }}</td>
  
