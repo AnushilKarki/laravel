@@ -76,7 +76,7 @@ flex-wrap:wrap;
             .part {
               text-align:center;
               margin: 10px;
-              border: 1px solid black;
+             
             }
             button.add {
               width: 200px;
