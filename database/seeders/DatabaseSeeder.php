@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
             'email'=>'sajilovisa@gmail.com',
             'password'=> bcrypt('password')
         ]);
+        // \App\Models\Student::factory(10)->create();
     }
 }

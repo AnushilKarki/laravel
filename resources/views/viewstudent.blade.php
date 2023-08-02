@@ -65,6 +65,14 @@ flex-wrap:wrap;
               text-decoration-style:solid;
               text-decoration-line:underline;
             }
+            .field {
+              height: 50px;
+              width:300px;
+              margin:10px;
+              margin-bottom: 10px;
+              padding: 10px;
+              border: 1px solid black;
+            }
         </style>
     </head>
     <body>
@@ -74,7 +82,11 @@ flex-wrap:wrap;
 <h2>Result of your request </h2>
 
         </div>
-       
+        <form enctype="multipart/form-data" method="post" action="{{  route('searchstudent') }}">
+          @csrf
+          <input class="field" name="search" type="text" placeholder="search name email or phone wise...">
+          <input type="submit" placeholder="search">
+              </form>
 
 <table>
   <tr>
@@ -88,8 +100,8 @@ flex-wrap:wrap;
     <th>Test Score</th>
     <th>Interest Country</th>
     <th>Interest Course</th>
-    <th>visa rejection</th>
     <th>Work Experience</th>
+    <th>visa rejection</th>
   </tr>
   @foreach($students as $d)
 

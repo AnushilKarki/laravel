@@ -16,7 +16,7 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/', function () {
-    return view('addstudent');
+    return view('home');
 })->middleware('auth');
 
 Route::get('/premium',function () {
@@ -31,7 +31,7 @@ Route::get('/addnewstudent',function(){
     return view('addnewstudent');
 })->middleware('auth');
 
-
+Route::post('searchstudent',[StudentController::class,'searchStudent'])->name('searchstudent')->middleware('auth');
 Route::post('addnewstudent',[StudentController::class,'addnewstudent'])->name('addnewstudent')->middleware('auth');
 Route::get('studentdata',[StudentController::class,'studentdata'])->name('studentdata')->middleware('auth');
 Route::get('/emailform',function(){

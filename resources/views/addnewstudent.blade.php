@@ -53,11 +53,16 @@
                 text-decoration-line: underline;
                 text-decoration-style: solid;
             }
+            .table-form {
+                display: flex;
+                justify-content: center;
+            }
         </style>
     </head>
     <body class="antialiased">
     <h1>Fill the request for add student information </h1>
-    <div class="formhead">
+
+    {{-- <div class="formhead">
     <form action="{{ route('addnewstudent') }}" method="POST" enctype="multipart/form-data">
     @csrf
 	<div class="formfull">
@@ -119,6 +124,121 @@
 </div>
 </div>
 </form>
-        </div>
+        </div> --}}
+        <div class="table-form">
+        <form action="{{ route('addnewstudent') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+        <table>
+            <tr>
+                <th> key </th>
+                <th> value </th>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter name:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter email:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter address:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="address">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter contact:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="contact">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter highest acheived:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="highest_acheived">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter cgpa:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="cgpa">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter test_preparation:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="test_preparation">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter test_score:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="test_score">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter interest_country:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="interest_country">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter interest_course:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="interest_course">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter work_experience:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="work_experience">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>entervisa_rejection:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="visa_rejection">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label></label>
+                </td>
+                <td>
+                    <input class="field" type="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
     </body>
 </html>

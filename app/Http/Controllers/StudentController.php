@@ -44,6 +44,12 @@ return view('addstudent',compact('msg'));
         $students = Student::all();
         return view('viewstudent',compact('students'));
     }
+    public function searchStudent(Request $request)
+        {
+            $search = $request->search;
+            $students = Student::where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('contact','like','%'.$search.'%')->get();
+            return view('viewstudent',compact('students'));
+        }
     public function addnewstudent(Request $request){
       $student =new Student;
         // if($request->has('name')){
@@ -58,6 +64,7 @@ return view('addstudent',compact('msg'));
     $student->interest_country = $request->interest_country;
     $student->interest_course = $request->interest_course;
     $student->visa_rejection = $request->visa_rejection;
+    $student->work_experience = $request->work_experience;
     $student->email = $request->email;   
     $student->save();
     $students = Student::all();
