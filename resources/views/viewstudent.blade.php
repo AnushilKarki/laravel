@@ -73,14 +73,32 @@ flex-wrap:wrap;
               padding: 10px;
               border: 1px solid black;
             }
+            .part {
+              text-align:center;
+              margin: 10px;
+              border: 1px solid black;
+            }
+            button.add {
+              width: 200px;
+              height:50px;
+              background-color: white;
+             }
+             button.add:hover {
+              background-color: lightblue;
+              color:black;
+             }
         </style>
     </head>
     <body>
+    
         <div class="all">
         <div class="result">
             <div class="heading">
 <h2>Result of your request </h2>
 
+        </div>
+        <div class="part">
+          <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
         </div>
         <form enctype="multipart/form-data" method="post" action="{{  route('searchstudent') }}">
           @csrf

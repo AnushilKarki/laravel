@@ -15,9 +15,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('auth');
+Route::get('/',[StudentController::class,'studentdata'])->middleware('auth');
 
 Route::get('/premium',function () {
 	return view('input');
