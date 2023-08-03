@@ -89,6 +89,19 @@ flex-wrap:wrap;
               background-color: lightblue;
               color:black;
              }
+             th {
+              font-size: 13px;
+              word-break: break-word;
+             }
+             td {
+              font-size: 13px;
+              word-break: break-word;
+             }
+             h3 {
+              margin: 10px;
+              padding: 5px;
+              /* border: 1px solid black; */
+             }
         </style>
     </head>
     <body>
@@ -98,6 +111,9 @@ flex-wrap:wrap;
             <div class="heading">
 <h2>Result of your request </h2>
 
+        </div>
+        <div class="part">
+          <button class="add" type="button"><a>Total no of student: {{ $studentscount }}</a> </button>
         </div>
         <div class="part">
           <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
@@ -123,11 +139,16 @@ flex-wrap:wrap;
     <th>Interest Course</th>
     <th>Work Experience</th>
     <th>visa rejection</th>
+    <th>action</th>
   </tr>
+  <?php
+   $id = 1;
+  
+  ?>
   @foreach($students as $d)
 
   <tr>
-    <td>{{$d['id']}}</td>
+    <td>{{$id}}</td>
     <td>{{ $d['name'] }}</td>
     <td>{{ $d['email'] }}</td>
  
@@ -143,10 +164,26 @@ flex-wrap:wrap;
     <td>{{ $d['work_experience'] }}</td>
  
     <td>{{ $d['visa_rejection'] }}</td>
-  
+  <td>
+  <a href="{{ route('editstudent',$d['id']) }}">  <img src="edit.png" style="width:15px;"/></a>
+  <a href="{{ route('deletestudent',$d['id']) }}">  <img src="delete.png" style="width:15px;"/></a>
+  </td>
   </tr>
+  <?php 
+$id = $id +1;
+  ?>
  @endforeach
 </table>
+{{-- <h1>hello {{ $students->previousPageUrl() }}</h1> --}}
+<div style="display:flex;justify-content:space-around;">
+  <div>
+<h3> <a href="{{$students->previousPageUrl()}}">Previous</a></h3>
+  </div>
+  <div>
+<h3> <a href="{{$students->nextPageUrl()}}">Next</a></h3>
+  </div>
+</div>
+{{-- {{ $students->links() }} --}}
         </div>
         </div>
     </body>
