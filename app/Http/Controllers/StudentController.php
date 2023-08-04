@@ -8,7 +8,9 @@ use App\Models\Imap;
 use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Auth;
+use Dompdf\Dompdf;
 
 class StudentController extends Controller
 {
@@ -148,8 +150,63 @@ return view('addstudent',compact('msg'));
                     // $sheet->setCellValue(($columnIndex) , ($rowIndex) , $value);
                    
         }
+        }
         $writer = new Xlsx($spreadsheet);
         $writer->save('studentdata.xlsx');
+        return response()->download('studentdata.xlsx'); 
+         return redirect()->route('studentdata');
+}
+public function exportPdf(){
+    $students = DB::table('students')->get();
+    $data = $students->toArray();
+    $excelFile='studentdata.xlsx';
 
+
+
+    // Load the Excel file
+    $spreadsheet = IOFactory::load($excelFile);
+    $worksheet = $spreadsheet->getActiveSheet();
+    // $data = $worksheet->toArray();
+    
+    // Convert data to an HTML table
+    $html = '<table border="1" style="width:100%;">';
+    foreach ($data as $row) {
+        $html .= '<tr>';
+        foreach ($row as $cell) {
+            $html .= '<td>' . $cell . '</td>';
         }
-}}
+        $html .= '</tr>';
+    }
+    $html .= '</table>';
+    
+    
+    
+    
+    
+    
+    // Create a Dompdf object
+    $dompdf = new Dompdf();
+    
+    // Read the contents of the Excel file
+    // $excelContents = file_get_contents($excelFile);
+    
+    // Load the Excel contents into Dompdf
+    $dompdf->loadHtml($html);
+    
+    // Set paper size and rendering options (optional)
+    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->render();
+    
+    // Set the filename and mime type
+    $filename = 'data_export.pdf';
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: attachment;filename="' . $filename . '"');
+    header('Cache-Control: max-age=0');
+    
+    // Output the PDF to the browser
+    echo $dompdf->output();
+    
+    // Clean up the temporary Excel file
+    unlink($excelFile);
+}
+}

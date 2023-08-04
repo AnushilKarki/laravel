@@ -116,19 +116,26 @@ flex-wrap:wrap;
         <div class="result">
             <div class="heading">
 <h2>Result of your request </h2>
-
+<div class="part">
+  <button class="add" type="button"><a>Total no of student: {{ $studentscount }}</a> </button>
+</div>
         </div>
+        
         <div class="part">
-          <button class="add" type="button"><a>Total no of student: {{ $studentscount }}</a> </button>
+          <button class="add" type="button"><a href="/export">Export All student data</a> </button>
         </div>
-        <div class="part">
+      
+        {{-- <div class="part">
           <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
-        </div>
+        </div> --}}
         <form enctype="multipart/form-data" method="post" action="{{  route('searchstudent') }}">
           @csrf
           <input class="field" name="search" type="text" placeholder="search name email or phone wise...">
           <input type="submit" placeholder="search">
               </form>
+              <div class="part">
+                <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
+              </div>
 
 <table>
   <tr>
