@@ -30,7 +30,7 @@ td, th {
   padding:5px;
   max-height:80px;
   font-size: 13px;
-  min-width:60px;
+  min-width:30px;
  max-width:300px;
  word-break: break-all;
 }
