@@ -136,7 +136,7 @@ flex-wrap:wrap;
     <th>name</th>
     <th>Email</th>
     <th>address</th>
-    <th>contact</th>
+    <th>contact number</th>
     <th>highest Acheived</th>
     <th>CGPA</th>
     <th>Test Preparation</th>
