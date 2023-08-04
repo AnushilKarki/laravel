@@ -30,10 +30,14 @@ td, th {
   padding:5px;
   max-height:80px;
   font-size: 13px;
-  min-width:50px;
+  min-width:30px;
  max-width:300px;
  word-break: break-all;
 }
+.id {
+  min-width: 20px;;
+}
+
              /* th {
              
               word-break: break-word;
@@ -143,7 +147,7 @@ flex-wrap:wrap;
     <th>visa rejection</th>
     <th>status</th>
     <th>remark</th>
-    <th>action</th>
+    <th></th>
   </tr>
   <?php
    $id = 1;
@@ -157,7 +161,7 @@ flex-wrap:wrap;
     <td>{{ $d['email'] }}</td>
  
     <td>{{ $d['address'] }}</td>
-    <td style="">{{ $d['contact'] }}</td>
+    <td style="min-width:40px;">{{ $d['contact'] }}</td>
     <td>{{ $d['highest_acheived'] }}</td>
     <td>{{ $d['cgpa'] }}</td>
  
