@@ -161,7 +161,7 @@ flex-wrap:wrap;
     <td>{{ $d['email'] }}</td>
  
     <td>{{ $d['address'] }}</td>
-    <td style="min-width:40px;">{{ $d['contact'] }}</td>
+    <td>{{ $d['contact'] }}</td>
     <td>{{ $d['highest_acheived'] }}</td>
     <td>{{ $d['cgpa'] }}</td>
  
