@@ -231,6 +231,22 @@
             </tr>
             <tr>
                 <td>
+                    <label>status:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="status">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>remark:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="remark">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label></label>
                 </td>
                 <td>

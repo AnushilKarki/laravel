@@ -139,6 +139,8 @@ flex-wrap:wrap;
     <th>Interest Course</th>
     <th>Work Experience</th>
     <th>visa rejection</th>
+    <th>status</th>
+    <th>remark</th>
     <th>action</th>
   </tr>
   <?php
@@ -164,6 +166,9 @@ flex-wrap:wrap;
     <td>{{ $d['work_experience'] }}</td>
  
     <td>{{ $d['visa_rejection'] }}</td>
+    <td>{{ $d['status'] }}</td>
+ 
+    <td>{{ $d['remark'] }}</td>
   <td>
   <a href="{{ route('editstudent',$d['id']) }}">  <img src="edit.png" style="width:15px;"/></a>
 

@@ -126,7 +126,7 @@
 </form>
         </div> --}}
         <div class="table-form">
-        <form action="{{ route('addnewstudent') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('updatestudent',$students->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
         <table>
             <tr>
@@ -227,6 +227,22 @@
                 </td>
                 <td>
                     <input class="field" type="text" name="visa_rejection" value="{{$students->visa_rejection}}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>status:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="status" value="{{$students->status}}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>remark:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="remark" value="{{$students->remark}}">
                 </td>
             </tr>
             <tr>

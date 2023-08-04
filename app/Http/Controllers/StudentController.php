@@ -68,7 +68,9 @@ return view('addstudent',compact('msg'));
     $student->interest_course = $request->interest_course;
     $student->visa_rejection = $request->visa_rejection;
     $student->work_experience = $request->work_experience;
-    $student->email = $request->email;   
+    $student->email = $request->email; 
+    $student->status = $request->status; 
+    $student->remark = $request->remark;   
     $student->save();
     return redirect()->route('studentdata');
     }
@@ -90,7 +92,9 @@ return view('addstudent',compact('msg'));
         $student->interest_course = $request->interest_course;
         $student->visa_rejection = $request->visa_rejection;
         $student->work_experience = $request->work_experience;
-        $student->email = $request->email;   
+        $student->email = $request->email;  
+        $student->status = $request->status; 
+        $student->remark = $request->remark;  
         $student->save();
         return redirect()->route('studentdata');
     }
