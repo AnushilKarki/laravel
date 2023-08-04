@@ -29,11 +29,21 @@ td, th {
   text-justify: inter-word;
   padding:5px;
   max-height:80px;
-  min-width:80px;
+  font-size: 13px;
+  min-width:30px;
  max-width:300px;
  word-break: break-all;
 }
-
+             /* th {
+             
+              word-break: break-word;
+             }
+             td {
+             
+          
+              word-wrap:break-word;
+              width: auto;
+             } */
 tr:nth-child(even) {
   background-color: #dddddd;
 }
@@ -89,14 +99,6 @@ flex-wrap:wrap;
               background-color: lightblue;
               color:black;
              }
-             th {
-              font-size: 13px;
-              word-break: break-word;
-             }
-             td {
-              font-size: 13px;
-              word-break: break-word;
-             }
              h3 {
               margin: 10px;
               padding: 5px;
@@ -150,12 +152,12 @@ flex-wrap:wrap;
   @foreach($students as $d)
 
   <tr>
-    <td>{{$id}}</td>
+    <td class="id">{{$id}}</td>
     <td>{{ $d['name'] }}</td>
     <td>{{ $d['email'] }}</td>
  
     <td>{{ $d['address'] }}</td>
-    <td>{{ $d['contact'] }}</td>
+    <td style="">{{ $d['contact'] }}</td>
     <td>{{ $d['highest_acheived'] }}</td>
     <td>{{ $d['cgpa'] }}</td>
  
