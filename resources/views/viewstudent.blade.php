@@ -116,11 +116,13 @@ flex-wrap:wrap;
         <div class="result">
             <div class="heading">
 <h2>Result of your request </h2>
-<div class="part">
-  <button class="add" type="button"><a>Total no of student: {{ $studentscount }}</a> </button>
-</div>
+
         </div>
-        
+        <div class="heading">
+          <div class="part">
+            <button class="add" type="button"><a>Total no of student: {{ $studentscount }}</a> </button>
+          </div>
+        </div>
         <div class="part">
           <button class="add" type="button"><a href="/export">Export All student data</a> </button>
         </div>
