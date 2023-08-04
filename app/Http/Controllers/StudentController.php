@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Imap;
+use Illuminate\Support\Facades\DB;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
@@ -104,4 +107,49 @@ return view('addstudent',compact('msg'));
             $student->delete();
             return redirect()->route('studentdata');
         }
-}
+        public function studentexport(){
+            $students = DB::table('students')->get();
+            $data = $students->toArray();
+        //    dd($data);
+            $spreadsheet = new Spreadsheet();
+
+// Set the active worksheet
+            $sheet = $spreadsheet->getActiveSheet();
+            $sheet->setCellValue('A1','Id')
+            ->setCellValue('B1','Name')
+            ->setCellValue('C1','Contact')
+            ->setCellValue('D1','Address')
+     ->setCellValue('E1','Highest_acheived')
+    ->setCellValue('F1','Cgpa')
+    ->setCellValue('G1','Test_preparation')
+    ->setCellValue('H1','Test_score')
+    ->setCellValue('I1','Interest_country')
+    ->setCellValue('J1','Interest_course')
+    ->setCellValue('K1','Work_experience')
+    ->SetCellValue('L1','Visa_rejection')
+    ->setCellValue('M1','Email')
+    ->SetCellValue('N1','password')
+    ->setCellValue('O1','userid')
+    ->setCellValue('P1','created_at')
+    ->SetCellValue('Q1','updatedat')
+    ->setCellValue('R1','status')
+    ->setCellValue('S1','remark');
+// Populate the worksheet with data
+        foreach ($data as $rowIndex => $rowData) {
+            $id=$rowIndex+2;
+            $letter = 'A';
+
+            foreach ($rowData as $columnIndex => $value) {
+               
+                $sheet->setCellValue($letter.$id,$value);
+                $letterAscii = ord($letter);
+                $letterAscii++;
+                $letter = chr($letterAscii);
+                    // $sheet->setCellValue(($columnIndex) , ($rowIndex) , $value);
+                   
+        }
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('studentdata.xlsx');
+
+        }
+}}

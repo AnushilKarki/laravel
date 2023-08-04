@@ -48,3 +48,5 @@ Route::post('email',[ImapController::class,'emailreq'])->name('email')->middlewa
 // Route::post('premium','App\Http\Controllers\TablerateController@premium')->name('premium');
 
 Route::get('/imap',[ImapController::class,'imap'])->name('imap');
+
+Route::get('/export',[StudentController::class,'studentexport']);
