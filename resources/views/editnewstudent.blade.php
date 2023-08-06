@@ -37,6 +37,14 @@
                 justify-content: center;
                
             }
+            select.callfield {
+                height:60px;width:350px; background-color:snow;
+                   color:black;
+                   font-size:20px;
+                   border: 1px solid black;
+                   margin-top:5px;
+                   margin-bottom:5px;
+            }
             .field{
                 height:60px;
                 width:350px;
@@ -62,69 +70,6 @@
     <body class="antialiased">
     <h1>Fill the request for add student information </h1>
 
-    {{-- <div class="formhead">
-    <form action="{{ route('addnewstudent') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-	<div class="formfull">
-<div class="">
-    <label>enter name:</label>
-    <input class="field" type="text" name="name">
-</div>
-<div class="">
-<label>enter contact:</label>
-	<input class="field" type="text" name="contact">
-	</div>
-<div class="">
-<label>enter address:</label>
-<input class="field" type="text" name="address">
-</div>
-<div class="">
-    <label>enter email:</label>
-    <input class="field" type="text" name="email">
-</div>
-<div class="">
-    <label>enter highest acheived:</label>
-    <input class="field" type="text" name="highest_acheived">
-</div>
-<div class="">
-<label>enter cgpa:</label>
-	<input class="field" type="text" name="cgpa">
-	</div>
-<div class="">
-<label>enter test Preparation:</label>
-<input class="field" type="text" name="test_preparation">
-</div>
-<div class="">
-    <label>enter test score:</label>
-    <input class="field" type="text" name="test_score">
-</div>
-<div class="">
-<label>enter interest country:</label>
-	<input class="field" type="text" name="interest_country">
-	</div>
-<div class="">
-<label>enter Interest course:</label>
-<input class="field" type="text" name="interest_course">
-</div>
-<div class="">
-    <label>enter work experience:</label>
-    <input class="field" type="text" name="work_experience">
-</div>
-<div class="">
-<label>enter visa rejection:</label>
-	<input class="field" type="text" name="visa_rejection">
-	</div>
-<div class="">
-<label>enter address:</label>
-<input class="field" type="text" name="address">
-</div>
-<div class="">
-<label>submit your request:</label>
-    <button class="field" type="submit">Submit</button>
-</div>
-</div>
-</form>
-        </div> --}}
         <div class="table-form">
         <form action="{{ route('updatestudent',$students->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -227,6 +172,23 @@
                 </td>
                 <td>
                     <input class="field" type="text" name="visa_rejection" value="{{$students->visa_rejection}}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Call status:</label>
+                </td>
+                <td>
+                   <select name="callstatus" class="callfield" value="{{ $students->callstatus }}">
+                    @if($students->callstatus == 'called')
+                    <option value="called" selected>Called</option>
+                    <option value="not_called">Not Called </option>
+                    @else
+                    <option value="called">Called</option>
+                    <option value="not_called" selected>Not Called </option>
+                    @endif
+                   
+                   </select>
                 </td>
             </tr>
             <tr>

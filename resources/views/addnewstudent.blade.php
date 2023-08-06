@@ -37,6 +37,14 @@
                 justify-content: center;
                
             }
+            select.callfield {
+                height:60px;width:350px; background-color:snow;
+                   color:black;
+                   font-size:20px;
+                   border: 1px solid black;
+                   margin-top:5px;
+                   margin-bottom:5px;
+            }
             .field{
                 height:60px;
                 width:350px;
@@ -47,6 +55,7 @@
                 margin-top:5px;
                 margin-bottom:5px;
             }
+           
             h1{
                 text-align:center;
                 color:grey;
@@ -227,6 +236,17 @@
                 </td>
                 <td>
                     <input class="field" type="text" name="visa_rejection">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Call status:</label>
+                </td>
+                <td>
+                   <select name="callstatus" class="callfield" style="">
+                    <option value="called">Called</option>
+                    <option value="not_called" default>Not Called </option>
+                   </select>
                 </td>
             </tr>
             <tr>

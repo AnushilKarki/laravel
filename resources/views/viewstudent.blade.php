@@ -154,6 +154,7 @@ flex-wrap:wrap;
     <th>Interest Course</th>
     <th>Work Experience</th>
     <th>visa rejection</th>
+    <th>Call Status</th>
     <th>status</th>
     <th>remark</th>
     <th></th>
@@ -181,6 +182,7 @@ flex-wrap:wrap;
     <td>{{ $d['work_experience'] }}</td>
  
     <td>{{ $d['visa_rejection'] }}</td>
+    <td>{{ $d['callstatus'] }}</td>
     <td>{{ $d['status'] }}</td>
  
     <td>{{ $d['remark'] }}</td>
