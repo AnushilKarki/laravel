@@ -32,7 +32,7 @@ td, th {
   font-size: 13px;
   min-width:30px;
  max-width:300px;
- word-break: break-all;
+ word-break: keep-all;
 }
 .id {
   min-width: 20px;;
