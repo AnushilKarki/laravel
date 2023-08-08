@@ -21,6 +21,8 @@ table {
 margin: 20px;
 margin-right: 30px;;
 padding: 20px;
+max-width:100%;
+overflow: auto;
 }
 
 td, th {
