@@ -65,12 +65,18 @@
                 display: flex;
                 justify-content: center;
             }
+            table {
+                max-width: 100%;
+                overflow: auto;
+                margin:20px;
+                padding:15px;
+            }
         </style>
     </head>
     <body class="antialiased">
     <h1>Fill the request for add student information </h1>
 
-        <div class="table-form">
+        <div class="">
         <form action="{{ route('updatestudent',$students->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
         <table>

@@ -65,6 +65,19 @@
             .table-form {
                 display: flex;
                 justify-content: center;
+                max-width:100%;
+overflow: auto;
+margin-right: 30px;;
+padding: 20px;
+
+            }
+            table {
+                max-width:100%;
+overflow: auto;
+margin: 20px;
+margin-right: 30px;
+padding: 20px;
+
             }
         </style>
     </head>
@@ -134,7 +147,7 @@
 </div>
 </form>
         </div> --}}
-        <div class="table-form">
+        <div class="">
         <form action="{{ route('addnewstudent') }}" method="POST" enctype="multipart/form-data">
             @csrf
         <table>

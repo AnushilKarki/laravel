@@ -78,6 +78,12 @@ return view('addstudent',compact('msg'));
     $student->status = $request->status; 
     $student->remark = $request->remark;   
     $student->save();
+    // \App\Models\User::create([
+    //     'name'=>$request->name,
+    //     'email'=>$request->email,
+    //     'password'=> bcrypt('password'),
+    //         'is_change'=> 0
+    // ]);
     return redirect()->route('studentdata');
     }
     public function edit($id){

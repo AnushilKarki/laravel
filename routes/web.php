@@ -15,7 +15,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/',[StudentController::class,'studentdata'])->middleware('auth')->name('studentdata');
+Route::get('/',[StudentController::class,'studentdata'])->middleware('force')->name('studentdata');
 
 Route::get('/premium',function () {
 	return view('input');
