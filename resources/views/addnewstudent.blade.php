@@ -79,6 +79,17 @@ margin-right: 30px;
 padding: 20px;
 
             }
+            .wrapup {
+                display: flex;
+                width:100%;
+                flex-wrap: wrap;
+            }
+            .first {
+                max-width: 100%;
+            }
+            .second {
+                max-width: 100%;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -150,10 +161,12 @@ padding: 20px;
         <div class="">
         <form action="{{ route('addnewstudent') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <div class="wrapup">
+                <div class="first">
         <table>
             <tr>
-                <th> key </th>
-                <th> value </th>
+                <th>  </th>
+                <th>  </th>
             </tr>
             <tr>
                 <td>
@@ -185,6 +198,27 @@ padding: 20px;
                 </td>
                 <td>
                     <input class="field" type="text" name="contact">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter dob:</label>
+                </td>
+                <td>
+                    <input class="field" type="date" name="dob">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter marital status:</label>
+                </td>
+                <td>
+                    <input type="radio" id="html" name="marital_status" value="single">
+                    <label for="html">Single</label><br>
+                    <input type="radio" id="css" name="marital_status" value="married">
+                    <label for="css">Married</label><br>
+                    <input type="radio" id="javascript" name="marital_status" value="divorced">
+                    <label for="javascript">Divorced</label>
                 </td>
             </tr>
             <tr>
@@ -253,6 +287,14 @@ padding: 20px;
             </tr>
             <tr>
                 <td>
+                    <label>Counseled by:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="counseled_by">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label>Call status:</label>
                 </td>
                 <td>
@@ -278,7 +320,212 @@ padding: 20px;
                     <input class="field" type="text" name="remark">
                 </td>
             </tr>
+            {{-- <tr>
+                <td>
+                    <label></label>
+                </td>
+                <td>
+                    <input class="field" type="submit">
+                </td>
+            </tr> --}}
+        </table>
+    </div>
+    <div class="second">
+        <table>
             <tr>
+                <th>  </th>
+                <th>  </th>
+            </tr>
+           
+            <tr>
+                <td>
+                    <label>Ielts Exam :</label>
+                </td>
+                <td>
+                    {{-- <select name="examtest" id="examtest" class="callfield" style="">
+                        <option value="called">IELTS</option>
+                        <option value="not_called">IELTS UKVI </option>
+                        <option value="called">PTE</option>
+                        <option value="not_called">TOEFL </option>
+                        <option value="called">SAT</option>
+                        <option value="not_called">GRE </option>
+                       </select><br> --}}
+                    <input class="field" type="text" id="ieltsoverall" placeholder="enter ielts overall score" name="ieltsoverall"><br>
+                    <input class="field" type="text" id="ieltsnotlessthen" placeholder="enter ieltsnot less then score" name="ieltsnotlessthenscore"><br>
+                    {{-- <input class="field" type="text" id="ieltsukvioverall" placeholder="enter ieltsukvi  overall score" name="ieltsukvioverall"><br>
+                    <input class="field" type="text" id="ieltsukvinotlessthen" placeholder="enter ieltsukvi not less then score" name="ieltsukvinotlessthenscore"><br> --}}
+                    {{-- <input class="field" type="text" id="pteoverall" placeholder="enter pte overall score" name="pteoverall"><br>
+                    <input class="field" type="text" id="ptenotlessthen" placeholder="enter pte not less then score" name="ptenotlessthenscore"><br> --}}
+                    {{-- <input class="field" type="text" id="toefloverall" placeholder="enter toefl overall score" name="toeftoverall"><br>
+                    <input class="field" type="text" id="toeflnotlessthen" placeholder="enter toefl  not less then score" name="toeflnotlessthenscore"><br> --}}
+                    {{-- <input class="field" id="satoverall" type="text" placeholder="enter overall score" name="satoverall"><br>
+                    <input class="field" id="satnotlessthen" type="text" placeholder="enter sat not less then score" name="satnotlessthenscore"><br> --}}
+                    {{-- <input class="field" type="text" id="greoverall" placeholder="enter gre overall score" name="greoverall"><br>
+                    <input class="field" type="text" id="grenotlessthen" placeholder="enter gre not less then score" name="grenotlessthenscore"> --}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Ielts ukvi Exam :</label>
+                </td>
+                <td>
+                    <input class="field" type="text" id="ieltsukvioverall" placeholder="enter ieltsukvi  overall score" name="ieltsukvioverall"><br>
+                    <input class="field" type="text" id="ieltsukvinotlessthen" placeholder="enter ieltsukvi not less then score" name="ieltsukvinotlessthenscore"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Pte Exam:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" id="pteoverall" placeholder="enter pte overall score" name="pteoverall"><br>
+                    <input class="field" type="text" id="ptenotlessthen" placeholder="enter pte not less then score" name="ptenotlessthenscore"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Toefl Exam :</label>
+                </td>
+                <td>
+                    <input class="field" type="text" id="toefloverall" placeholder="enter toefl overall score" name="toeftoverall"><br>
+                    <input class="field" type="text" id="toeflnotlessthen" placeholder="enter toefl  not less then score" name="toeflnotlessthenscore"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Sat Exam :</label>
+                </td>
+                <td>
+                    <input class="field" id="satoverall" type="text" placeholder="enter overall score" name="satoverall"><br>
+                    <input class="field" id="satnotlessthen" type="text" placeholder="enter sat not less then score" name="satnotlessthenscore"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Gre Exam :</label>
+                </td>
+                <td>
+                    <input class="field" type="text" id="greoverall" placeholder="enter gre overall score" name="greoverall"><br>
+                    <input class="field" type="text" id="grenotlessthen" placeholder="enter gre not less then score" name="grenotlessthenscore">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Major subject:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="major_subject">
+                </td>
+            </tr>
+            <tr>
+            {{-- <tr>
+                <td>
+                    <label>enter Academic qualification:</label>
+                </td>
+                <td>
+                    <select name="academic" id="academic" class="callfield" style="" onchange="checkacademic(this)">
+                        <option value="slc">SLC</option>
+                        <option value="plus2">plus 2 </option>
+                        <option value="bachelor">Bachelor</option>
+                        <option value="master">Master </option>
+                       </select><br>
+                       <input class="field" id="slcgrade" type="text" placeholder="enter slc cgpa/grade" name="slcgrade"><br>
+                       <input class="field" id="slcpassout" type="text" placeholder="enter slc passed out year" name="slcpassoutyear"><br>
+                       <input class="field" id="plus2grade" type="text" placeholder="enter plus 2 cgpa/grade" name="plus2grade"><br>
+                       <input class="field" id="plus2passout" type="text" placeholder="enter plus 2 passed out year" name="plus2passoutyear"><br>
+                       <input class="field" id="bachelorgrade" type="text" placeholder="enter bachelor cgpa/grade" name="bachelorgrade"><br>
+                       <input class="field" id="bachelorpassout" type="text" placeholder="enter bachelor pass out year" name="bachelorpassoutyear"><br>
+                       <input class="field" id="mastergrade" type="text" placeholder="enter master cgpa/grade" name="mastergrade"><br>
+                       <input class="field" id="masterpassout" type="text" placeholder="enter master pass out year" name="masterpassoutyear"><br>
+                </td>
+            </tr> --}}
+                <td>
+                    <label> SLC/SEE :</label>
+                </td>
+                <td>
+                    <input class="field" id="slcgrade" type="text" placeholder="enter slc cgpa/grade" name="slcgrade"><br>
+                       <input class="field" id="slcpassout" type="text" placeholder="enter slc passed out year" name="slcpassoutyear"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> +2/Pcl :</label>
+                </td>
+                <td>
+                    <input class="field" id="plus2grade" type="text" placeholder="enter plus 2 cgpa/grade" name="plus2grade"><br>
+                    <input class="field" id="plus2passout" type="text" placeholder="enter plus 2 passed out year" name="plus2passoutyear"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> Bachelor degree:</label>
+                </td>
+                <td>
+                    <input class="field" id="bachelorgrade" type="text" placeholder="enter bachelor cgpa/grade" name="bachelorgrade"><br>
+                       <input class="field" id="bachelorpassout" type="text" placeholder="enter bachelor pass out year" name="bachelorpassoutyear"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> Master degree:</label>
+                </td>
+                <td>
+                    <input class="field" id="mastergrade" type="text" placeholder="enter master cgpa/grade" name="mastergrade"><br>
+                    <input class="field" id="masterpassout" type="text" placeholder="enter master pass out year" name="masterpassoutyear"><br>
+                </td>
+            </tr>
+            {{-- <tr>
+                <td>
+                    <label>enter interest_course:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="interest_course">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>enter work_experience:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="work_experience">
+                </td>
+            </tr> --}}
+            {{-- <tr>
+                <td>
+                    <label>entervisa_rejection:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="visa_rejection">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Call status:</label>
+                </td>
+                <td>
+                   <select name="callstatus" class="callfield" style="">
+                    <option value="called">Called</option>
+                    <option value="not_called" default>Not Called </option>
+                   </select>
+                </td>
+            </tr> --}}
+            {{-- <tr>
+                <td>
+                    <label>status:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="status">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>remark:</label>
+                </td>
+                <td>
+                    <input class="field" type="text" name="remark">
+                </td>
+            </tr>
+            <tr> --}}
                 <td>
                     <label></label>
                 </td>
@@ -287,7 +534,33 @@ padding: 20px;
                 </td>
             </tr>
         </table>
+    </div>
     </form>
 </div>
+<script type="text/javascript">
+
+function checktest(){
+    var examtest = document.getElementById('examtest').value;
+}
+function checkacademic(e){
+    e.preventdefault();
+ var academic = document.getElementById("academic").value;
+
+    if(academic===slc){
+        document.getElementById("demo").innerHTML = "You selected: ";
+    }else if (academic===plus2) {
+        document.getElementById("plus2grade").style.display="block";
+        document.getElementById("plus2passoutyear").style.display="block";
+    }else if(academic===bachelor){
+        document.getElementById("bachelorgrade").style.display="block";
+        document.getElementById("bachelorpassoutyear").style.display="block";
+    }else {
+        document.getElementById("mastergrade").style.display="block";
+        document.getElementById("masterpassoutyear").style.display="block";
+    }
+
+}
+    </script>
+  <script type="text/javascript" src="./public/new.js"></script>
     </body>
 </html>

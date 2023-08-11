@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Result</title>
+        <title>View Student</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@ table {
   border-collapse: collapse;
   display:flex;
 margin: 20px;
-margin-right: 30px;;
+min-width:400px;
 padding: 20px;
 max-width:100%;
 overflow: auto;
@@ -32,8 +32,8 @@ td, th {
   padding:5px;
   max-height:80px;
   font-size: 13px;
-  min-width:30px;
- max-width:300px;
+  /* min-width:30px; */
+ /* max-width:300px; */
  word-break: keep-all;
 }
 .id {
@@ -72,6 +72,7 @@ flex-wrap:wrap;
                 display:flex;
                 flex:100%;
                 width:100%;
+                flex-wrap: wrap;
                 justify-content:center;
             }
             .value{
@@ -110,6 +111,7 @@ flex-wrap:wrap;
               padding: 5px;
               /* border: 1px solid black; */
              }
+             
         </style>
     </head>
     <body>
@@ -117,101 +119,138 @@ flex-wrap:wrap;
         <div class="all">
         <div class="result">
             <div class="heading">
-<h2>Result of your request </h2>
+                <div class="part">
+<h2>Profile of your Student </h2>
+<h3><a style="padding:10px;" href="{{ route('student.export',$students->id) }}">view pdf</a> </h3>
+                </div>
+
 
         </div>
         <div class="heading">
           <div class="part">
-            <button class="add" type="button"><a>Total no of student: {{ $studentscount }}</a> </button>
+            <div>Name: {{ $students->name }}</div> 
+          </div>
+          <div class="part">
+            <div>Address: {{ $students->address }}</div> 
+          </div>
+          <div class="part">
+            <div>Contact: {{ $students->contact }}</div> 
+          </div>
+          <div class="part">
+            <div>email: {{$students->email}}</div>
+          </div>
+          <div class="part">
+            <div>Marital status: {{$students->marital_status}}</div>
           </div>
         </div>
-        <div class="part">
-          <button class="add" type="button"><a href="/export">Export All student data</a> </button>
+        <div class="heading">
+            <div class="part">
+                <div>Dob: {{ $students->dob }}</div> 
+              </div>
+            <div class="part">
+                <div>Interest Country: {{ $students->interest_country }}</div> 
+            </div>
+            <div class="part">
+                <div>Interest Course: {{ $students->interest_course }}</div> 
+            </div>
+            <div class="part">
+                <div>Major Subject: {{$students->major_subject}}</div>
+              </div>
+            <div class="part">
+                <div>Test Preparation: {{ $students->test_preparation }}</div> 
+            </div>
+            <div class="part">
+                <div>counseled by : {{$students->counseled_by}}</div>
+                            </div>
         </div>
+       
       
         {{-- <div class="part">
           <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
         </div> --}}
-        <form enctype="multipart/form-data" method="post" action="{{  route('searchstudent') }}">
-          @csrf
-          <input class="field" name="search" type="text" placeholder="search name email or phone wise...">
-          <input type="submit" placeholder="search">
-              </form>
-              <div class="part">
-                <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
-              </div>
-
-<table>
-  <tr>
-    <th>id</th>
-    <th>name</th>
-    <th>Email</th>
-    <th>address</th>
-    <th>contact number</th>
-    <th>highest Acheived</th>
-    <th>CGPA</th>
-    <th>Test Preparation</th>
-    <th>Test Score</th>
-    <th>Interest Country</th>
-    <th>Interest Course</th>
-    <th>Work Experience</th>
-    <th>visa rejection</th>
-    <th>Call Status</th>
-    <th>status</th>
-    <th>remark</th>
-    <th></th>
-  </tr>
-  <?php
-   $id = 1;
-  
-  ?>
-  @foreach($students as $d)
-
-  <tr>
-    <td class="id">{{$id}}</td>
-    <td>{{ $d['name'] }}</td>
-    <td>{{ $d['email'] }}</td>
- 
-    <td>{{ $d['address'] }}</td>
-    <td>{{ $d['contact'] }}</td>
-    <td>{{ $d['highest_acheived'] }}</td>
-    <td>{{ $d['cgpa'] }}</td>
- 
-    <td>{{ $d['test_preparation'] }}</td>
-    <td>{{ $d['test_score'] }}</td>
-    <td>{{ $d['interest_country'] }}</td>
-    <td>{{ $d['interest_course'] }}</td>
-    <td>{{ $d['work_experience'] }}</td>
- 
-    <td>{{ $d['visa_rejection'] }}</td>
-    <td>{{ $d['callstatus'] }}</td>
-    <td>{{ $d['status'] }}</td>
- 
-    <td>{{ $d['remark'] }}</td>
-  <td>
-    <a href="{{ route('viewstudent',$d['id']) }}">  <img src="view-.png" style="width:15px;"/></a>
-  <a href="{{ route('editstudent',$d['id']) }}">  <img src="edit.png" style="width:15px;"/></a>
-  <a data-toggle="tooltip" class="show-confirm" onclick="return confirm('Are you sure you want to delete ?')" href="{{ route('deletestudent',$d['id']) }}">  <img src="delete.png" style="width:15px;"/></a>
-  </td>
-  </tr>
-  <?php 
-$id = $id +1;
-  ?>
- @endforeach
-</table>
-{{-- <h1>hello {{ $students->previousPageUrl() }}</h1> --}}
-<div style="display:flex;justify-content:space-around;">
-  <div>
-<h3> <a href="{{$students->previousPageUrl()}}">Previous</a></h3>
-  </div>
-  <div>
-<h3> <a href="{{$students->nextPageUrl()}}">Next</a></h3>
-  </div>
-</div>
-{{-- {{ $students->links() }} --}}
+<div class="heading">
+<div class="part">
+              <table>
+                <tr>
+                  <th>id</th>
+                 <th>Topic</th>
+                 <th>Value</th>
+                  <th></th>
+                </tr>
+              
+                
+              
+                <tr>
+               <td>1.</td>
+               <td>Academic Qualification</td>
+               <td></td>
+                </tr>
+                <tr>
+              <td></td>
+              <td>SLC</td>
+              <td>{{ $students->slc ? : 'not available' }}</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>+2</td>
+                  <td>{{ $students->plus2 ? : 'not available' }}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Bachelor</td>
+                      <td>{{ $students->bachelor ? : 'not available'}}</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>Master</td>
+                          <td>{{ $students->master ? :'not available' }}</td>
+                            </tr>
+                  <tr>
+                      <td>2.</td>
+                      <td>Test Examination </td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>Ielts</td>
+                      <td>{{ $students->ielts ? : 'not available' }}</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>Ielts ukvi</td>
+                          <td>{{ $students->ielts_ukvi ? : 'not available' }}</td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td>Toefel</td>
+                              <td>{{ $students->tofel ? : 'not available'}}</td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td>Pte</td>
+                                  <td>{{ $students->pte ? : 'not available'}}</td>
+                                    </tr>
+                                    <tr>
+                                      <td></td>
+                                      <td>Gre</td>
+                                      <td>{{ $students->gre ? : 'not available'}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td></td>
+                                          <td>Sat</td>
+                                          <td>{{ $students->sat ? : 'not available' }}</td>
+                                            </tr>
+              
+              </table> 
+            </div>
+        </div>
+        <div class="heading">
+        
         </div>
         </div>
-         
+
+        </div>
+      
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
  

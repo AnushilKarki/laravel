@@ -11,6 +11,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Auth;
 use Dompdf\Dompdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class StudentController extends Controller
 {
@@ -77,6 +78,21 @@ return view('addstudent',compact('msg'));
     $student->email = $request->email; 
     $student->status = $request->status; 
     $student->remark = $request->remark;   
+    //after update 
+    $student->dob = $request->dob;
+    $student->marital_status = $request->marital_status;
+    $student->ielts = 'overall score :'.$request->ieltsoverall.'& not less then :'.$request->ieltsnotlessthenscore;
+    $student->ielts_ukvi = 'overall score :'.$request->ieltsukvioverall.'& not less then :'.$request->ieltsukvinotlessthenscore;
+    $student->pte = 'overall score :'.$request->pteoverall.'& not less then :'.$request->ptenotlessthenscore;
+    $student->tofel = 'overall score :'.$request->toefloverall.'& not less then :'.$request->toeflnotlessthenscore;
+    $student->sat = 'overall score :'.$request->satoverall.'& not less then :'.$request->satnotlessthenscore;
+    $student->gre = 'overall score :'.$request->greoverall.'& not less then :'.$request->grenotlessthenscore;
+    $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
+    $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
+    $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
+    $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+    $student->counseled_by = $request->counseled_by;
+    $student->major_subject = $request->major_subject;
     $student->save();
     // \App\Models\User::create([
     //     'name'=>$request->name,
@@ -89,6 +105,10 @@ return view('addstudent',compact('msg'));
     public function edit($id){
         $students = Student::where('id',$id)->first();
         return view('editnewstudent',compact('students'));
+    }
+    public function view($id){
+        $students = Student::where('id',$id)->first();
+        return view('viewonestudent',compact('students'));
     }
     public function update(Request $request,$id)
     {
@@ -107,7 +127,22 @@ return view('addstudent',compact('msg'));
         $student->callstatus = $request->callstatus;
         $student->email = $request->email;  
         $student->status = $request->status; 
-        $student->remark = $request->remark;  
+        $student->remark = $request->remark;
+        //after
+        $student->dob = $request->dob;
+        $student->marital_status = $request->marital_status;
+        $student->ielts = 'overall score :'.$request->ieltsoverall.'& not less then :'.$request->ieltsnotlessthenscore;
+        $student->ielts_ukvi = 'overall score :'.$request->ieltsukvioverall.'& not less then :'.$request->ieltsukvinotlessthenscore;
+        $student->pte = 'overall score :'.$request->pteoverall.'& not less then :'.$request->ptenotlessthenscore;
+        $student->tofel = 'overall score :'.$request->toefloverall.'& not less then :'.$request->toeflnotlessthenscore;
+        $student->sat = 'overall score :'.$request->satoverall.'& not less then :'.$request->satnotlessthenscore;
+        $student->gre = 'overall score :'.$request->greoverall.'& not less then :'.$request->grenotlessthenscore;
+        $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
+        $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
+        $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
+        $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+        $student->counseled_by = $request->counseled_by;
+        $student->major_subject = $request->major_subject;  
         $student->save();
         return redirect()->route('studentdata');
     }
@@ -216,5 +251,12 @@ public function exportPdf(){
     
     // Clean up the temporary Excel file
     unlink($excelFile);
+}
+public function pdfexport($id){
+    $students = Student::where('id',$id)->first()->toArray();
+    // dd($students);
+    $pdf = Pdf::loadView('new', compact('students'));
+    return $pdf->stream();
+// return $pdf->download('student.pdf');
 }
 }
