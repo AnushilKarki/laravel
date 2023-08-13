@@ -139,11 +139,12 @@ flex-wrap:wrap;
           <div class="part">
             <div>email: {{$students->email}}</div>
           </div>
+        </div>
+        <div class="heading">
+         
           <div class="part">
             <div>Marital status: {{$students->marital_status}}</div>
           </div>
-        </div>
-        <div class="heading">
             <div class="part">
                 <div>Dob: {{ $students->dob }}</div> 
               </div>
@@ -153,110 +154,133 @@ flex-wrap:wrap;
             <div class="part">
                 <div>Interest Course: {{ $students->interest_course }}</div> 
             </div>
-            <div class="part">
-                <div>Major Subject: {{$students->major_subject}}</div>
-              </div>
-            <div class="part">
-                <div>Test Preparation: {{ $students->test_preparation }}</div> 
-            </div>
-            <div class="part">
-                <div>counseled by : {{$students->counseled_by}}</div>
-                            </div>
-        </div>
        
+        </div>
+       <div class="heading">
+        <div class="part">
+          <div>Major Subject: {{$students->major_subject}}</div>
+        </div>
+      <div class="part">
+          <div>Test Preparation: {{ $students->test_preparation }}</div> 
+      </div>
+      <div class="part">
+          <div>counseled by : {{$students->counseled_by}}</div>
+                      </div>
+       </div>
       
         {{-- <div class="part">
           <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
         </div> --}}
         <div class="heading">
           <div class="part">
-                        <table>
-                          <tr>
-                            <th>id</th>
-                           <th>Qualificaion</th>
-                           {{-- <th>grade/score</th>
-                           <th>date of completion</th> --}}
-                            <th></th>
-                          </tr>
-                        
-                          
-                        
-                          <tr>
-                         <td>1.</td>
-                         <td>Academic Qualification</td>
-                         <th>grade/score</th>
-                         <th>date of completion</th>
-                         <td></td>
-                          </tr>
-                          <tr>
+            <table>
+              <tr>
+                {{-- <th>id</th> --}}
+               {{-- <th>Qualificaion</th> --}}
+               {{-- <th>grade/score</th>
+               <th>date of completion</th> --}}
+                <th></th>
+              </tr>
+            
+              
+            
+              <tr>
+             <td>1.</td>
+             <td>Academic Qualification</td>
+             <td>grade/score</td>
+             <td>date of completion</td>
+             <td></td>
+              </tr>
+             @if($students['slc'])
+              <tr>
+            <td></td>
+            <td>{{ $students['slc'] }}</td>
+            <td>{{ $students['slc_score'] }}</td>
+            <td>{{ $students['slc_passoutyear'] }}</td>
+              </tr>
+              @endif
+              @if($students['plus2'])
+              <tr>
+        
+                <td></td>
+                <td>{{ $students['plus2'] }}</td>
+                <td>{{ $students['plus2_score'] }}</td>
+                <td>{{ $students['plus2_passoutyear'] }}</td>
+                  </tr>
+                  @endif
+                  @if($students['bachelor'])
+                  <tr>
+                    <td></td>
+                    <td>{{ $students['bachelor'] }}</td>
+                    <td>{{ $students['bachelor_score'] }}</td>
+                    <td>{{ $students['bachelor_passoutyear'] }}</td>
+                      </tr>
+                      @endif
+                      @if($students['master'])
+                      <tr>
                         <td></td>
-                        <td>{{ $students['slc'] }}</td>
-                        <td>{{ $students['slc_score'] }}</td>
-                        <td>{{ $students['slc_passoutyear'] }}</td>
+                        <td>{{ $students['master'] }}</td>
+                        <td>{{ $students['master_score'] }}</td>
+                        <td>{{ $students['master_passoutyear'] }}</td>
                           </tr>
+                          @endif
+                <tr>
+                    <td>2.</td>
+                    <td>Test Examination </td>
+                    <td>overall score</td>
+                    <td>not less then score</td>
+                    <td></td>
+                </tr>
+                @if($students['ielts'])
+                <tr>
+                    <td></td>
+                    <td>Ielts</td>
+                    <td>overall :{{ $students['ielts'] }}  </td>
+                      <td> not less then score : {{ $students['ielts_notlessthen'] }}</td>
+                      </tr>
+                      @endif
+                      @if($students['ielts_ukvi'])
+                      <tr>
+                        <td></td>
+                        <td>Ielts ukvi</td>
+                        <td>overall :{{ $students['ielts_ukvi'] }} </td>
+                          <td> not less then : {{ $students['ielts_ukvi_notlessthen'] }}</td>
+                          </tr>
+                          @endif
+                          @if($students['tofel'])
                           <tr>
                             <td></td>
-                            <td>{{ $students['plus2'] }}</td>
-                            <td>{{ $students['plus2_score'] }}</td>
-                            <td>{{ $students['plus2_passoutyear'] }}</td>
+                            <td>Toefel</td>
+                            <td>overall :{{ $students['tofel'] }} </td>
+                              <td> not less then : {{ $students['tofel_notlessthen'] }}</td>
                               </tr>
+                              @endif
+                              @if($students['pte'])
                               <tr>
                                 <td></td>
-                                <td>{{ $students['bachelor'] }}</td>
-                                <td>{{ $students['bachelor_score'] }}</td>
-                                <td>{{ $students['bachelor_passoutyear'] }}</td>
+                                <td>Pte</td>
+                                <td>overall :{{ $students['pte'] }} </td>
+                                <td> not less then : {{ $students['pte_notlessthen'] }}</td>
                                   </tr>
+                                  @endif
+                                  @if($students['gre'])
                                   <tr>
                                     <td></td>
-                                    <td>{{ $students['master'] }}</td>
-                                    <td>{{ $students['master_score'] }}</td>
-                                    <td>{{ $students['master_passoutyear'] }}</td>
+                                    <td>Gre</td>
+                                    <td>overall :{{ $students['gre'] }} </td>
+                                       <td> not less then : {{ $students['gre_notlessthen'] }}</td>
                                       </tr>
-                            <tr>
-                                <td>2.</td>
-                                <td>Test Examination </td>
-                                <td>overall score</td>
-                                <td>not less then score</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Ielts</td>
-                                <td>overall :{{ $students['ielts'] }}  </td>
-                                  <td> not less then score : {{ $students['ielts_notlessthen'] }}</td>
-                                  </tr>
-                                  <tr>
-                                    <td></td>
-                                    <td>Ielts ukvi</td>
-                                    <td>overall :{{ $students['ielts_ukvi'] }} </td>
-                                      <td> not less then : {{ $students['ielts_ukvi_notlessthen'] }}</td>
-                                      </tr>
+                                      @endif
+                                      @if($students['sat'])
                                       <tr>
                                         <td></td>
-                                        <td>Toefel</td>
-                                        <td>overall :{{ $students['tofel'] }} </td>
-                                          <td> not less then : {{ $students['tofel_notlessthen'] }}</td>
+                                        <td>Sat</td>
+                                        <td>overall :{{ $students['sat'] }} </td>
+                                        <td> not less then : {{ $students['sat_notlessthen'] }}</td>
                                           </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td>Pte</td>
-                                            <td>overall :{{ $students['pte'] }} </td>
-                                            <td> not less then : {{ $students['pte_notlessthen'] }}</td>
-                                              </tr>
-                                              <tr>
-                                                <td></td>
-                                                <td>Gre</td>
-                                                <td>overall :{{ $students['gre'] }} </td>
-                                                   <td> not less then : {{ $students['gre_notlessthen'] }}</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td></td>
-                                                    <td>Sat</td>
-                                                    <td>overall :{{ $students['sat'] }} </td>
-                                                    <td> not less then : {{ $students['sat_notlessthen'] }}</td>
-                                                      </tr>
-                        
-                        </table> 
+                                          @endif
+            
+            </table> 
                       </div>
                   </div>
         <div class="heading">
