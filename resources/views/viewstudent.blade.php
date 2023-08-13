@@ -126,7 +126,7 @@ flex-wrap:wrap;
           </div>
         </div>
         <div class="part">
-          <button class="add" type="button"><a href="/export">Export All student data</a> </button>
+          {{-- <button class="add" type="button"><a href="/export">Export All student data</a> </button> --}}
         </div>
       
         {{-- <div class="part">
