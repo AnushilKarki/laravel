@@ -81,16 +81,41 @@ return view('addstudent',compact('msg'));
     //after update 
     $student->dob = $request->dob;
     $student->marital_status = $request->marital_status;
-    $student->ielts = 'overall score :'.$request->ieltsoverall.'& not less then :'.$request->ieltsnotlessthenscore;
-    $student->ielts_ukvi = 'overall score :'.$request->ieltsukvioverall.'& not less then :'.$request->ieltsukvinotlessthenscore;
-    $student->pte = 'overall score :'.$request->pteoverall.'& not less then :'.$request->ptenotlessthenscore;
-    $student->tofel = 'overall score :'.$request->toefloverall.'& not less then :'.$request->toeflnotlessthenscore;
-    $student->sat = 'overall score :'.$request->satoverall.'& not less then :'.$request->satnotlessthenscore;
-    $student->gre = 'overall score :'.$request->greoverall.'& not less then :'.$request->grenotlessthenscore;
-    $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
-    $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
-    $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
-    $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+
+    $student->ielts = $request->ieltsoverall;
+    $student->ielts_ukvi = $request->ieltsukvioverall;
+    $student->pte = $request->pteoverall;
+    $student->tofel = $request->toefloverall;
+    $student->sat = $request->satoverall;
+    $student->gre = $request->greoverall;
+
+    $student->ielts_notlessthen = $request->ieltsnotlessthenscore;
+    $student->ielts_ukvi_notlessthen = $request->ieltsukvinotlessthenscore;
+    $student->pte_notlessthen = $request->ptenotlessthenscore;
+    $student->tofel_notlessthen = $request->toeflnotlessthenscore;
+    $student->sat_notlessthen = $request->satnotlessthenscore;
+    $student->gre_notlessthen = $request->grenotlessthenscore;
+    // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
+    // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
+    // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
+    // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+
+    $student->master = $request->masterlevel;
+    $student->bachelor = $request->bachelorlevel;
+    $student->plus2 = $request->plus2level;
+    $student->slc = $request->slclevel;
+
+    $student->master_score = $request->mastergrade;
+    $student->bachelor_score = $request->bachelorgrade;
+    $student->plus2_score = $request->plus2grade;
+    $student->slc_score = $request->slcgrade;
+
+    $student->master_passoutyear = $request->masterpassoutyear;
+    $student->bachelor_passoutyear = $request->bachelorpassoutyear;
+    $student->plus2_passoutyear = $request->plus2passoutyear;
+    $student->slc_passoutyear = $request->slcpassoutyear;
+
+   
     $student->counseled_by = $request->counseled_by;
     $student->major_subject = $request->major_subject;
     $student->save();
@@ -131,16 +156,50 @@ return view('addstudent',compact('msg'));
         //after
         $student->dob = $request->dob;
         $student->marital_status = $request->marital_status;
-        $student->ielts = 'overall score :'.$request->ieltsoverall.'& not less then :'.$request->ieltsnotlessthenscore;
-        $student->ielts_ukvi = 'overall score :'.$request->ieltsukvioverall.'& not less then :'.$request->ieltsukvinotlessthenscore;
-        $student->pte = 'overall score :'.$request->pteoverall.'& not less then :'.$request->ptenotlessthenscore;
-        $student->tofel = 'overall score :'.$request->toefloverall.'& not less then :'.$request->toeflnotlessthenscore;
-        $student->sat = 'overall score :'.$request->satoverall.'& not less then :'.$request->satnotlessthenscore;
-        $student->gre = 'overall score :'.$request->greoverall.'& not less then :'.$request->grenotlessthenscore;
-        $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
-        $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
-        $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
-        $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+
+        // $student->ielts = 'overall score :'.$request->ieltsoverall.'& not less then :'.$request->ieltsnotlessthenscore;
+        // $student->ielts_ukvi = 'overall score :'.$request->ieltsukvioverall.'& not less then :'.$request->ieltsukvinotlessthenscore;
+        // $student->pte = 'overall score :'.$request->pteoverall.'& not less then :'.$request->ptenotlessthenscore;
+        // $student->tofel = 'overall score :'.$request->toefloverall.'& not less then :'.$request->toeflnotlessthenscore;
+        // $student->sat = 'overall score :'.$request->satoverall.'& not less then :'.$request->satnotlessthenscore;
+        // $student->gre = 'overall score :'.$request->greoverall.'& not less then :'.$request->grenotlessthenscore;
+        // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
+        // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
+        // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
+        // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+        $student->ielts = $request->ieltsoverall;
+    $student->ielts_ukvi = $request->ieltsukvioverall;
+    $student->pte = $request->pteoverall;
+    $student->tofel = $request->toefloverall;
+    $student->sat = $request->satoverall;
+    $student->gre = $request->greoverall;
+
+    $student->ielts_notlessthen = $request->ieltsnotlessthenscore;
+    $student->ielts_ukvi_notlessthen = $request->ieltsukvinotlessthenscore;
+    $student->pte_notlessthen = $request->ptenotlessthenscore;
+    $student->tofel_notlessthen = $request->toeflnotlessthenscore;
+    $student->sat_notlessthen = $request->satnotlessthenscore;
+    $student->gre_notlessthen = $request->grenotlessthenscore;
+    // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
+    // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
+    // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
+    // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+
+    $student->master = $request->masterlevel;
+    $student->bachelor = $request->bachelorlevel;
+    $student->plus2 = $request->plus2level;
+    $student->slc = $request->slclevel;
+
+    $student->master_score = $request->mastergrade;
+    $student->bachelor_score = $request->bachelorgrade;
+    $student->plus2_score = $request->plus2grade;
+    $student->slc_score = $request->slcgrade;
+
+    $student->master_passoutyear = $request->masterpassoutyear;
+    $student->bachelor_passoutyear = $request->bachelorpassoutyear;
+    $student->plus2_passoutyear = $request->plus2passoutyear;
+    $student->slc_passoutyear = $request->slcpassoutyear;
+
         $student->counseled_by = $request->counseled_by;
         $student->major_subject = $request->major_subject;  
         $student->save();

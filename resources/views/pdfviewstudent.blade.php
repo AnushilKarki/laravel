@@ -166,78 +166,93 @@ flex-wrap:wrap;
         </div> --}}
 <div class="heading">
 <div class="part">
-              <table>
-                <tr>
-                  <th>id</th>
-                 <th>Topic</th>
-                 <th>Value</th>
-                  <th></th>
-                </tr>
-              
-                
-              
-                <tr>
-               <td>1.</td>
-               <td>Academic Qualification</td>
-               <td></td>
-                </tr>
-                <tr>
+  <table>
+    <tr>
+      <th>id</th>
+     {{-- <th>Qualificaion</th> --}}
+     {{-- <th>grade/score</th>
+     <th>date of completion</th> --}}
+      <th></th>
+    </tr>
+  
+    
+  
+    <tr>
+   <td>1.</td>
+   <td>Academic Qualification</td>
+   <td>grade/score</td>
+   <td>date of completion</td>
+   <td></td>
+    </tr>
+    <tr>
+  <td></td>
+  <td>{{ $students['slc'] }}</td>
+  <td>{{ $students['slc_score'] }}</td>
+  <td>{{ $students['slc_passoutyear'] }}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>{{ $students['plus2'] }}</td>
+      <td>{{ $students['plus2_score'] }}</td>
+      <td>{{ $students['plus2_passoutyear'] }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>{{ $students['bachelor'] }}</td>
+          <td>{{ $students['bachelor_score'] }}</td>
+          <td>{{ $students['bachelor_passoutyear'] }}</td>
+            </tr>
+            <tr>
               <td></td>
-              <td>SLC</td>
-              <td>{{ $students['slc'] }}</td>
+              <td>{{ $students['master'] }}</td>
+              <td>{{ $students['master_score'] }}</td>
+              <td>{{ $students['master_passoutyear'] }}</td>
+                </tr>
+      <tr>
+          <td>2.</td>
+          <td>Test Examination </td>
+          <td>overall score</td>
+          <td>not less then score</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Ielts</td>
+          <td>overall :{{ $students['ielts'] }}  </td>
+            <td> not less then score : {{ $students['ielts_notlessthen'] }}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Ielts ukvi</td>
+              <td>overall :{{ $students['ielts_ukvi'] }} </td>
+                <td> not less then : {{ $students['ielts_ukvi_notlessthen'] }}</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>+2</td>
-                  <td>{{ $students['plus2'] }}</td>
+                  <td>Toefel</td>
+                  <td>overall :{{ $students['tofel'] }} </td>
+                    <td> not less then : {{ $students['tofel_notlessthen'] }}</td>
                     </tr>
                     <tr>
                       <td></td>
-                      <td>Bachelor</td>
-                      <td>{{ $students['bachelor'] }}</td>
+                      <td>Pte</td>
+                      <td>overall :{{ $students['pte'] }} </td>
+                      <td> not less then : {{ $students['pte_notlessthen'] }}</td>
                         </tr>
                         <tr>
                           <td></td>
-                          <td>Master</td>
-                          <td>{{ $students['master'] }}</td>
-                            </tr>
-                  <tr>
-                      <td>2.</td>
-                      <td>Test Examination </td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>Ielts</td>
-                      <td>{{ $students['ielts'] }}</td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>Ielts ukvi</td>
-                          <td>{{ $students['ielts_ukvi'] }}</td>
+                          <td>Gre</td>
+                          <td>overall :{{ $students['gre'] }} </td>
+                             <td> not less then : {{ $students['gre_notlessthen'] }}</td>
                             </tr>
                             <tr>
                               <td></td>
-                              <td>Toefel</td>
-                              <td>{{ $students['tofel'] }}</td>
+                              <td>Sat</td>
+                              <td>overall :{{ $students['sat'] }} </td>
+                              <td> not less then : {{ $students['sat_notlessthen'] }}</td>
                                 </tr>
-                                <tr>
-                                  <td></td>
-                                  <td>Pte</td>
-                                  <td>{{ $students['pte'] }}</td>
-                                    </tr>
-                                    <tr>
-                                      <td></td>
-                                      <td>Gre</td>
-                                      <td>{{ $students['gre'] }}</td>
-                                        </tr>
-                                        <tr>
-                                          <td></td>
-                                          <td>Sat</td>
-                                          <td>{{ $students['sat'] }}</td>
-                                            </tr>
-              
-              </table> 
+  
+  </table> 
             </div>
         </div>
         <div class="heading">

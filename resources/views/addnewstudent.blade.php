@@ -173,7 +173,7 @@ padding: 20px;
                     <label>enter name:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="name">
+                    <input class="field" type="text" name="name"  placeholder="enter name">
                 </td>
             </tr>
             <tr>
@@ -181,7 +181,7 @@ padding: 20px;
                     <label>enter email:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="email">
+                    <input class="field" type="text" name="email"  placeholder="enter email">
                 </td>
             </tr>
             <tr>
@@ -189,7 +189,7 @@ padding: 20px;
                     <label>enter address:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="address">
+                    <input class="field" type="text" name="address"  placeholder="enter address">
                 </td>
             </tr>
             <tr>
@@ -197,7 +197,7 @@ padding: 20px;
                     <label>enter contact:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="contact">
+                    <input class="field" type="text" name="contact"  placeholder="enter contact">
                 </td>
             </tr>
             <tr>
@@ -205,7 +205,7 @@ padding: 20px;
                     <label>enter dob:</label>
                 </td>
                 <td>
-                    <input class="field" type="date" name="dob">
+                    <input class="field" type="date" name="dob" placeholder="enter date of birth">
                 </td>
             </tr>
             <tr>
@@ -226,7 +226,7 @@ padding: 20px;
                     <label>enter highest acheived:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="highest_acheived">
+                    <input class="field" type="text" name="highest_acheived"  placeholder="enter highest academic qualification">
                 </td>
             </tr>
             <tr>
@@ -234,7 +234,7 @@ padding: 20px;
                     <label>enter cgpa:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="cgpa">
+                    <input class="field" type="text" name="cgpa"  placeholder="enter cgpa">
                 </td>
             </tr>
             <tr>
@@ -242,7 +242,7 @@ padding: 20px;
                     <label>enter test_preparation:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="test_preparation">
+                    <input class="field" type="text" name="test_preparation" placeholder="enter your test prepration">
                 </td>
             </tr>
             <tr>
@@ -250,7 +250,7 @@ padding: 20px;
                     <label>enter test_score:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="test_score">
+                    <input class="field" type="text" name="test_score"  placeholder="enter your test score">
                 </td>
             </tr>
             <tr>
@@ -258,7 +258,7 @@ padding: 20px;
                     <label>enter interest_country:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="interest_country">
+                    <input class="field" type="text" name="interest_country" placeholder="enter your interest country">
                 </td>
             </tr>
             <tr>
@@ -266,7 +266,7 @@ padding: 20px;
                     <label>enter interest_course:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="interest_course">
+                    <input class="field" type="text" name="interest_course" placeholder="enter your intrest course">
                 </td>
             </tr>
             <tr>
@@ -274,7 +274,7 @@ padding: 20px;
                     <label>enter work_experience:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="work_experience">
+                    <input class="field" type="text" name="work_experience" placeholder="enter your work experience" >
                 </td>
             </tr>
             <tr>
@@ -282,7 +282,7 @@ padding: 20px;
                     <label>entervisa_rejection:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="visa_rejection">
+                    <input class="field" type="text" name="visa_rejection" placeholder="enter your visa rejection details">
                 </td>
             </tr>
             <tr>
@@ -290,7 +290,7 @@ padding: 20px;
                     <label>Counseled by:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="counseled_by">
+                    <input class="field" type="text" name="counseled_by" placeholder="enter name of counsellor">
                 </td>
             </tr>
             <tr>
@@ -309,7 +309,7 @@ padding: 20px;
                     <label>status:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="status">
+                    <input class="field" type="text" name="status" placeholder="enter status of applicant">
                 </td>
             </tr>
             <tr>
@@ -317,7 +317,7 @@ padding: 20px;
                     <label>remark:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="remark">
+                    <input class="field" type="text" name="remark" placeholder="enter your remarks">
                 </td>
             </tr>
             {{-- <tr>
@@ -387,7 +387,7 @@ padding: 20px;
                     <label>Toefl Exam :</label>
                 </td>
                 <td>
-                    <input class="field" type="text" id="toefloverall" placeholder="enter toefl overall score" name="toeftoverall"><br>
+                    <input class="field" type="text" id="toefloverall" placeholder="enter toefl overall score" name="toefloverall"><br>
                     <input class="field" type="text" id="toeflnotlessthen" placeholder="enter toefl  not less then score" name="toeflnotlessthenscore"><br>
                 </td>
             </tr>
@@ -443,6 +443,7 @@ padding: 20px;
                     <label> SLC/SEE :</label>
                 </td>
                 <td>
+                    <input class="field" id="slclevel" type="text" placeholder="enter slc/A+ level" name="slclevel"><br>
                     <input class="field" id="slcgrade" type="text" placeholder="enter slc cgpa/grade" name="slcgrade"><br>
                        <input class="field" id="slcpassout" type="text" placeholder="enter slc passed out year" name="slcpassoutyear"><br>
                 </td>
@@ -452,6 +453,7 @@ padding: 20px;
                     <label> +2/Pcl :</label>
                 </td>
                 <td>
+                    <input class="field" id="slclevel" type="text" placeholder="enter +2 level" name="plus2level"><br>
                     <input class="field" id="plus2grade" type="text" placeholder="enter plus 2 cgpa/grade" name="plus2grade"><br>
                     <input class="field" id="plus2passout" type="text" placeholder="enter plus 2 passed out year" name="plus2passoutyear"><br>
                 </td>
@@ -461,6 +463,7 @@ padding: 20px;
                     <label> Bachelor degree:</label>
                 </td>
                 <td>
+                    <input class="field" id="bachelorlevel" type="text" placeholder="enter bachelor level" name="bachelorlevel"><br>
                     <input class="field" id="bachelorgrade" type="text" placeholder="enter bachelor cgpa/grade" name="bachelorgrade"><br>
                        <input class="field" id="bachelorpassout" type="text" placeholder="enter bachelor pass out year" name="bachelorpassoutyear"><br>
                 </td>
@@ -470,6 +473,7 @@ padding: 20px;
                     <label> Master degree:</label>
                 </td>
                 <td>
+                    <input class="field" id="masterlevel" type="text" placeholder="enter master level" name="masterlevel"><br>
                     <input class="field" id="mastergrade" type="text" placeholder="enter master cgpa/grade" name="mastergrade"><br>
                     <input class="field" id="masterpassout" type="text" placeholder="enter master pass out year" name="masterpassoutyear"><br>
                 </td>

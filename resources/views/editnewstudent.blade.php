@@ -350,8 +350,8 @@ padding: 20px;
                         <option value="called">SAT</option>
                         <option value="not_called">GRE </option>
                        </select><br> --}}
-                    <input class="field" type="text" id="ieltsoverall" placeholder="enter ielts overall score" name="ieltsoverall"><br>
-                    <input class="field" type="text" id="ieltsnotlessthen" placeholder="enter ieltsnot less then score" name="ieltsnotlessthenscore"><br>
+                    <input class="field" type="text" id="ieltsoverall" placeholder="enter ielts overall score" name="ieltsoverall" value="{{$students->ielts}}"><br>
+                    <input class="field" type="text" id="ieltsnotlessthen" placeholder="enter ieltsnot less then score" name="ieltsnotlessthenscore" value="{{$students->ielts_notlessthen}}"><br>
                     {{-- <input class="field" type="text" id="ieltsukvioverall" placeholder="enter ieltsukvi  overall score" name="ieltsukvioverall"><br>
                     <input class="field" type="text" id="ieltsukvinotlessthen" placeholder="enter ieltsukvi not less then score" name="ieltsukvinotlessthenscore"><br> --}}
                     {{-- <input class="field" type="text" id="pteoverall" placeholder="enter pte overall score" name="pteoverall"><br>
@@ -369,8 +369,8 @@ padding: 20px;
                     <label>Ielts ukvi Exam :</label>
                 </td>
                 <td>
-                    <input class="field" type="text" id="ieltsukvioverall" placeholder="enter ieltsukvi  overall score" name="ieltsukvioverall"><br>
-                    <input class="field" type="text" id="ieltsukvinotlessthen" placeholder="enter ieltsukvi not less then score" name="ieltsukvinotlessthenscore"><br>
+                    <input class="field" type="text" id="ieltsukvioverall" placeholder="enter ieltsukvi  overall score" name="ieltsukvioverall" value="{{$students->ielts_ukvi}}"><br>
+                    <input class="field" type="text" id="ieltsukvinotlessthen" placeholder="enter ieltsukvi not less then score" name="ieltsukvinotlessthenscore" value="{{$students->ielts_ukvi_notlessthen}}"><br>
                 </td>
             </tr>
             <tr>
@@ -378,8 +378,8 @@ padding: 20px;
                     <label>Pte Exam:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" id="pteoverall" placeholder="enter pte overall score" name="pteoverall"><br>
-                    <input class="field" type="text" id="ptenotlessthen" placeholder="enter pte not less then score" name="ptenotlessthenscore"><br>
+                    <input class="field" type="text" id="pteoverall" placeholder="enter pte overall score" name="pteoverall" value="{{$students->pte}}"><br>
+                    <input class="field" type="text" id="ptenotlessthen" placeholder="enter pte not less then score" name="ptenotlessthenscore" value="{{$students->pte_notlessthen}}"><br>
                 </td>
             </tr>
             <tr>
@@ -387,8 +387,8 @@ padding: 20px;
                     <label>Toefl Exam :</label>
                 </td>
                 <td>
-                    <input class="field" type="text" id="toefloverall" placeholder="enter toefl overall score" name="toeftoverall"><br>
-                    <input class="field" type="text" id="toeflnotlessthen" placeholder="enter toefl  not less then score" name="toeflnotlessthenscore"><br>
+                    <input class="field" type="text" id="toefloverall" placeholder="enter toefl overall score" name="toefloverall" value="{{$students->tofel}}"><br>
+                    <input class="field" type="text" id="toeflnotlessthen" placeholder="enter toefl  not less then score" name="toeflnotlessthenscore" value="{{$students->tofel_notlessthen}}"><br>
                 </td>
             </tr>
             <tr>
@@ -396,8 +396,8 @@ padding: 20px;
                     <label>Sat Exam :</label>
                 </td>
                 <td>
-                    <input class="field" id="satoverall" type="text" placeholder="enter overall score" name="satoverall"><br>
-                    <input class="field" id="satnotlessthen" type="text" placeholder="enter sat not less then score" name="satnotlessthenscore"><br>
+                    <input class="field" id="satoverall" type="text" placeholder="enter overall score" name="satoverall" value="{{$students->sat}}"><br>
+                    <input class="field" id="satnotlessthen" type="text" placeholder="enter sat not less then score" name="satnotlessthenscore" value="{{$students->sat_notlessthen}}"><br>
                 </td>
             </tr>
             <tr>
@@ -405,8 +405,8 @@ padding: 20px;
                     <label>Gre Exam :</label>
                 </td>
                 <td>
-                    <input class="field" type="text" id="greoverall" placeholder="enter gre overall score" name="greoverall"><br>
-                    <input class="field" type="text" id="grenotlessthen" placeholder="enter gre not less then score" name="grenotlessthenscore">
+                    <input class="field" type="text" id="greoverall" placeholder="enter gre overall score" name="greoverall" value="{{$students->gre}}"><br>
+                    <input class="field" type="text" id="grenotlessthen" placeholder="enter gre not less then score" name="grenotlessthenscore" value="{{$students->gre_notlessthen}}">
                 </td>
             </tr>
             <tr>
@@ -414,66 +414,50 @@ padding: 20px;
                     <label>Major subject:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="major_subject">
+                    <input class="field" type="text" name="major_subject" value="{{$students->major_subject}}">
                 </td>
             </tr>
-            <tr>
-            {{-- <tr>
-                <td>
-                    <label>enter Academic qualification:</label>
-                </td>
-                <td>
-                    <select name="academic" id="academic" class="callfield" style="" onchange="checkacademic(this)">
-                        <option value="slc">SLC</option>
-                        <option value="plus2">plus 2 </option>
-                        <option value="bachelor">Bachelor</option>
-                        <option value="master">Master </option>
-                       </select><br>
-                       <input class="field" id="slcgrade" type="text" placeholder="enter slc cgpa/grade" name="slcgrade"><br>
-                       <input class="field" id="slcpassout" type="text" placeholder="enter slc passed out year" name="slcpassoutyear"><br>
-                       <input class="field" id="plus2grade" type="text" placeholder="enter plus 2 cgpa/grade" name="plus2grade"><br>
-                       <input class="field" id="plus2passout" type="text" placeholder="enter plus 2 passed out year" name="plus2passoutyear"><br>
-                       <input class="field" id="bachelorgrade" type="text" placeholder="enter bachelor cgpa/grade" name="bachelorgrade"><br>
-                       <input class="field" id="bachelorpassout" type="text" placeholder="enter bachelor pass out year" name="bachelorpassoutyear"><br>
-                       <input class="field" id="mastergrade" type="text" placeholder="enter master cgpa/grade" name="mastergrade"><br>
-                       <input class="field" id="masterpassout" type="text" placeholder="enter master pass out year" name="masterpassoutyear"><br>
-                </td>
-            </tr> --}}
-                <td>
-                    <label> SLC/SEE :</label>
-                </td>
-                <td>
-                    <input class="field" id="slcgrade" type="text" placeholder="enter slc cgpa/grade" name="slcgrade"><br>
-                       <input class="field" id="slcpassout" type="text" placeholder="enter slc passed out year" name="slcpassoutyear"><br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label> +2/Pcl :</label>
-                </td>
-                <td>
-                    <input class="field" id="plus2grade" type="text" placeholder="enter plus 2 cgpa/grade" name="plus2grade"><br>
-                    <input class="field" id="plus2passout" type="text" placeholder="enter plus 2 passed out year" name="plus2passoutyear"><br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label> Bachelor degree:</label>
-                </td>
-                <td>
-                    <input class="field" id="bachelorgrade" type="text" placeholder="enter bachelor cgpa/grade" name="bachelorgrade"><br>
-                       <input class="field" id="bachelorpassout" type="text" placeholder="enter bachelor pass out year" name="bachelorpassoutyear"><br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label> Master degree:</label>
-                </td>
-                <td>
-                    <input class="field" id="mastergrade" type="text" placeholder="enter master cgpa/grade" name="mastergrade"><br>
-                    <input class="field" id="masterpassout" type="text" placeholder="enter master pass out year" name="masterpassoutyear"><br>
-                </td>
-            </tr>
+        
+          <tr>
+            <td>
+                <label> SLC/SEE :</label>
+            </td>
+            <td>
+                <input class="field" id="slclevel" type="text" placeholder=" slc/A+ " name="slclevel" value="{{$students->slc}}"><br>
+                <input class="field" id="slcgrade" type="text" placeholder="enter slc cgpa/grade" name="slcgrade" value="{{$students->slc_score}}"><br>
+                   <input class="field" id="slcpassout" type="text" placeholder="enter slc passed out year" name="slcpassoutyear" value="{{$students->slc_passoutyear}}"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label> +2/Pcl :</label>
+            </td>
+            <td>
+                <input class="field" id="slclevel" type="text" placeholder="i.e +2 science and technology " name="plus2level" value="{{$students->plus2}}"><br>
+                <input class="field" id="plus2grade" type="text" placeholder="enter plus 2 cgpa/grade" name="plus2grade" value="{{$students->plus2_score}}"><br>
+                <input class="field" id="plus2passout" type="text" placeholder="enter plus 2 passed out year" name="plus2passoutyear" value="{{$students->plus2_passoutyear}}"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label> Bachelor degree:</label>
+            </td>
+            <td>
+                <input class="field" id="bachelorlevel" type="text" placeholder="i.e Bachelor of software engineering" name="bachelorlevel" value="{{$students->bachelor}}"><br>
+                <input class="field" id="bachelorgrade" type="text" placeholder="enter bachelor cgpa/grade" name="bachelorgrade" value="{{$students->bachelor_score}}"><br>
+                   <input class="field" id="bachelorpassout" type="text" placeholder="enter bachelor pass out year" name="bachelorpassoutyear" value="{{$students->bachelor_passoutyear}}"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label> Master degree:</label>
+            </td>
+            <td>
+                <input class="field" id="masterlevel" type="text" placeholder=" master in science" name="masterlevel" value="{{$students->master}}"><br>
+                <input class="field" id="mastergrade" type="text" placeholder="enter master cgpa/grade" name="mastergrade" value="{{$students->master_score}}"><br>
+                <input class="field" id="masterpassout" type="text" placeholder="enter master pass out year" name="masterpassoutyear" value="{{$students->master_passoutyear}}"><br>
+            </td>
+        </tr>
             {{-- <tr>
                 <td>
                     <label>enter interest_course:</label>
