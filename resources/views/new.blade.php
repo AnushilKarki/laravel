@@ -16,7 +16,7 @@ body {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-margin-top: 50px;
+margin-top: 10px;
 margin-left:100px;
 min-width:400px;
 padding: 20px;
@@ -46,18 +46,47 @@ td, th {
 </head>
 <body>
    
- <h2 style="text-align: center;">Student Details</h2>
+ <h2 style="text-align: center;">SajiloVisa Applicant Details</h2>
+<table style="width:100%;margin:5px;">
+<tr>
+<th> {{ $students['studentid'] }}</th>
+<th> {{$students['status']}}</th>
+</tr>
+  <tr>
+    <td>Name: {{ $students['name'] }} </td>
+    <td>email: {{$students['email']}}</td>
+    <td>Interest Country: {{ $students['interest_country'] }}</td>
+    <td>Work Experience: {{ $students['work_experience'] }}</td>
+    <td>Marital status: {{$students['marital_status']}}</td>
+    </tr>
+    <tr>
+      <td>Contact: {{ $students['contact'] }}</td>
+<td>Address: {{ $students['address'] }}</td>
+<td>Dob: {{ $students['dob'] }}</td>
+<td>Interest Course: {{ $students['interest_course'] }}</td>
+<td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
+    </tr>
+    <tr>
+<td>Major Subject: {{$students['major_subject']}}</td>
+<td>Test Preparation: {{ $students['test_preparation'] }}</td>
+<td>Highest acheived: {{ $students['highest_acheived'] }}</td>
+<td>Counseled By: {{ $students['counseled_by'] }}</td>
+<td>Remark: {{ $students['remark'] }}</td>
+    </tr>
+</table>
+ {{-- <div style="width:100%;height:150px;"> 
 
- <div style="width:100%;height:150px;"> 
  <div class="column">
     <div>Name: {{ $students['name'] }}</div> <br>
     <div>email: {{$students['email']}}</div><br>
     <div>Interest Country: {{ $students['interest_country'] }}</div>  
+    <div>Work Experience: {{ $students['work_experience'] }}</div>  
    </div>
    <div class="column">
     <div>Address: {{ $students['address'] }}</div> <br>
     <div>Marital status: {{$students['marital_status']}}</div><br>
     <div>Interest Course: {{ $students['interest_course'] }}</div>
+    <div>Visa Rejection: {{ $students['visa_rejection'] }}</div>  
 </div>
 <div class="column">
     <div>Contact: {{ $students['contact'] }}</div> <br>
@@ -65,10 +94,10 @@ td, th {
     <div>Major Subject: {{$students['major_subject']}}</div>
     <div>Test Preparation: {{ $students['test_preparation'] }}</div>
 </div>
-</div>
+</div> --}}
 
 <div class="fullcolumn">
-    <h2 style="text-align: center;">Academic and Test Examination Details</h2>
+    {{-- <h2 style="text-align: center;">Academic and Test Examination Details</h2> --}}
     <table>
       <tr>
         {{-- <th>id</th> --}}
@@ -179,18 +208,21 @@ td, th {
     </table> 
 </div>
 <div>
-  <h2 style="text-align: center;text-decoration:underline;">Account Details</h2>
+  {{-- <h2 style="text-align: center;text-decoration:underline;">Account Details</h2> --}}
   <img src="../public/sajilovisaqr.png" width="90" style="margin:5px;" alt="qr">
   <span> your account has been created automatically.please scan qr to visit our app and change your password to proceed forward with your application</span> 
- <br> <span>email : anushil.karki34@gmail.com </span>
+ <br> <span>email : {{$students['email']}} </span>
 <br>
   <span>password : sajilo@123</span>  
 <Br>
   <span>website : https://www.sajilovisa.com</span>
   <br><br>
+  <div style="float: left;">
   counselled by : ..........................
-  
+  </div>
+  <div style="float:right;">
   Date          : ..........................
+  </div>
 </div>
 </body>
 </html>

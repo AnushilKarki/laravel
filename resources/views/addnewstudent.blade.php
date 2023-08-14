@@ -173,7 +173,7 @@ padding: 20px;
                     <label>enter name:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="name"  placeholder="enter name">
+                    <input class="field" type="text" name="name"  placeholder="enter name" required>
                 </td>
             </tr>
             <tr>
@@ -181,7 +181,7 @@ padding: 20px;
                     <label>enter email:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="email"  placeholder="enter email">
+                    <input class="field" type="text" name="email"  placeholder="enter email" required>
                 </td>
             </tr>
             <tr>

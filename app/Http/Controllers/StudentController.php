@@ -10,6 +10,8 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Dompdf\Dompdf;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -60,9 +62,34 @@ return view('addstudent',compact('msg'));
             return view('viewstudent',compact('students','studentscount'));
         }
     public function addnewstudent(Request $request){
-      $student =new Student;
+        $sid = Carbon::now();
+        $month = $sid->month;
+        $year = substr(($sid->year),1);
+ 
+        $value = cache('applicantid');
+        if($value){
+            $y = cache('year');
+            $m = cache('month');
+            if($sid->year == $y && $sid->month == $m){
+                Cache::increment('applicantid');
+            }else {
+                Cache::flush();
+                Cache::put('year', $sid->year);
+                Cache::put('month', $sid->month);
+                Cache::put('applicantid', 1);
+            }
+        }else {
+           Cache::put('applicantid', 1);
+           Cache::put('year', $sid->year);
+           Cache::put('month', $sid->month);
+        }
+        $value = cache('applicantid');
+        $studentid = 'sv-'.$year.$month.$value;
+        // dd($studentid);
+      $student = new Student;
         // if($request->has('name')){
             $student->name = $request->name;
+            $student->Studentid = $studentid;
             $student->contact = $request->contact;
             $student->address = $request->address;
             $student->highest_acheived = $request->highest_acheived;
@@ -119,12 +146,12 @@ return view('addstudent',compact('msg'));
     $student->counseled_by = $request->counseled_by;
     $student->major_subject = $request->major_subject;
     $student->save();
-    // \App\Models\User::create([
-    //     'name'=>$request->name,
-    //     'email'=>$request->email,
-    //     'password'=> bcrypt('password'),
-    //         'is_change'=> 0
-    // ]);
+   $newuser = \App\Models\User::create([
+        'name'=>$request->name,
+        'email'=>$request->email,
+        'password'=> bcrypt('sajilo@123'),
+            'is_change'=> 0
+    ]);
     return redirect()->route('studentdata');
     }
     public function edit($id){
@@ -214,10 +241,10 @@ return view('addstudent',compact('msg'));
         public function studentexport(){
             $students = DB::table('students')->get();
             $data = $students->toArray();
+            $data = json_decode( json_encode($data), true);
+            // dd($data);
         //    dd($data);
             $spreadsheet = new Spreadsheet();
-
-// Set the active worksheet
             $sheet = $spreadsheet->getActiveSheet();
             $sheet->setCellValue('A1','Id')
             ->setCellValue('B1','Name')
@@ -237,22 +264,112 @@ return view('addstudent',compact('msg'));
     ->setCellValue('P1','created_at')
     ->SetCellValue('Q1','updatedat')
     ->setCellValue('R1','status')
-    ->setCellValue('S1','remark');
-// Populate the worksheet with data
-        foreach ($data as $rowIndex => $rowData) {
-            $id=$rowIndex+2;
-            $letter = 'A';
+    ->setCellValue('S1','remark')
+    ->SetCellValue('T1','callstatus')
+    ->setCellValue('U1','dob')
+    ->SetCellValue('V1','master')
+    ->setCellValue('W1','bachelor')
+    ->setCellValue('X1','plus2')
+    ->SetCellValue('Y1','slc')
+    ->setCellValue('Z1','major_subject')
+    ->SetCellValue('AA1','marital_status')
+    ->setCellValue('AB1','ielts')
+    ->SetCellValue('AC1','ielts_ukvi')
+    ->setCellValue('AD1','tofel')
+    ->setCellValue('AE1','sat')
+    ->SetCellValue('AF1','pte')
+    ->setCellValue('AG1','gre')
+    ->SetCellValue('AH1','extra')
+    ->setCellValue('AI1','counseled by')
+    ->SetCellValue('AJ1','studentid')
+    ->setCellValue('AK1','master_score')
+    ->setCellValue('AL1','bachelor_score')
+    ->SetCellValue('AM1','plus2_score')
+    ->setCellValue('AN1','slc_score')
+    ->SetCellValue('AO1','master_passoutyear')
+    ->setCellValue('AP1','bachelor_passoutyear')
+    ->SetCellValue('AQ1','plus2_passoutyear')
+    ->setCellValue('AR1','slc_passoutyear')
+    ->setCellValue('AS1','ielts_notlessthen')
+    ->SetCellValue('AT1','ielts_ukvi_notlessthen')
+    ->setCellValue('AU1','tofel_notlessthen')
+    ->SetCellValue('AV1','sat_notlessthen')
+    ->setCellValue('AW1','pte_notlessthen')
+    ->SetCellValue('AX1','gre_notlessthen');
+            $sheet
+            ->fromArray(
+                $data,  // The data to set
+                NULL,        // Array values with this value will not be set
+                'A2'         // Top left coordinate of the worksheet range where
+                             //    we want to set these values (default is A1)
+            );
+// Set the active worksheet
+//             $sheet = $spreadsheet->getActiveSheet();
+//             $sheet->setCellValue('A1','Id')
+//             ->setCellValue('B1','Name')
+//             ->setCellValue('C1','Contact')
+//             ->setCellValue('D1','Address')
+//      ->setCellValue('E1','Highest_acheived')
+//     ->setCellValue('F1','Cgpa')
+//     ->setCellValue('G1','Test_preparation')
+//     ->setCellValue('H1','Test_score')
+//     ->setCellValue('I1','Interest_country')
+//     ->setCellValue('J1','Interest_course')
+//     ->setCellValue('K1','Work_experience')
+//     ->SetCellValue('L1','Visa_rejection')
+//     ->setCellValue('M1','Email')
+//     ->SetCellValue('N1','password')
+//     ->setCellValue('O1','userid')
+//     ->setCellValue('P1','created_at')
+//     ->SetCellValue('Q1','updatedat')
+//     ->setCellValue('R1','status')
+//     ->setCellValue('S1','remark')
+//     ->SetCellValue('T1','callstatus')
+//     ->setCellValue('U1','dob')
+//     ->SetCellValue('V1','master')
+//     ->setCellValue('W1','bachelor')
+//     ->setCellValue('X1','plus2')
+//     ->SetCellValue('Y1','slc')
+//     ->setCellValue('Z1','major_subject')
+//     ->SetCellValue('AA1','marital_status')
+//     ->setCellValue('AB1','ielts')
+//     ->SetCellValue('AC1','ielts_ukvi')
+//     ->setCellValue('AD1','tofel')
+//     ->setCellValue('AE1','sat')
+//     ->SetCellValue('AF1','pte')
+//     ->setCellValue('AG1','gre')
+//     ->SetCellValue('AH1','extra')
+//     ->setCellValue('AI1','counseled by')
+//     ->SetCellValue('AJ1','studentid')
+//     ->setCellValue('AK1','master_score')
+//     ->setCellValue('AL1','bachelor_score')
+//     ->SetCellValue('AM1','plus2_score')
+//     ->setCellValue('AN1','slc_score')
+//     ->SetCellValue('AO1','master_passoutyear')
+//     ->setCellValue('AP1','bachelor_passoutyear')
+//     ->SetCellValue('AQ1','plus2_passoutyear')
+//     ->setCellValue('AR1','slc_passoutyear')
+//     ->setCellValue('AS1','ielts_notlessthen')
+//     ->SetCellValue('AT1','ielts_ukvi_notlessthen')
+//     ->setCellValue('AU1','tofel_notlessthen')
+//     ->SetCellValue('AV1','sat_notlessthen')
+//     ->setCellValue('AW1','pte_notlessthen')
+//     ->SetCellValue('AX1','gre_notlessthen');
+// // Populate the worksheet with data
+//         foreach ($data as $rowIndex => $rowData) {
+//             $id=$rowIndex+2;
+//             $letter = 'A';
 
-            foreach ($rowData as $columnIndex => $value) {
+//             foreach ($rowData as $columnIndex => $value) {
                
-                $sheet->setCellValue($letter.$id,$value);
-                $letterAscii = ord($letter);
-                $letterAscii++;
-                $letter = chr($letterAscii);
-                    // $sheet->setCellValue(($columnIndex) , ($rowIndex) , $value);
+//                 $sheet->setCellValue($letter.$id,$value);
+//                 $letterAscii = ord($letter);
+//                 $letterAscii++;
+//                 $letter = chr($letterAscii);
+//                     // $sheet->setCellValue(($columnIndex) , ($rowIndex) , $value);
                    
-        }
-        }
+//         }
+//         }
         $writer = new Xlsx($spreadsheet);
         $writer->save('studentdata.xlsx');
         return response()->download('studentdata.xlsx'); 
