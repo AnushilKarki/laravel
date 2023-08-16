@@ -138,7 +138,7 @@ flex-wrap:wrap;
           <input type="submit" placeholder="search">
               </form>
               <div class="part">
-                <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
+                <button class="add" type="button"><a href="/new">Add new student</a> </button>
               </div>
 
 <table>

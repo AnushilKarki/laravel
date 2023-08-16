@@ -55,5 +55,5 @@ Route::get('/export',[StudentController::class,'studentexport']);
 Route::get('/export/{id}',[StudentController::class,'pdfexport'])->name('student.export');
 
 Route::get('/new',function(){
-return view('new');
+return view('addApplicant');
 });

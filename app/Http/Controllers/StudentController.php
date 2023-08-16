@@ -93,6 +93,9 @@ return view('addstudent',compact('msg'));
             $student->contact = $request->contact;
             $student->address = $request->address;
             $student->highest_acheived = $request->highest_acheived;
+            $student->gurdain_name = $request->gurdain_name;
+            $student->gurdain_no = $request->gurdain_no;
+            $student->interest_city = $request->interest_city;
     //    }
     $student->cgpa = $request->cgpa;
     $student->test_preparation = $request->test_preparation;
@@ -156,7 +159,7 @@ return view('addstudent',compact('msg'));
     }
     public function edit($id){
         $students = Student::where('id',$id)->first();
-        return view('editnewstudent',compact('students'));
+        return view('editApplicant',compact('students'));
     }
     public function view($id){
         $students = Student::where('id',$id)->first();
@@ -180,6 +183,9 @@ return view('addstudent',compact('msg'));
         $student->email = $request->email;  
         $student->status = $request->status; 
         $student->remark = $request->remark;
+        $student->gurdain_name = $request->gurdain_name;
+        $student->gurdain_no = $request->gurdain_no;
+        $student->interest_city = $request->interest_city;
         //after
         $student->dob = $request->dob;
         $student->marital_status = $request->marital_status;
@@ -262,7 +268,7 @@ return view('addstudent',compact('msg'));
     ->SetCellValue('N1','password')
     ->setCellValue('O1','userid')
     ->setCellValue('P1','created_at')
-    ->SetCellValue('Q1','updatedat')
+    ->SetCellValue('Q1','updated_at')
     ->setCellValue('R1','status')
     ->setCellValue('S1','remark')
     ->SetCellValue('T1','callstatus')
@@ -295,7 +301,10 @@ return view('addstudent',compact('msg'));
     ->setCellValue('AU1','tofel_notlessthen')
     ->SetCellValue('AV1','sat_notlessthen')
     ->setCellValue('AW1','pte_notlessthen')
-    ->SetCellValue('AX1','gre_notlessthen');
+    ->SetCellValue('AX1','gre_notlessthen')
+    ->setCellValue('AY1','gurdain name')
+    ->SetCellValue('AZ1','gurdain_no')
+    ->setCellValue('BA1','interest_city');
             $sheet
             ->fromArray(
                 $data,  // The data to set

@@ -181,7 +181,7 @@ padding: 20px;
                     <label>enter email:</label>
                 </td>
                 <td>
-                    <input class="field" type="text" name="email"  placeholder="enter email" required>
+                    <input class="field" type="text" name="email"  placeholder="enter email" re>
                 </td>
             </tr>
             <tr>
