@@ -140,6 +140,7 @@
     <div class="main">
         <form action="{{ route('updatestudent',$students->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
         <div class="headertext">
             Add New Applicant
         </div>

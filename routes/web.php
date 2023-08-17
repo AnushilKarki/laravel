@@ -31,7 +31,7 @@ Route::get('/addnewstudent',function(){
 Route::get('/delete/student/{id}',[StudentController::class,'delete'])->name('deletestudent');
 Route::get('/edit/student/{id}',[StudentController::class,'edit'])->name('editstudent');
 Route::get('/view/student/{id}',[StudentController::class,'view'])->name('viewstudent');
-Route::post('/update/student/{id}',[StudentController::class,'update'])->name('updatestudent');
+Route::put('/update/student/{id}',[StudentController::class,'update'])->name('updatestudent');
 Route::post('searchstudent',[StudentController::class,'searchStudent'])->name('searchstudent')->middleware('auth');
 Route::post('addnewstudent',[StudentController::class,'addnewstudent'])->name('addnewstudent')->middleware('auth');
 Route::get('studentdata',[StudentController::class,'studentdata'])->name('studentdata')->middleware('auth');
@@ -56,4 +56,7 @@ Route::get('/export/{id}',[StudentController::class,'pdfexport'])->name('student
 
 Route::get('/new',function(){
 return view('addApplicant');
+});
+Route::get('/applicant',function(){
+    return view('newform');
 });
