@@ -58,7 +58,7 @@ return view('addstudent',compact('msg'));
         {
             $search = $request->search;
             $studentscount = Student::count();
-            $students = Student::where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('contact','like','%'.$search.'%')->simplePaginate(15);
+            $students = Student::where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('contact','like','%'.$search.'%')->orWhere('studentid','like','%'.$search.'%')->simplePaginate(15);
             return view('viewstudent',compact('students','studentscount'));
         }
     public function addnewstudent(Request $request){
