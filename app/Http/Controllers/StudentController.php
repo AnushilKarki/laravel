@@ -125,6 +125,13 @@ return view('addstudent',compact('msg'));
     $student->tofel_notlessthen = $request->toeflnotlessthenscore;
     $student->sat_notlessthen = $request->satnotlessthenscore;
     $student->gre_notlessthen = $request->grenotlessthenscore;
+
+    $student->ielts_issue_date = $request->ielts_issue_date;
+    $student->ielts_ukvi_issue_date = $request->ielts_ukvi_issue_date;
+    $student->pte_issue_date = $request->pte_issue_date;
+    $student->tofel_issue_date = $request->toefl_issue_date;
+    $student->sat_issue_date= $request->sat_issue_date;
+    $student->gre_issue_date = $request->gre_issue_date;
     // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
     // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
     // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
@@ -213,6 +220,14 @@ return view('addstudent',compact('msg'));
     $student->tofel_notlessthen = $request->toeflnotlessthenscore;
     $student->sat_notlessthen = $request->satnotlessthenscore;
     $student->gre_notlessthen = $request->grenotlessthenscore;
+
+
+    $student->ielts_issue_date = $request->ielts_issue_date;
+    $student->ielts_ukvi_issue_date = $request->ielts_ukvi_issue_date;
+    $student->pte_issue_date = $request->pte_issue_date;
+    $student->tofel_issue_date = $request->toefl_issue_date;
+    $student->sat_issue_date= $request->sat_issue_date;
+    $student->gre_issue_date = $request->gre_issue_date;
     // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
     // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
     // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;

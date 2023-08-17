@@ -128,6 +128,19 @@ flex-wrap:wrap;
         <div class="part">
           <button class="add" type="button"><a href="/export">Export All student data</a> </button>
         </div>
+        @auth()
+        <div class="part">
+          <div class="logoutform">
+          <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="but">
+      
+          <button class="logout" type="submit">Logout</button>
+      </div>
+              </form>
+              </div>
+        </div>
+        @endauth
       
         {{-- <div class="part">
           <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>

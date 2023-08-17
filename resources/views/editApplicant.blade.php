@@ -195,7 +195,7 @@
             <div class="formpart">
                 <div class="inputacademicfield">
                     <div class="headertext">
-                       <button  class="academicbtn" onclick="myFunction()"> SLC/SEE</button>
+                       <button type="button" class="academicbtn" onclick="myFunction()"> SLC/SEE</button>
                      </div>
                      <div id="slc">
                      <div class="inputfield">
@@ -214,7 +214,7 @@
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction1()"> Plus2 / pcl</button>
+                        <button type="button" class="academicbtn" onclick="myFunction1()"> Plus2 / pcl</button>
                      </div>
                      <div id="plus2">
                      <div class="inputfield">
@@ -233,7 +233,7 @@
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction2()"> Bachelor</button>
+                        <button type="button" class="academicbtn" onclick="myFunction2()"> Bachelor</button>
                      </div>
                      <div id="bachelor">
                      <div class="inputfield">
@@ -252,7 +252,7 @@
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction3()"> Master</button>
+                        <button type="button" class="academicbtn" onclick="myFunction3()"> Master</button>
                      </div>
                      <div id="master">
                      <div class="inputfield">
@@ -297,7 +297,7 @@
             <div class="formpart">
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction4()"> Ielts Score</button>    
+                        <button type="button" class="academicbtn" onclick="myFunction4()"> Ielts Score</button>    
                      </div>
                      <div id="ielts">
                    <div class="inputfield">
@@ -308,11 +308,15 @@
                     <label>Not less then score : </label>
                     <input class="field" type="text" name="ieltsnotlessthenscore"  value="{{$students->ielts_notlessthen}}" placeholder="enter ieltsnotlessthen score">
                    </div>
+                   <div class="inputfield">
+                    <label>issue date : </label>
+                    <input class="field" type="date" name="ielts_issue_date"  value="{{$students->ielts_issue_date}}" placeholder="enter ielts issue date">
+                   </div>
                 </div>
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction5()"> Ielts ukvi score</button> 
+                        <button type="button" class="academicbtn" onclick="myFunction5()"> Ielts ukvi score</button> 
                      </div>
                      <div id="ieltsukvi">
                    <div class="inputfield">
@@ -323,11 +327,15 @@
                     <label>Not less then score : </label>
                     <input class="field" type="text" name="ieltsukvinotlessthenscore"  value="{{$students->ielts_ukvi_notlessthen}}" placeholder="enter ieltsukvinotlessthen score">
                    </div>
+                   <div class="inputfield">
+                    <label>issue date : </label>
+                    <input class="field" type="date" name="ielts_ukvi_issue_date"  value="{{$students->ielts_ukvi_issue_date}}" placeholder="enter ielts ukvi issue date ">
+                   </div>
                 </div>
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction6()"> Pte score</button>
+                        <button type="button" class="academicbtn" onclick="myFunction6()"> Pte score</button>
                      </div>
                      <div id="pte">
                    <div class="inputfield">
@@ -338,11 +346,15 @@
                     <label>Not less then score : </label>
                     <input class="field" type="text" name="ptenotlessthenscore"  value="{{$students->pte_notlessthen}}" placeholder="enter ptenot less then score">
                    </div>
+                   <div class="inputfield">
+                    <label>issue date : </label>
+                    <input class="field" type="date" name="pte_issue_date"  value="{{$students->pte_issue_date}}" placeholder="enter pte issuedate">
+                   </div>
                      </div>
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction7()"> Toefel</button>
+                        <button type="button" class="academicbtn" onclick="myFunction7()"> Toefel</button>
                      </div>
                      <div id="toefel">
                    <div class="inputfield">
@@ -352,12 +364,16 @@
                    <div class="inputfield">
                     <label>Not less then score : </label>
                     <input class="field" type="text" name="toeflnotlessthenscore"  value="{{$students->tofel_notlessthen}}" placeholder="enter toeflnotlessthenscore">
+                   </div>  <div class="inputfield">
+                    <label>issue date : </label>
+                    <input class="field" type="date" name="toefl_issue_date"  value="{{$students->tofel_issue_date}}" placeholder="enter toefl issuedate">
                    </div>
+
                      </div>
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction8()"> Sat</button>
+                        <button type="button" class="academicbtn" onclick="myFunction8()"> Sat</button>
                      </div>
                      <div id="sat">
                    <div class="inputfield">
@@ -368,11 +384,15 @@
                     <label>Not less then score : </label>
                     <input class="field" type="text" name="satnotlessthenscore"  value="{{$students->sat_notlessthen}}" placeholder="enter satnotlessthen score">
                    </div>
+                   <div class="inputfield">
+                    <label>issue date : </label>
+                    <input class="field" type="date" name="sat_issue_date"  value="{{$students->sat_issue_date}}" placeholder="enter sat issuedate">
+                   </div>
                 </div>
                 </div>
                 <div class="inputacademicfield">
                     <div class="headertext">
-                        <button  class="academicbtn" onclick="myFunction9()"> Gre</button>
+                        <button type="button" class="academicbtn" onclick="myFunction9()"> Gre</button>
                      </div>
                      <div id="gre">
                    <div class="inputfield">
@@ -382,6 +402,10 @@
                    <div class="inputfield">
                     <label>Not less then score : </label>
                     <input class="field" type="text" name="grenotlessthenscore"  value="{{$students->gre_notlessthen}}" placeholder="enter grenotlessthen score">
+                   </div>
+                   <div class="inputfield">
+                    <label>issue date : </label>
+                    <input class="field" type="date" name="gre_issue_date"  value="{{$students->gre_issue_date}}" placeholder="enter grenotlessthen score">
                    </div>
                 </div>
                 </div>
