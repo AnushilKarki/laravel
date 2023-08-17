@@ -256,6 +256,7 @@ flex-wrap:wrap;
                     <td>Test Examination </td>
                     <td>overall score</td>
                     <td>not less then score</td>
+                    <td>issue date</td>
                     <td></td>
                 </tr>
                 @if($students['ielts'])
@@ -264,6 +265,7 @@ flex-wrap:wrap;
                     <td>Ielts</td>
                     <td>overall :{{ $students['ielts'] }}  </td>
                       <td> not less then score : {{ $students['ielts_notlessthen'] }}</td>
+                      <td>issue date : {{$students['ielts_issue_date']}} </td>
                       </tr>
                       @endif
                       @if($students['ielts_ukvi'])
@@ -272,6 +274,7 @@ flex-wrap:wrap;
                         <td>Ielts ukvi</td>
                         <td>overall :{{ $students['ielts_ukvi'] }} </td>
                           <td> not less then : {{ $students['ielts_ukvi_notlessthen'] }}</td>
+                          <td>issue date : {{$students['ielts_ukvi_issue_date']}} </td>
                           </tr>
                           @endif
                           @if($students['tofel'])
@@ -280,6 +283,7 @@ flex-wrap:wrap;
                             <td>Toefel</td>
                             <td>overall :{{ $students['tofel'] }} </td>
                               <td> not less then : {{ $students['tofel_notlessthen'] }}</td>
+                              <td>issue date : {{$students['tofel_issue_date']}} </td>
                               </tr>
                               @endif
                               @if($students['pte'])
@@ -288,6 +292,7 @@ flex-wrap:wrap;
                                 <td>Pte</td>
                                 <td>overall :{{ $students['pte'] }} </td>
                                 <td> not less then : {{ $students['pte_notlessthen'] }}</td>
+                                <td>issue date : {{$students['pte_issue_date']}} </td>
                                   </tr>
                                   @endif
                                   @if($students['gre'])
@@ -296,6 +301,7 @@ flex-wrap:wrap;
                                     <td>Gre</td>
                                     <td>overall :{{ $students['gre'] }} </td>
                                        <td> not less then : {{ $students['gre_notlessthen'] }}</td>
+                                       <td>issue date : {{$students['gre_issue_date']}} </td>
                                       </tr>
                                       @endif
                                       @if($students['sat'])
@@ -304,6 +310,7 @@ flex-wrap:wrap;
                                         <td>Sat</td>
                                         <td>overall :{{ $students['sat'] }} </td>
                                         <td> not less then : {{ $students['sat_notlessthen'] }}</td>
+                                        <td>issue date : {{$students['sat_issue_date']}} </td>
                                           </tr>
                                           @endif
             

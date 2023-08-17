@@ -84,12 +84,32 @@ return view('addstudent',compact('msg'));
            Cache::put('month', $sid->month);
         }
         $value = cache('applicantid');
-        $studentid = 'sv-'.$year.$month.$value;
+
+        if($value<10){
+            if($month<10){
+                $studentid = 'svd-'.$year.'0'.$month.'00'.$value;
+            }else {
+                $studentid = 'svd-'.$year.$month.'00'.$value;
+            }
+        }else if($value>=10 && $value<100){
+            if($month<10){
+                $studentid = 'svd-'.$year.'0'.$month.'0'.$value;
+            }else {
+                $studentid = 'svd-'.$year.$month.'0'.$value;
+            }
+        }else {
+            if($month<10){
+                $studentid = 'svd-'.$year.'0'.$month.$value;
+            }else {
+                $studentid = 'svd-'.$year.$month.$value;
+            }
+        }
+       
         // dd($studentid);
       $student = new Student;
         // if($request->has('name')){
             $student->name = $request->name;
-            $student->Studentid = $studentid;
+            $student->studentid = $studentid;
             $student->contact = $request->contact;
             $student->address = $request->address;
             $student->highest_acheived = $request->highest_acheived;
@@ -319,7 +339,13 @@ return view('addstudent',compact('msg'));
     ->SetCellValue('AX1','gre_notlessthen')
     ->setCellValue('AY1','gurdain name')
     ->SetCellValue('AZ1','gurdain_no')
-    ->setCellValue('BA1','interest_city');
+    ->setCellValue('BA1','interest_city')
+    ->setCellValue('BA2','ielts issue date')
+    ->setCellValue('BA3','ielts_ukvi issue date')
+    ->setCellValue('BA4','pte issue date')
+    ->setCellValue('BA5','toefel issue date')
+    ->setCellValue('BA6','sat issue date')
+    ->setCellValue('BA7','gre issue date');
             $sheet
             ->fromArray(
                 $data,  // The data to set

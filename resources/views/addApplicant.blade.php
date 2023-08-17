@@ -430,7 +430,7 @@
                     {{-- <input class="field" type="text" name="callstatus" placeholder="enter about call status"> --}}
                     <select name="callstatus" class="field" style="">
                         <option value="called">called</option>
-                        <option value="notcalled">not called</option>
+                        <option value="not_called">not called</option>
                        </select>
                 </div>
                 <div class="inputfield">
