@@ -355,13 +355,13 @@ return view('addstudent',compact('msg'));
     ->setCellValue('AY1','gurdain name')
     ->SetCellValue('AZ1','gurdain_no')
     ->setCellValue('BA1','interest_city')
-    ->setCellValue('BA2','ielts issue date')
-    ->setCellValue('BA3','ielts_ukvi issue date')
-    ->setCellValue('BA4','pte issue date')
-    ->setCellValue('BA5','toefel issue date')
-    ->setCellValue('BA6','sat issue date')
-    ->setCellValue('BA7','gre issue date')
-    ->setCellValue('BA8','call detail');
+    ->setCellValue('BB1','ielts issue date')
+    ->setCellValue('BC1','ielts_ukvi issue date')
+    ->setCellValue('BD4','pte issue date')
+    ->setCellValue('BE1','toefel issue date')
+    ->setCellValue('BF1','sat issue date')
+    ->setCellValue('BG1','gre issue date')
+    ->setCellValue('BH1','call detail');
             $sheet
             ->fromArray(
                 $data,  // The data to set
