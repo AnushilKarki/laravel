@@ -335,6 +335,8 @@ width: 400px;
     </style>
 </head>
 <body>
+    <form action="{{route('camera')}}" method="POST" enctype="multipart/form-data" onsubmit="return false;">
+        @csrf
     <div class="main">
 
         <div class="logoimage">
@@ -659,6 +661,30 @@ width: 400px;
             
             </div>
         </div>
+        <div class="personaldetail" style="background-color : white;justify-content:center;">
+        <div style="display: flex;flex-direction:column;align-items:center;justify-content:center;">
+            <button type="botton" id="start-camera" style="padding:5px;margin:60px;height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Start Camera</button>
+            <button style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</button>
+    </div>
+            <div class="first">
+                <div class="inputfield">
+                    {{-- <input class="addressfield" type="text" name="intrest_country" placeholder="Assigned Cousellor"><br> --}}
+                    <video id="video" width="320" height="240" autoplay></video>
+                    {{-- <label>please select interested country</label> --}}
+                </div>
+         
+            
+            </div>
+        
+            <div class="second">
+                <div class="inputfield">
+                    <canvas id="canvas" width="320" height="240"></canvas>
+                    
+                    {{-- <label>please select interested country</label> --}}
+                </div>
+            
+            </div>
+        </div>
         <div class="personaldetail" style="background-color : white;">
         <div class="official"  style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">
             <h3>OFFICIAL USE ONLY</h3>
@@ -682,6 +708,8 @@ width: 400px;
         
         </div>
     </div>
+  
+
     {{-- <div class="personaldetail" style="background-color : white;"> --}}
         <div class="official" style="margin-top: 40px;text-align:center;">
             <input type="text" name="remark" placeholder="remark" style="height:100px;width:90%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 3px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"/>
@@ -689,9 +717,17 @@ width: 400px;
         </div>
     {{-- </div> --}}
     <div>
-        <input type="file" hidden id="image" >
+        <input type="text" hidden id="image" name="image" >
+        {{-- <input type="file" hidden id="image1" name="image1"> --}}
     </div>
     </div>
+    <div style="text-align: center;">
+    <input class="" style="height:70px;width:30%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="submit"/>
+    </div>
+    </form>
+    {{-- <button type="botton" id="start-camera">Start Camera</button>
+    <button type="botton" id="click-photo">Click Photo</button>
+    <button type="botton" id="" onclick="vidOff()">stop camera</button> --}}
     {{-- <h1>Open WebCam Using JavaScript</h1>
     <br/>
     <button id="startBtn" onclick="openCam()">Open Webcam</button>
@@ -724,10 +760,10 @@ width: 400px;
           });
        }
     </script> --}}
-    <button id="start-camera">Start Camera</button>
-<video id="video" width="320" height="240" autoplay></video>
-<button id="click-photo">Click Photo</button>
-<canvas id="canvas" width="320" height="240"></canvas>
+    {{-- <button id="start-camera">Start Camera</button> --}}
+{{-- <video id="video" width="320" height="240" autoplay></video> --}}
+{{-- <button id="click-photo">Click Photo</button> --}}
+{{-- <canvas id="canvas" width="320" height="240"></canvas> --}}
 <script>
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
@@ -743,10 +779,29 @@ click_button.addEventListener('click', function() {
    	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
    	let image_data_url = canvas.toDataURL('image/jpeg');
     var image = document.getElementById('image');
-    image.value = image_data_url;
+
+    let image_base64 = document.querySelector("#canvas").toDataURL().replace(/^data:image\/png;base64,/, "");
+    image.value = image_base64
+//     let file = null;
+// let blob = document.querySelector("#canvas").toBlob(function(blob) {
+// 				file = new File([blob], 'test.png', { type: 'image/png' });
+// 			}, 'image/png');
+//             var image1 = document.getElementById('image1');
+//             image1.value = blob;
    	// data url of the image
    	console.log(image.value);
 });
+function vidOff() {
+  //clearInterval(theDrawLoop);
+  //ExtensionData.vidStatus = 'off';
+//   vid.pause();
+//     vid.src = "";
+//     localstream.stop();
+const tracks = mediaStream.getTracks();
+
+// Tracks are returned as an array, so if you know you only have one, you can stop it with: 
+tracks[0].stop();
+}
     </script>
 </body>
 </html>

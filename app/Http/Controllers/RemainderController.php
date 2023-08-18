@@ -41,4 +41,11 @@ class RemainderController extends Controller
         $remainder = Remainder::find($id);
         $remainder->delete();
     }
+    public function testcamera(Request $request){
+        $data =$request->image;
+    
+$data = base64_decode($data);
+
+file_put_contents('test.png', $data);
+    }
 }

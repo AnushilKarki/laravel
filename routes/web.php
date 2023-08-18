@@ -68,3 +68,5 @@ Route::delete('delete/remainder/{id}',[RemainderController::class,'deleteremaind
 Route::get('/remainder/userwise',[RemainderController::class,'getremainderuserwise'])->name('remainder.userwise');
 Route::get('/remainder/studentwise/{id}',[RemainderController::class,'getremainderstudentwise'])->name('remainder.studentwise');
 Route::get('remainder/edit/{id}',[RemainderController::class,'edit'])->name('editviewremainder');
+
+route::post('/testcamera',[RemainderController::class,'testcamera'])->name('camera');
