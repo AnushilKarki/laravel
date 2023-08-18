@@ -197,10 +197,6 @@ flex-wrap:wrap;
     <th>Email</th>
     <th>address</th>
     <th>contact number</th>
-    <th>highest Acheived</th>
-    <th>CGPA</th>
-    <th>Test Preparation</th>
-    <th>Test Score</th>
     <th>Interest Country</th>
     <th>Interest Course</th>
     <th>Work Experience</th>
@@ -224,11 +220,7 @@ flex-wrap:wrap;
  
     <td>{{ $d['address'] }}</td>
     <td>{{ $d['contact'] }}</td>
-    <td>{{ $d['highest_acheived'] }}</td>
-    <td>{{ $d['cgpa'] }}</td>
  
-    <td>{{ $d['test_preparation'] }}</td>
-    <td>{{ $d['test_score'] }}</td>
     <td>{{ $d['interest_country'] }}</td>
     <td>{{ $d['interest_course'] }}</td>
     <td>{{ $d['work_experience'] }}</td>
