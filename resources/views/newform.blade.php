@@ -55,11 +55,23 @@
         }
         @media only screen and (max-width : 1220px ){
         
-            .field {
-                width:345px;
+            .slcfield {
+                width:400px;
             }
             .slc{
-                width:100%;
+                min-width:480px; 
+                /* background-color: #23A8E0;  */
+            }
+            .plus2{
+                min-width:480px; 
+                /* background-color: #23A8E0;  */
+            }
+            .bachelor{
+                min-width:480px; 
+                /* background-color: #23A8E0;  */
+            }  .master{
+                min-width:480px; 
+                /* background-color: #23A8E0;  */
             }
             .slcinputfield {
                 width:100%;
@@ -164,6 +176,21 @@ background-image: linear-gradient(#23A8E0,white);
             left:-45px;
       
         }
+        h2 {
+      
+      color:black;
+      transform: rotate(-90deg);
+       /* white-space: nowrap; */
+       /* margin: 10px; */
+        font-size: 20px;
+      width: 50px;
+       word-spacing: 15px;
+       letter-spacing: 2px;
+
+      position: absolute;
+      /* left:-25px; */
+
+  }
         .first {
             /* background-color: pink; */
             width:500px;
@@ -222,6 +249,21 @@ background-image: linear-gradient(#23A8E0,white);
             margin-bottom: 10px;
         }
         .field {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            /* padding: 10px; */
+            font-family: inherit;
+width: 145px;
+  border: none;
+  border-bottom: 2px solid grey;
+  outline: none;
+  font-size: 1.3rem;
+
+  padding: 7px 0;
+  background: transparent;
+
+        }
+        .slcfield {
             margin-top: 10px;
             margin-bottom: 10px;
             /* padding: 10px; */
@@ -376,29 +418,29 @@ width: 400px;
                 {{-- </div> --}}
             </div>
             <div class="slc">
-                <div class="slcinputfield" style="text-align: center;">
+                <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                    <input class="slcfield" style="" type="text" name="name" placeholder="HMG / PCL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
-                    <select name="slcstream" class="field">
+                    <select style="width:200px;" name="slcstream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" name="name" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" name="passoutyear" placeholder="Management">
                 </div>
           
             
@@ -409,87 +451,302 @@ width: 400px;
                 {{-- </div> --}}
             {{-- </div> --}}
             <div class="plus2">
-                <div class="slcinputfield" style="text-align: center;">
+                <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">+2 / HCL</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                    <input style="width:200px;" class="field" type="text" name="name" placeholder="HMG / PCL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
-                    <select name="slcstream" class="field">
+                    <select style="width:200px;" name="slcstream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" name="name" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" name="passoutyear" placeholder="Management">
                 </div>
           
             </div>
             <div class="bachelor">
-                <div class="slcinputfield" style="text-align: center;">
+                <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Bachelor</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                    <input style="width:200px;" class="field" type="text" name="name" placeholder="HMG / PCL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
-                    <select name="slcstream" class="field">
+                    <select style="width:200px;" name="slcstream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" name="name" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" name="passoutyear" placeholder="Management">
                 </div>
           
             </div>
             <div class="master">
-                <div class="slcinputfield" style="text-align: center;">
+                <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Master</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                    <input style="width:200px;" class="field" type="text" name="name" placeholder="HMG / PCL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
-                    <select name="slcstream" class="field">
+                    <select style="width:200px;" name="slcstream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" name="name" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" name="passoutyear" placeholder="Management">
                 </div>
           
             </div>
         </div>
+        {{-- course detailas  --}}
+        
+        <div class="personaldetail">
+            <div class="sidedesign">
+                {{-- <div class="sidetext"> --}}
+                 <h1>  Course details </h1>
+                {{-- </div> --}}
+            </div>
+            <div class="first">
+                <div class="inputfield">
+                    <input class="addressfield" type="text" name="intrest_country" placeholder="Intrested Country"><br>
+                    <label>please select interested country</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" class="addressfield" name="interest_course" placeholder="Interest Course"><br>
+                    <label>please select interested course</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" name="name" class="addressfield" placeholder="Address"><br>
+                    <label>prefered intake</label>
+                </div>
+          
+                {{-- <div class="inputfielddob"> 
+                    <input type="day" name="name" class="field" placeholder="day">
+             
+                </div>  --}}
+             
+            
+            </div>
+            {{-- <div class="sidedesignsecond"> --}}
+                {{-- <div class="sidetext"> --}}
+                 {{-- <h1>  Personal details </h1> --}}
+                {{-- </div> --}}
+            {{-- </div> --}}
+            <div class="second">
+                <div class="inputfield">
+                    <input type="text" name="interest_city" class="addressfield" placeholder="Interest City"><br>
+                    <label>please select interested city</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" name="remark" class="addressfield" placeholder="Remark"><br>
+                    <label>please select interested country</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" name="name" class="addressfield" placeholder="Gurdain/Local gurdain number">
+                    <br><label>Gap between any education </label>
+                </div>
+              
+            </div>
+        </div>
+        {{-- test information --}}
+
+        <div class="personaldetail">
+            <div class="sidedesign" style="height:400px;">
+                {{-- <div class="sidetext"> --}}
+                 <h1>  Test Information </h1>
+                {{-- </div> --}}
+            </div>
+            <div class="first">
+                <div class="inputfield">
+                    <input class="addressfield" type="text" name="intrest_country" placeholder="Select your english language profiencency test"><br>
+                    <label>please select interested country</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" class="addressfield" name="interest_course" placeholder="select score"><br>
+                    <label>please select interested course</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" name="name" class="addressfield" placeholder="select test given year"><br>
+                    <label>prefered intake</label>
+                </div>
+            
+            </div>
+            {{-- <div class="sidedesignsecond"> --}}
+                {{-- <div class="sidetext"> --}}
+                 {{-- <h1>  Personal details </h1> --}}
+                {{-- </div> --}}
+            {{-- </div> --}}
+            <div class="secondsidedesign">
+                {{-- <div class="sidetext"> --}}
+                 <h2> Experience Information </h2>
+                {{-- </div> --}}
+            </div>
+            <div class="second">
+                <div class="inputfield">
+                    <input class="addressfield" type="text" name="intrest_country" placeholder="work experience"><br>
+                    <label>please select interested country</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" class="addressfield" name="interest_course" placeholder="job description"><br>
+                    <label>please select interested course</label>
+                </div>
+                <div class="inputfield">
+                    <input type="text" name="name" class="addressfield" placeholder="Duration"><br>
+                    <label>prefered intake</label>
+                </div>
+            </div>
+        </div>
+        {{-- visa hostory  --}}
+        <div class="personaldetail">
+            <div class="sidedesign" style="height:200px;">
+                {{-- <div class="sidetext"> --}}
+                 <h1> Visa History </h1>
+                {{-- </div> --}}
+            </div>
+            <div class="first">
+                <div class="inputfield">
+                    <input class="addressfield" type="text" name="intrest_country" placeholder=" visa rejection"><br>
+                    <label>please select interested country</label>
+                </div>
+         
+            
+            </div>
+            {{-- <div class="sidedesignsecond"> --}}
+                {{-- <div class="sidetext"> --}}
+                 {{-- <h1>  Personal details </h1> --}}
+                {{-- </div> --}}
+            {{-- </div> --}}
+      
+            <div class="second">
+                <div class="inputfield">
+                    <input class="addressfield" type="text" name="intrest_country" placeholder="reason for visa rejection"><br>
+                    <label>please describe reason for visa rejection</label>
+                </div>
+            
+            </div>
+        </div>
+        <div class="personaldetail" style="background-color : white;">
+        <div class="official"  style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">
+            <h3>OFFICIAL USE ONLY</h3>
+        </div>
     </div>
+    <div class="personaldetail" style="background-color : white;justify-content:center;">
+        <div class="first">
+            <div class="inputfield">
+                <input class="addressfield" type="text" name="intrest_country" placeholder="Assigned Cousellor"><br>
+                <label>please select interested country</label>
+            </div>
+     
+        
+        </div>
+    
+        <div class="second">
+            <div class="inputfield">
+                <input class="addressfield" type="text" name="intrest_country" placeholder="Counsellor"><br>
+                <label>please select interested country</label>
+            </div>
+        
+        </div>
+    </div>
+    {{-- <div class="personaldetail" style="background-color : white;"> --}}
+        <div class="official" style="margin-top: 40px;text-align:center;">
+            <input type="text" name="remark" placeholder="remark" style="height:100px;width:90%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 3px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"/>
+            {{-- <h3>Remark</h3> --}}
+        </div>
+    {{-- </div> --}}
+    <div>
+        <input type="file" hidden id="image" >
+    </div>
+    </div>
+    {{-- <h1>Open WebCam Using JavaScript</h1>
+    <br/>
+    <button id="startBtn" onclick="openCam()">Open Webcam</button>
+    <br/><br/>
+    <video id="videoCam"></video>
+    <script>
+       function openCam(){
+          let All_mediaDevices=navigator.mediaDevices
+          if (!All_mediaDevices || !All_mediaDevices.getUserMedia) {
+             console.log("getUserMedia() not supported.");
+             return;
+          }
+          All_mediaDevices.getUserMedia({
+             audio: true,
+             video: true
+          })
+          .then(function(vidStream) {
+             var video = document.getElementById('videoCam');
+             if ("srcObject" in video) {
+                video.srcObject = vidStream;
+             } else {
+                video.src = window.URL.createObjectURL(vidStream);
+             }
+             video.onloadedmetadata = function(e) {
+                video.play();
+             };
+          })
+          .catch(function(e) {
+             console.log(e.name + ": " + e.message);
+          });
+       }
+    </script> --}}
+    <button id="start-camera">Start Camera</button>
+<video id="video" width="320" height="240" autoplay></video>
+<button id="click-photo">Click Photo</button>
+<canvas id="canvas" width="320" height="240"></canvas>
+<script>
+let camera_button = document.querySelector("#start-camera");
+let video = document.querySelector("#video");
+let click_button = document.querySelector("#click-photo");
+let canvas = document.querySelector("#canvas");
+
+camera_button.addEventListener('click', async function() {
+   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	video.srcObject = stream;
+});
+
+click_button.addEventListener('click', function() {
+   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+   	let image_data_url = canvas.toDataURL('image/jpeg');
+    var image = document.getElementById('image');
+    image.value = image_data_url;
+   	// data url of the image
+   	console.log(image.value);
+});
+    </script>
 </body>
 </html>
