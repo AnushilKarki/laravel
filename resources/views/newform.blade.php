@@ -113,23 +113,9 @@ background-image: linear-gradient(#23A8E0,white);
            display: flex;
            align-items: center;   
         }
-        .sidetext {
-            position: absolute;
-            padding: 20px;
-         /* transform: rotate(-90deg); */
-         /* top:0;
-         left:0; */
-         margin-left: -30px;
-         /* margin-bottom: 4px; */
-         /* word-wrap: keep-all; */
-         letter-spacing: 2px;
-         background-color: red;
-         max-height: 124px;
-        }
+
         h1 {
-            /* background-color: orange; */
-            /* writing-mode: vertical-lr;
-  text-orientation: upright; */
+      
             color:black;
             transform: rotate(-90deg);
              /* white-space: nowrap; */
@@ -138,36 +124,10 @@ background-image: linear-gradient(#23A8E0,white);
             
              word-spacing: 15px;
              letter-spacing: 2px;
-             /* margin-right: 10px; */
-            /* width: 100%; */
-            /* height: 120px; */
-            /* transform-origin: 0 0; */
+ 
             position: absolute;
             left:-45px;
-            /* bottom:120px; */
-            /* top: 80px; */
-          /* text-align: center; */
-          /* padding: 20px;
-          margin: 40px; */
-          /* width: 100%; */
-          /* line-height: 24px; */
-            /* width:300px; */
-            /* transform: rotate(-90deg); */
-            /* width: 100px; */
-            /* position: relative;
-            top:0;
-            left:0; */
-         /* top:0;
-         left:0; */
-         /* margin-left: -15px; */
-         /* width: 140px; */
-            /* position:relative;
-            
-         transform: rotate(-90deg);
-         margin-bottom: -34px;
-         word-wrap: keep-all;
-         letter-spacing: 2px;
-         line-height: 24px; */
+      
         }
         .first {
             /* background-color: pink; */
@@ -224,6 +184,37 @@ width: 400px;
         .marital {
             margin-right:15px;
             margin-left:15px;
+        }
+        .academic-details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            background-color: #E9E8E8;
+        }
+        .slc {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            
+        }
+        .slcheader {
+            border: 1px solid black;
+        }
+        .plus2 {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .bachelor {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .master {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -293,13 +284,43 @@ width: 400px;
                     <span>Maritial status </span>
                     {{-- <input type="text" name="name" class="addressfield" placeholder="maritalstatus"> --}}
                     <input type="checkbox" id="single" class="marital" name="maritalstatus" value="single">
-<label for="single"> Single </label>
-<input type="checkbox" id="married" name="maritalstatus" value="married" class="marital">
-<label for="married"> Married </label>
-<input type="checkbox" id="divorced" name="maritalstatus" value="divorced" class="marital">
-<label for="divorced"> Divorced </label>
+                    <label for="single"> Single </label>
+                    <input type="checkbox" id="married" name="maritalstatus" value="married" class="marital">
+                    <label for="married"> Married </label>
+                    <input type="checkbox" id="divorced" name="maritalstatus" value="divorced" class="marital">
+                    <label for="divorced"> Divorced </label>
 
                 </div>
+            </div>
+        </div>
+        {{-- Academic details --}}
+
+        <div class="personaldetail">
+            <div class="sidedesign">
+                {{-- <div class="sidetext"> --}}
+                 <h1>  Academic Qualification </h1>
+                {{-- </div> --}}
+            </div>
+            <div class="slc">
+              <div class="academic-header">
+                <span class="slcheader">SLC</span>
+              </div>
+              <div class="label">
+                <lavel>Board</label>
+              </div>
+              <div class="field">
+               
+              </div>
+            
+            </div>
+            <div class="plus2">
+
+            </div>
+            <div class="bachelor">
+
+            </div>
+            <div class="master">
+
             </div>
         </div>
     </div>

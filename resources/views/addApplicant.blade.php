@@ -93,15 +93,15 @@
             /* display: block; */
         }
         #plus2{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
         #bachelor{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
         #master{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
         #ielts{
@@ -109,24 +109,24 @@
             /* display: block; */
         }
         #ieltsukvi{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
         #pte{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
         #toefel{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
      
         #sat{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
         #gre{
-            visibility: hidden;
+            visibility: visible;
             /* display: none; */
         }
         .academicbtn {
