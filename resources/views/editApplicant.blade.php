@@ -428,11 +428,11 @@
                 </div>
                 <div class="inputfield">
                     <label>Call Status : </label>
-                    {{-- <input class="field" type="text" name="callstatus" placeholder="enter about call status"> --}}
-                    <select name="callstatus" class="field" style="">
+                    <input class="field" type="text" name="calldetail" value="{{$students->calldetail}}" placeholder="enter about call status">
+                    {{-- <select name="callstatus" class="field" style="">
                         <option value="called">called</option>
                         <option value="not_called">not called</option>
-                       </select>
+                       </select> --}}
                 </div>
                 <div class="inputfield">
                     <label>Status : </label>

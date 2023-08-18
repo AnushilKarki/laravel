@@ -111,6 +111,13 @@ flex-wrap:wrap;
               padding: 5px;
               /* border: 1px solid black; */
              }
+             #followup {
+              border : 1px solid blue;
+              width:150px;
+              height:50px;
+              margin:10px;
+              padding:10px;
+             }
              
         </style>
     </head>
@@ -318,7 +325,60 @@ flex-wrap:wrap;
                       </div>
                   </div>
         <div class="heading">
+          <div>
+            <h3 style="text-align:center;">All Remainder</h3>
+            <table>
+              <tr>
+                <th>id</th>
+                <th>Student name</th>
+                <th>student id </th>
+                <th>Reaminder date</th>
+                <th>Remainder detail</th>
+                <th>Status </th>
+                <th></th>
+              </tr>
+            
+              @foreach ($remainders as $remainder)
+              <?php 
+              $i = 1;
+            ?>
+            
+              <tr>
+                <td>
+  {{$i}}
+                </td>
+                <td>{{ $remainder->student->studentid ?? 'n/a' }}</td>
+                <td>{{$remainder->student->name ?? 'n/a'}} </td>
+                <td>{{ $remainder->followup_date ?? 'n/a' }}</td>
+                <td>{{$remainder->followup_detail ?? 'n/a'}} </td>
+                <td>{{$remainder->status ==1 ? 'active' : 'not active'}} </td>
+                <td>  <a href="{{ route('editviewremainder',$remainder->id) }}">  <img src="edit.png" style="width:15px;"/></a> </td>
+              </tr>
+              <?php 
+              $i = $i +1;
+            ?>
+              @endforeach
+            
+            </table>
+          </div>
+        <div class="part">
         
+          <form method="post" action="{{route('addremainder',$students['id'])}}" style="border: 1px solid blue;padding:10px;">
+            @csrf
+            <h2>Add Followup for {{$students['name']}}</h2>
+            <div>
+              <label>choose Followup date</label>
+              <input id="followup" type="date" name="followup_date" />
+            </div>
+            <div>
+              <label>add Followup detail</label>
+              <input id="followup" type="text" name="followup_detail" placeholder="enter detail"/>
+            </div>
+            <div>
+              <input id="followup" type="submit"/>
+            </div>
+          </form>
+        </div>
         </div>
         </div>
 

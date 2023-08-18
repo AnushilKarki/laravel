@@ -153,6 +153,41 @@ flex-wrap:wrap;
               <div class="part">
                 <button class="add" type="button"><a href="/new">Add new student</a> </button>
               </div>
+        <div>
+          <h3 style="text-align:center;">Today's Remainder</h3>
+          <table>
+            <tr>
+              <th>id</th>
+              <th>Student name</th>
+              <th>student id </th>
+              <th>Reaminder date</th>
+              <th>Remainder detail</th>
+              <th>Status </th>
+            </tr>
+          
+            @foreach ($remainders as $remainder)
+            <?php 
+            $i = 1;
+          ?>
+          
+            <tr>
+              <td>
+{{$i}}
+              </td>
+              <td>{{ $remainder->student->studentid ?? 'n/a' }}</td>
+              <td>{{$remainder->student->name ?? 'n/a'}} </td>
+              <td>{{ $remainder->followup_date ?? 'n/a' }}</td>
+              <td>{{$remainder->followup_detail ?? 'n/a'}} </td>
+              <td>{{$remainder->status ==1 ? 'active' : 'not active'}} </td>
+              <td>  <a href="{{ route('editviewremainder',$remainder->id) }}">  <img src="edit.png" style="width:15px;"/></a> </td>
+            </tr>
+            <?php 
+            $i = $i +1;
+          ?>
+            @endforeach
+          
+          </table>
+        </div>
 
 <table>
   <tr>
@@ -197,7 +232,7 @@ flex-wrap:wrap;
     <td>{{ $d['work_experience'] }}</td>
  
     <td>{{ $d['visa_rejection'] }}</td>
-    <td>{{ $d['callstatus'] }}</td>
+    <td>{{ $d['calldetail'] }}</td>
     <td>{{ $d['status'] }}</td>
  
     <td>{{ $d['remark'] }}</td>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Remainder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
@@ -46,5 +47,9 @@ class User extends Authenticatable
     public function students(): HasMany
         {
             return $this->hasMany(Student::class);
+        }
+        public function remainders(): HasMany
+        {
+            return $this->hasMany(Remainder::class);
         }
 }

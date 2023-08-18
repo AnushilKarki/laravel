@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TablerateController;
 use App\Http\Controllers\ImapController;
+use App\Http\Controllers\RemainderController;
 use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,10 @@ return view('addApplicant');
 Route::get('/applicant',function(){
     return view('newform');
 });
+
+Route::post('store/ramainder/{id}',[RemainderController::class,'storeremainder'])->name('addremainder');
+Route::put('edit/remainder/{id}',[RemainderController::class,'editremainder'])->name('editremainder');
+Route::delete('delete/remainder/{id}',[RemainderController::class,'deleteremainder'])->name('deleteremainder');
+Route::get('/remainder/userwise',[RemainderController::class,'getremainderuserwise'])->name('remainder.userwise');
+Route::get('/remainder/studentwise/{id}',[RemainderController::class,'getremainderstudentwise'])->name('remainder.studentwise');
+Route::get('remainder/edit/{id}',[RemainderController::class,'edit'])->name('editviewremainder');

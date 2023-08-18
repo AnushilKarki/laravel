@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Dompdf\Dompdf;
+use App\Models\Remainder;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class StudentController extends Controller
@@ -52,14 +53,16 @@ return view('addstudent',compact('msg'));
         $students = Student::latest()->simplePaginate(15);
         $studentscount = count($students);
         $studentscount = Student::count();
-        return view('viewstudent',compact('students','studentscount'));
+        $remainders = Remainder::where('user_id',auth()->id())->where('status',1)->whereDate('followup_date',today())->get();
+        return view('viewstudent',compact('students','studentscount','remainders'));
     }
     public function searchStudent(Request $request)
         {
             $search = $request->search;
             $studentscount = Student::count();
+            $remainders = Remainder::where('user_id',auth()->id())->where('status',1)->whereDate('followup_date',today())->get();
             $students = Student::where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('contact','like','%'.$search.'%')->orWhere('studentid','like','%'.$search.'%')->simplePaginate(15);
-            return view('viewstudent',compact('students','studentscount'));
+            return view('viewstudent',compact('students','studentscount','remainders'));
         }
     public function addnewstudent(Request $request){
         $sid = Carbon::now();
@@ -124,7 +127,7 @@ return view('addstudent',compact('msg'));
     $student->interest_course = $request->interest_course;
     $student->visa_rejection = $request->visa_rejection;
     $student->work_experience = $request->work_experience;
-    $student->callstatus = $request->callstatus;
+    $student->calldetail = $request->calldetail;
     $student->email = $request->email; 
     $student->status = $request->status; 
     $student->remark = $request->remark;   
@@ -177,11 +180,22 @@ return view('addstudent',compact('msg'));
     $student->major_subject = $request->major_subject;
     $student->save();
    $newuser = \App\Models\User::create([
-        'name'=>$request->name,
+        'name'=>$studentid,
         'email'=>$request->email,
         'password'=> bcrypt('sajilo@123'),
             'is_change'=> 0
     ]);
+
+    // create remainder
+    // 
+    $authid = Auth()->id();
+    $studentid = $student->id;
+    // $remainder = Remainder::create([
+    //     'student_id'=>$studentid,
+    //     'user_id'=>$authid,
+    //     'followup_date'=> '',
+    //     'followup_detail'=> ''
+    // ]);
     return redirect()->route('studentdata');
     }
     public function edit($id){
@@ -190,7 +204,8 @@ return view('addstudent',compact('msg'));
     }
     public function view($id){
         $students = Student::where('id',$id)->first();
-        return view('viewonestudent',compact('students'));
+        $remainders = Remainder::where('student_id',$id)->get();
+        return view('viewonestudent',compact('students','remainders'));
     }
     public function update(Request $request,$id)
     {
@@ -206,7 +221,7 @@ return view('addstudent',compact('msg'));
         $student->interest_course = $request->interest_course;
         $student->visa_rejection = $request->visa_rejection;
         $student->work_experience = $request->work_experience;
-        $student->callstatus = $request->callstatus;
+        $student->calldetail = $request->calldetail;
         $student->email = $request->email;  
         $student->status = $request->status; 
         $student->remark = $request->remark;
@@ -345,7 +360,8 @@ return view('addstudent',compact('msg'));
     ->setCellValue('BA4','pte issue date')
     ->setCellValue('BA5','toefel issue date')
     ->setCellValue('BA6','sat issue date')
-    ->setCellValue('BA7','gre issue date');
+    ->setCellValue('BA7','gre issue date')
+    ->setCellValue('BA8','call detail');
             $sheet
             ->fromArray(
                 $data,  // The data to set
