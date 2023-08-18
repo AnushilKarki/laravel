@@ -54,6 +54,16 @@
             /* align-items: stretch; */
         }
         @media only screen and (max-width : 1220px ){
+        
+            .field {
+                width:345px;
+            }
+            .slc{
+                width:100%;
+            }
+            .slcinputfield {
+                width:100%;
+            }
             .sidedesign {
                
                 transform: rotate(90deg);
@@ -70,6 +80,22 @@
                 /* justify-content:center; */
                 
             }
+            .secondsidedesign{
+               
+               transform: rotate(90deg);
+     
+               position: static;
+               margin: 1px;
+               padding: 1px;
+               max-height:300px;
+               /* height:300px; */
+               margin-right:40px;
+               /* width:360px; */
+               margin:-100px;
+               /* background-image: none;  */
+               /* justify-content:center; */
+               
+           }
             .main {
                 justify-content: center;
                 align-items: center;
@@ -113,7 +139,16 @@ background-image: linear-gradient(#23A8E0,white);
            display: flex;
            align-items: center;   
         }
-
+        .secondsidedesign {
+            width:41px;
+            height:470px;
+            background-image: linear-gradient(#F89939,white); 
+            padding: 10px;
+            margin-right:30px;
+           flex-wrap: wrap;
+           display: flex;
+           align-items: center;   
+        }
         h1 {
       
             color:black;
@@ -140,6 +175,41 @@ background-image: linear-gradient(#23A8E0,white);
         .second {
             /* background-color: green; */
             width:500px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        .slc {
+            /* background-color: pink; */
+            width:250px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .plus2 {
+            /* background-color: green; */
+            width:250px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        .bachelor {
+            /* background-color: pink; */
+            width:250px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+        .master {
+            /* background-color: green; */
+            width:250px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -197,6 +267,10 @@ width: 400px;
             flex-direction: column;
             flex-wrap: wrap;
             
+        }
+        .slcinputfield {
+            padding:5px;
+            margin:5px;
         }
         .slcheader {
             border: 1px solid black;
@@ -296,31 +370,124 @@ width: 400px;
         {{-- Academic details --}}
 
         <div class="personaldetail">
-            <div class="sidedesign">
+            <div class="secondsidedesign">
                 {{-- <div class="sidetext"> --}}
-                 <h1>  Academic Qualification </h1>
+                 <h1>  Academic details </h1>
                 {{-- </div> --}}
             </div>
             <div class="slc">
-              <div class="academic-header">
-                <span class="slcheader">SLC</span>
-              </div>
-              <div class="label">
-                <lavel>Board</label>
-              </div>
-              <div class="field">
-               
-              </div>
+                <div class="slcinputfield" style="text-align: center;">
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
+                   
+                </div>
+                <div class="slcinputfield" style="margin-top: 10px;">
+                    <label>Board</label><br>
+                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                </div>
+                <div class="slcinputfield">
+                    <label>Stream</label><br>
+                    {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
+                    <select name="slcstream" class="field">
+                        <option value="science">Science</option>
+                        <option value="management">Management</option>
+                    </select>
+                </div>
+                <div class="slcinputfield">
+                    <label>CGPA / GRADE</label><br>
+                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                </div>
+                <div class="slcinputfield">
+                    <label>Pass out year</label><br>
+                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                </div>
+          
             
             </div>
+            {{-- <div class="sidedesignsecond"> --}}
+                {{-- <div class="sidetext"> --}}
+                 {{-- <h1>  Personal details </h1> --}}
+                {{-- </div> --}}
+            {{-- </div> --}}
             <div class="plus2">
-
+                <div class="slcinputfield" style="text-align: center;">
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">+2 / HCL</label><br>
+                   
+                </div>
+                <div class="slcinputfield" style="margin-top: 10px;">
+                    <label>Board</label><br>
+                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                </div>
+                <div class="slcinputfield">
+                    <label>Stream</label><br>
+                    {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
+                    <select name="slcstream" class="field">
+                        <option value="science">Science</option>
+                        <option value="management">Management</option>
+                    </select>
+                </div>
+                <div class="slcinputfield">
+                    <label>CGPA / GRADE</label><br>
+                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                </div>
+                <div class="slcinputfield">
+                    <label>Pass out year</label><br>
+                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                </div>
+          
             </div>
             <div class="bachelor">
-
+                <div class="slcinputfield" style="text-align: center;">
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Bachelor</label><br>
+                   
+                </div>
+                <div class="slcinputfield" style="margin-top: 10px;">
+                    <label>Board</label><br>
+                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                </div>
+                <div class="slcinputfield">
+                    <label>Stream</label><br>
+                    {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
+                    <select name="slcstream" class="field">
+                        <option value="science">Science</option>
+                        <option value="management">Management</option>
+                    </select>
+                </div>
+                <div class="slcinputfield">
+                    <label>CGPA / GRADE</label><br>
+                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                </div>
+                <div class="slcinputfield">
+                    <label>Pass out year</label><br>
+                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                </div>
+          
             </div>
             <div class="master">
-
+                <div class="slcinputfield" style="text-align: center;">
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Master</label><br>
+                   
+                </div>
+                <div class="slcinputfield" style="margin-top: 10px;">
+                    <label>Board</label><br>
+                    <input class="field" type="text" name="name" placeholder="HMG / PCL">
+                </div>
+                <div class="slcinputfield">
+                    <label>Stream</label><br>
+                    {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
+                    <select name="slcstream" class="field">
+                        <option value="science">Science</option>
+                        <option value="management">Management</option>
+                    </select>
+                </div>
+                <div class="slcinputfield">
+                    <label>CGPA / GRADE</label><br>
+                    <input class="field" type="text" name="name" placeholder="CGPA / GRADE">
+                </div>
+                <div class="slcinputfield">
+                    <label>Pass out year</label><br>
+                    <input type="month" class="field" name="passoutyear" placeholder="Management">
+                </div>
+          
             </div>
         </div>
     </div>

@@ -192,6 +192,7 @@ flex-wrap:wrap;
 <table>
   <tr>
     <th>id</th>
+    <th>Student id</th>
     <th>name</th>
     <th>Email</th>
     <th>address</th>
@@ -217,6 +218,7 @@ flex-wrap:wrap;
 
   <tr>
     <td class="id">{{$id}}</td>
+    <td>{{$d['studentid']}}</td>
     <td>{{ $d['name'] }}</td>
     <td>{{ $d['email'] }}</td>
  
