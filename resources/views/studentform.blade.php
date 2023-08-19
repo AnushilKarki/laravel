@@ -593,11 +593,11 @@ width: 400px;
         {{-- test information --}}
 
         <div class="personaldetail">
-            <!-- <div class="sidedesign" style="height:470px;">
+            <div class="sidedesign" style="height:470px;">
                 {{-- <div class="sidetext"> --}}
                  <h1>  Test Information </h1>
                 {{-- </div> --}}
-            </div> -->
+            </div>
             <div class="first">
                 <div class="inputfield">
                 <select style="width:200px;" placeholder="plese select prefered english proficiency test" name="test_preparation" class="field">
@@ -705,7 +705,7 @@ width: 400px;
             
             </div>
         </div>
-        <div class="personaldetail" style="background-color : white;">
+        <!-- <div class="personaldetail" style="background-color : white;">
         <div class="official"  style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">
             <h3>OFFICIAL USE ONLY</h3>
         </div>
@@ -727,15 +727,15 @@ width: 400px;
             </div>
         
         </div>
-    </div>
+    </div> -->
   
 
-    {{-- <div class="personaldetail" style="background-color : white;"> --}}
+    <!-- {{-- <div class="personaldetail" style="background-color : white;"> --}}
         <div class="official" style="margin-top: 40px;text-align:center;">
             <input type="text" name="remark" placeholder="remark" style="height:100px;width:90%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 3px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"/>
             {{-- <h3>Remark</h3> --}}
         </div>
-    {{-- </div> --}}
+    {{-- </div> --}} -->
     <div>
         <input type="text" hidden id="image" name="image" >
         {{-- <input type="file" hidden id="image1" name="image1"> --}}

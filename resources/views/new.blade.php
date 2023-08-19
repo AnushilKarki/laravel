@@ -67,8 +67,10 @@ td, th {
 <td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
     </tr>
     <tr>
-<td>Major Subject: {{$students['major_subject']}}</td>
+<!-- <td>Major Subject: {{$students['major_subject']}}</td> -->
 <td>Test Preparation: {{ $students['test_preparation'] }}</td>
+<td>Test score: {{ $students['test_score'] }}</td>
+<td>Test issue date: {{ $students['test_issue_date'] }}</td>
 <td>Highest acheived: {{ $students['highest_acheived'] }}</td>
 <td>Counseled By: {{ $students['counseled_by'] }}</td>
 <td>Remark: {{ $students['remark'] }}</td>
@@ -116,35 +118,35 @@ td, th {
      <td>date of completion</td>
      <td></td>
       </tr>
-     @if($students['slc'])
+     @if($students['slcboard'])
       <tr>
     <td></td>
-    <td>{{ $students['slc'] }}</td>
+    <td>{{ $students['slcboard'] }}</td>
     <td>{{ $students['slc_score'] }}</td>
     <td>{{ $students['slc_passoutyear'] }}</td>
       </tr>
       @endif
-      @if($students['plus2'])
+      @if($students['plus2board'])
       <tr>
 
         <td></td>
-        <td>{{ $students['plus2'] }}</td>
+        <td>{{ $students['plus2board'] }}</td>
         <td>{{ $students['plus2_score'] }}</td>
         <td>{{ $students['plus2_passoutyear'] }}</td>
           </tr>
           @endif
-          @if($students['bachelor'])
+          @if($students['bachelorboard'])
           <tr>
             <td></td>
-            <td>{{ $students['bachelor'] }}</td>
+            <td>{{ $students['bachelorboard'] }}</td>
             <td>{{ $students['bachelor_score'] }}</td>
             <td>{{ $students['bachelor_passoutyear'] }}</td>
               </tr>
               @endif
-              @if($students['master'])
+              @if($students['masterboard'])
               <tr>
                 <td></td>
-                <td>{{ $students['master'] }}</td>
+                <td>{{ $students['masterboard'] }}</td>
                 <td>{{ $students['master_score'] }}</td>
                 <td>{{ $students['master_passoutyear'] }}</td>
                   </tr>
@@ -157,60 +159,16 @@ td, th {
             <td>issue date</td>
             <td></td>
         </tr>
-        @if($students['ielts'])
-        <tr>
-            <td></td>
-            <td>Ielts</td>
-            <td>overall :{{ $students['ielts'] }}  </td>
-              <td> not less then score : {{ $students['ielts_notlessthen'] }}</td>
-              <td>issue date : {{$students['ielts_issue_date']}} </td>
-              </tr>
-              @endif
-              @if($students['ielts_ukvi'])
-              <tr>
-                <td></td>
-                <td>Ielts ukvi</td>
-                <td>overall :{{ $students['ielts_ukvi'] }} </td>
-                  <td> not less then : {{ $students['ielts_ukvi_notlessthen'] }}</td>
-                  <td>issue date : {{$students['ielts_ukvi_issue_date']}} </td>
-                  </tr>
-                  @endif
-                  @if($students['tofel'])
-                  <tr>
-                    <td></td>
-                    <td>Toefel</td>
-                    <td>overall :{{ $students['tofel'] }} </td>
-                      <td> not less then : {{ $students['tofel_notlessthen'] }}</td>
-                      <td>issue date : {{$students['tofel_issue_date']}} </td>
-                      </tr>
-                      @endif
-                      @if($students['pte'])
-                      <tr>
-                        <td></td>
-                        <td>Pte</td>
-                        <td>overall :{{ $students['pte'] }} </td>
-                        <td> not less then : {{ $students['pte_notlessthen'] }}</td>
-                        <td>issue date : {{$students['pte_issue_date']}} </td>
-                          </tr>
-                          @endif
-                          @if($students['gre'])
-                          <tr>
-                            <td></td>
-                            <td>Gre</td>
-                            <td>overall :{{ $students['gre'] }} </td>
-                               <td> not less then : {{ $students['gre_notlessthen'] }}</td>
-                               <td>issue date : {{$students['gre_issue_date']}} </td>
-                              </tr>
-                              @endif
-                              @if($students['sat'])
-                              <tr>
-                                <td></td>
-                                <td>Sat</td>
-                                <td>overall :{{ $students['sat'] }} </td>
-                                <td> not less then : {{ $students['sat_notlessthen'] }}</td>
-                                <td>issue date : {{$students['sat_issue_date']}} </td>
-                                  </tr>
-                                  @endif
+      <tr>
+      @if($students['test_preparation'])
+      <tr>
+    <td></td>
+    <td>{{ $students['test_preparation'] }}</td>
+    <td>{{ $students['test_score'] }}</td>
+    <td>{{ $students['test_issue_date'] }}</td>
+      </tr>
+      @endif
+       </tr>
     
     </table> 
 </div>
@@ -218,7 +176,7 @@ td, th {
   {{-- <h2 style="text-align: center;text-decoration:underline;">Account Details</h2> --}}
   <img src="../public/sajilovisaqr.png" width="90" style="margin:5px;" alt="qr">
   <span> your account has been created automatically.please scan qr to visit our app and change your password to proceed forward with your application</span> 
- <br> <span>email : {{$students['email']}} </span>
+ <br> <span>username : {{$students['studentid']}} </span>
 <br>
   <span>password : sajilo@123</span>  
 <Br>

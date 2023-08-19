@@ -65,6 +65,7 @@ return view('addstudent',compact('msg'));
             return view('viewstudent',compact('students','studentscount','remainders'));
         }
     public function addnewstudent(Request $request){
+    //    dd($request);
         $sid = Carbon::now();
         $month = $sid->month;
         $year = substr(($sid->year),1);
@@ -110,8 +111,30 @@ return view('addstudent',compact('msg'));
        
         // dd($studentid);
       $student = new Student;
+
+      $student->firstname = $request->firstname;
+      $student->middlename = $request->middlename;
+      $student->lastname = $request->lastname;
+
+      $student->intake = $request->intake;
+      $student->interest_city = $request->interest_city;
+      $student->interestcityremark = $request->interestcityremark;
+      $student->gap = $request->gap;
+      $student->test_issue_date = $request->test_issue_Date;
+      $student->work_description = $request->work_description;
+      $student->work_duration = $request->work_duration;
+      $student->visa_rejection_detail =$request->visa_rejection_detail;
+    //   $data =$request->image;
+    
+    //   $data = base64_decode($data);
+      
+    //   file_put_contents('test.png', $data);
         // if($request->has('name')){
+            $student->profile_picture = $studentid.'.png';
             $student->name = $request->name;
+            $student->firstname = $request->firstname;
+            $student->middlename = $request->middlename;
+            $student->lastname = $request->lastname;
             $student->studentid = $studentid;
             $student->contact = $request->contact;
             $student->address = $request->address;
@@ -135,36 +158,43 @@ return view('addstudent',compact('msg'));
     $student->dob = $request->dob;
     $student->marital_status = $request->marital_status;
 
-    $student->ielts = $request->ieltsoverall;
-    $student->ielts_ukvi = $request->ieltsukvioverall;
-    $student->pte = $request->pteoverall;
-    $student->tofel = $request->toefloverall;
-    $student->sat = $request->satoverall;
-    $student->gre = $request->greoverall;
+    // $student->ielts = $request->ieltsoverall;
+    // $student->ielts_ukvi = $request->ieltsukvioverall;
+    // $student->pte = $request->pteoverall;
+    // $student->tofel = $request->toefloverall;
+    // $student->sat = $request->satoverall;
+    // $student->gre = $request->greoverall;
 
-    $student->ielts_notlessthen = $request->ieltsnotlessthenscore;
-    $student->ielts_ukvi_notlessthen = $request->ieltsukvinotlessthenscore;
-    $student->pte_notlessthen = $request->ptenotlessthenscore;
-    $student->tofel_notlessthen = $request->toeflnotlessthenscore;
-    $student->sat_notlessthen = $request->satnotlessthenscore;
-    $student->gre_notlessthen = $request->grenotlessthenscore;
+    // $student->ielts_notlessthen = $request->ieltsnotlessthenscore;
+    // $student->ielts_ukvi_notlessthen = $request->ieltsukvinotlessthenscore;
+    // $student->pte_notlessthen = $request->ptenotlessthenscore;
+    // $student->tofel_notlessthen = $request->toeflnotlessthenscore;
+    // $student->sat_notlessthen = $request->satnotlessthenscore;
+    // $student->gre_notlessthen = $request->grenotlessthenscore;
 
-    $student->ielts_issue_date = $request->ielts_issue_date;
-    $student->ielts_ukvi_issue_date = $request->ielts_ukvi_issue_date;
-    $student->pte_issue_date = $request->pte_issue_date;
-    $student->tofel_issue_date = $request->toefl_issue_date;
-    $student->sat_issue_date= $request->sat_issue_date;
-    $student->gre_issue_date = $request->gre_issue_date;
+    // $student->ielts_issue_date = $request->ielts_issue_date;
+    // $student->ielts_ukvi_issue_date = $request->ielts_ukvi_issue_date;
+    // $student->pte_issue_date = $request->pte_issue_date;
+    // $student->tofel_issue_date = $request->toefl_issue_date;
+    // $student->sat_issue_date= $request->sat_issue_date;
+    // $student->gre_issue_date = $request->gre_issue_date;
     // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
     // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
     // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
     // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
 
-    $student->master = $request->masterlevel;
-    $student->bachelor = $request->bachelorlevel;
-    $student->plus2 = $request->plus2level;
-    $student->slc = $request->slclevel;
-
+    // $student->master = $request->masterlevel;
+    // $student->bachelor = $request->bachelorlevel;
+    // $student->plus2 = $request->plus2level;
+    // $student->slc = $request->slclevel;
+    $student->slcboard = $request->slcboard;
+    $student->slcstream = $request->slcstream;
+    $student->plus2board = $request->plus2board;
+    $student->plus2stream = $request->plus2stream;
+    $student->bachelorboard = $request->bachelorboard;
+    $student->bachelorstream = $request->bachelorstream;
+    $student->masterboard = $request->masterboard;
+    $student->masterstream = $request->masterstream;
     $student->master_score = $request->mastergrade;
     $student->bachelor_score = $request->bachelorgrade;
     $student->plus2_score = $request->plus2grade;
@@ -179,9 +209,14 @@ return view('addstudent',compact('msg'));
     $student->counseled_by = $request->counseled_by;
     $student->major_subject = $request->major_subject;
     $student->save();
+    $data =$request->image;
+    
+    $data = base64_decode($data);
+    
+    file_put_contents($student->studentid.'.png', $data);
    $newuser = \App\Models\User::create([
         'name'=>$studentid,
-        'email'=>$request->email,
+        // 'email'=>$request->email,
         'password'=> bcrypt('sajilo@123'),
             'is_change'=> 0
     ]);
@@ -200,7 +235,8 @@ return view('addstudent',compact('msg'));
     }
     public function edit($id){
         $students = Student::where('id',$id)->first();
-        return view('editApplicant',compact('students'));
+        // return view('editApplicant',compact('students'));
+        return view('editnewform',compact('students'));
     }
     public function view($id){
         $students = Student::where('id',$id)->first();
@@ -210,82 +246,155 @@ return view('addstudent',compact('msg'));
     public function update(Request $request,$id)
     {
         $student = Student::find($id);
-        $student->name = $request->name;
-        $student->contact = $request->contact;
-        $student->address = $request->address;
-        $student->highest_acheived = $request->highest_acheived;
-        $student->cgpa = $request->cgpa;
-        $student->test_preparation = $request->test_preparation;
-        $student->test_score = $request->test_score;
-        $student->interest_country = $request->interest_country;
-        $student->interest_course = $request->interest_course;
-        $student->visa_rejection = $request->visa_rejection;
-        $student->work_experience = $request->work_experience;
-        $student->calldetail = $request->calldetail;
-        $student->email = $request->email;  
-        $student->status = $request->status; 
-        $student->remark = $request->remark;
-        $student->gurdain_name = $request->gurdain_name;
-        $student->gurdain_no = $request->gurdain_no;
-        $student->interest_city = $request->interest_city;
-        //after
-        $student->dob = $request->dob;
-        $student->marital_status = $request->marital_status;
+    //     $student->name = $request->name;
+    //     $student->contact = $request->contact;
+    //     $student->address = $request->address;
+    //     $student->highest_acheived = $request->highest_acheived;
+    //     $student->cgpa = $request->cgpa;
+    //     $student->test_preparation = $request->test_preparation;
+    //     $student->test_score = $request->test_score;
+    //     $student->interest_country = $request->interest_country;
+    //     $student->interest_course = $request->interest_course;
+    //     $student->visa_rejection = $request->visa_rejection;
+    //     $student->work_experience = $request->work_experience;
+    //     $student->calldetail = $request->calldetail;
+    //     $student->email = $request->email;  
+    //     $student->status = $request->status; 
+    //     $student->remark = $request->remark;
+    //     $student->gurdain_name = $request->gurdain_name;
+    //     $student->gurdain_no = $request->gurdain_no;
+    //     $student->interest_city = $request->interest_city;
+    //     //after
+    //     $student->dob = $request->dob;
+    //     $student->marital_status = $request->marital_status;
 
-        // $student->ielts = 'overall score :'.$request->ieltsoverall.'& not less then :'.$request->ieltsnotlessthenscore;
-        // $student->ielts_ukvi = 'overall score :'.$request->ieltsukvioverall.'& not less then :'.$request->ieltsukvinotlessthenscore;
-        // $student->pte = 'overall score :'.$request->pteoverall.'& not less then :'.$request->ptenotlessthenscore;
-        // $student->tofel = 'overall score :'.$request->toefloverall.'& not less then :'.$request->toeflnotlessthenscore;
-        // $student->sat = 'overall score :'.$request->satoverall.'& not less then :'.$request->satnotlessthenscore;
-        // $student->gre = 'overall score :'.$request->greoverall.'& not less then :'.$request->grenotlessthenscore;
-        // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
-        // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
-        // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
-        // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
-        $student->ielts = $request->ieltsoverall;
-    $student->ielts_ukvi = $request->ieltsukvioverall;
-    $student->pte = $request->pteoverall;
-    $student->tofel = $request->toefloverall;
-    $student->sat = $request->satoverall;
-    $student->gre = $request->greoverall;
+    //     // $student->ielts = 'overall score :'.$request->ieltsoverall.'& not less then :'.$request->ieltsnotlessthenscore;
+    //     // $student->ielts_ukvi = 'overall score :'.$request->ieltsukvioverall.'& not less then :'.$request->ieltsukvinotlessthenscore;
+    //     // $student->pte = 'overall score :'.$request->pteoverall.'& not less then :'.$request->ptenotlessthenscore;
+    //     // $student->tofel = 'overall score :'.$request->toefloverall.'& not less then :'.$request->toeflnotlessthenscore;
+    //     // $student->sat = 'overall score :'.$request->satoverall.'& not less then :'.$request->satnotlessthenscore;
+    //     // $student->gre = 'overall score :'.$request->greoverall.'& not less then :'.$request->grenotlessthenscore;
+    //     // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
+    //     // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
+    //     // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
+    //     // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+    //     $student->ielts = $request->ieltsoverall;
+    // $student->ielts_ukvi = $request->ieltsukvioverall;
+    // $student->pte = $request->pteoverall;
+    // $student->tofel = $request->toefloverall;
+    // $student->sat = $request->satoverall;
+    // $student->gre = $request->greoverall;
 
-    $student->ielts_notlessthen = $request->ieltsnotlessthenscore;
-    $student->ielts_ukvi_notlessthen = $request->ieltsukvinotlessthenscore;
-    $student->pte_notlessthen = $request->ptenotlessthenscore;
-    $student->tofel_notlessthen = $request->toeflnotlessthenscore;
-    $student->sat_notlessthen = $request->satnotlessthenscore;
-    $student->gre_notlessthen = $request->grenotlessthenscore;
+    // $student->ielts_notlessthen = $request->ieltsnotlessthenscore;
+    // $student->ielts_ukvi_notlessthen = $request->ieltsukvinotlessthenscore;
+    // $student->pte_notlessthen = $request->ptenotlessthenscore;
+    // $student->tofel_notlessthen = $request->toeflnotlessthenscore;
+    // $student->sat_notlessthen = $request->satnotlessthenscore;
+    // $student->gre_notlessthen = $request->grenotlessthenscore;
 
 
-    $student->ielts_issue_date = $request->ielts_issue_date;
-    $student->ielts_ukvi_issue_date = $request->ielts_ukvi_issue_date;
-    $student->pte_issue_date = $request->pte_issue_date;
-    $student->tofel_issue_date = $request->toefl_issue_date;
-    $student->sat_issue_date= $request->sat_issue_date;
-    $student->gre_issue_date = $request->gre_issue_date;
-    // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
-    // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
-    // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
-    // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
+    // $student->ielts_issue_date = $request->ielts_issue_date;
+    // $student->ielts_ukvi_issue_date = $request->ielts_ukvi_issue_date;
+    // $student->pte_issue_date = $request->pte_issue_date;
+    // $student->tofel_issue_date = $request->toefl_issue_date;
+    // $student->sat_issue_date= $request->sat_issue_date;
+    // $student->gre_issue_date = $request->gre_issue_date;
+    // // $student->slc = 'grade :'.$request->slcgrade.'& passout year :'.$request->slcpassoutyear;
+    // // $student->plus2 = 'grade :'.$request->plus2grade.'& passout year :'.$request->plus2passoutyear;
+    // // $student->bachelor = 'grade :'.$request->bachelorgrade.'& passout year :'.$request->bachelorpassoutyear;
+    // // $student->master = 'grade :'.$request->mastergrade.'& passout year :'.$request->masterpassoutyear;
 
-    $student->master = $request->masterlevel;
-    $student->bachelor = $request->bachelorlevel;
-    $student->plus2 = $request->plus2level;
-    $student->slc = $request->slclevel;
+    // $student->master = $request->masterlevel;
+    // $student->bachelor = $request->bachelorlevel;
+    // $student->plus2 = $request->plus2level;
+    // $student->slc = $request->slclevel;
 
-    $student->master_score = $request->mastergrade;
-    $student->bachelor_score = $request->bachelorgrade;
-    $student->plus2_score = $request->plus2grade;
-    $student->slc_score = $request->slcgrade;
+    // $student->master_score = $request->mastergrade;
+    // $student->bachelor_score = $request->bachelorgrade;
+    // $student->plus2_score = $request->plus2grade;
+    // $student->slc_score = $request->slcgrade;
 
-    $student->master_passoutyear = $request->masterpassoutyear;
-    $student->bachelor_passoutyear = $request->bachelorpassoutyear;
-    $student->plus2_passoutyear = $request->plus2passoutyear;
-    $student->slc_passoutyear = $request->slcpassoutyear;
+    // $student->master_passoutyear = $request->masterpassoutyear;
+    // $student->bachelor_passoutyear = $request->bachelorpassoutyear;
+    // $student->plus2_passoutyear = $request->plus2passoutyear;
+    // $student->slc_passoutyear = $request->slcpassoutyear;
 
-        $student->counseled_by = $request->counseled_by;
-        $student->major_subject = $request->major_subject;  
+    //     $student->counseled_by = $request->counseled_by;
+    //     $student->major_subject = $request->major_subject; 
+    $student->firstname = $request->firstname;
+    $student->middlename = $request->middlename;
+    $student->lastname = $request->lastname;
+
+    $student->intake = $request->intake;
+    $student->interest_city = $request->interest_city;
+    $student->interestcityremark = $request->interestcityremark;
+    $student->gap = $request->gap;
+    $student->test_issue_date = $request->test_issue_Date;
+    $student->work_description = $request->work_description;
+    $student->work_duration = $request->work_duration;
+    $student->visa_rejection_detail =$request->visa_rejection_detail;
+  //   $data =$request->image;
+  
+  //   $data = base64_decode($data);
+    
+  //   file_put_contents('test.png', $data);
+      // if($request->has('name')){
+        //   $student->profile_picture = $studentid.'.png';
+          $student->name = $request->name;
+          $student->firstname = $request->firstname;
+          $student->middlename = $request->middlename;
+          $student->lastname = $request->lastname;
+        //   $student->studentid = $studentid;
+          $student->contact = $request->contact;
+          $student->address = $request->address;
+          $student->highest_acheived = $request->highest_acheived;
+          $student->gurdain_name = $request->gurdain_name;
+          $student->gurdain_no = $request->gurdain_no;
+          $student->interest_city = $request->interest_city;
+  //    }
+  $student->cgpa = $request->cgpa;
+  $student->test_preparation = $request->test_preparation;
+  $student->test_score = $request->test_score;
+  $student->interest_country = $request->interest_country;
+  $student->interest_course = $request->interest_course;
+  $student->visa_rejection = $request->visa_rejection;
+  $student->work_experience = $request->work_experience;
+  $student->calldetail = $request->calldetail;
+  $student->email = $request->email; 
+  $student->status = $request->status; 
+  $student->remark = $request->remark;   
+  //after update 
+  $student->dob = $request->dob;
+  $student->marital_status = $request->marital_status;
+$student->slcboard = $request->slcboard;
+  $student->slcstream = $request->slcstream;
+  $student->plus2board = $request->plus2board;
+  $student->plus2stream = $request->plus2stream;
+  $student->bachelorboard = $request->bachelorboard;
+  $student->bachelorstream = $request->bachelorstream;
+  $student->masterboard = $request->masterboard;
+  $student->masterstream = $request->masterstream;
+  $student->master_score = $request->mastergrade;
+  $student->bachelor_score = $request->bachelorgrade;
+  $student->plus2_score = $request->plus2grade;
+  $student->slc_score = $request->slcgrade;
+
+  $student->master_passoutyear = $request->masterpassoutyear;
+  $student->bachelor_passoutyear = $request->bachelorpassoutyear;
+  $student->plus2_passoutyear = $request->plus2passoutyear;
+  $student->slc_passoutyear = $request->slcpassoutyear;
+
+ 
+  $student->counseled_by = $request->counseled_by;
+  $student->major_subject = $request->major_subject; 
         $student->save();
+        $data =$request->image;
+        if($data){
+            $data = base64_decode($data);
+        
+            file_put_contents($student->studentid.'.png', $data);
+        }
+      
         return redirect()->route('studentdata');
     }
     public function delete($id)

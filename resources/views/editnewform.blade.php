@@ -335,8 +335,9 @@ width: 400px;
     </style>
 </head>
 <body>
-    <form action="{{route('addnewstudent')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('updatestudent',$students->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
     <div class="main">
 
         <div class="logoimage">
@@ -348,7 +349,7 @@ width: 400px;
 
         <div class="headertext">
             <div class="header">
-        Add New Applicant
+        Edit Applicant
             </div>
         </div>
 
@@ -360,26 +361,26 @@ width: 400px;
             </div> -->
             <div class="first">
                 <div class="inputfield">
-                    <input class="field" type="text" name="firstname" placeholder="Firstname">
+                    <input class="field" type="text" name="firstname" placeholder="Firstname" value="{{ $students->firstname }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="field" name="middlename" placeholder="Middlename">
+                    <input type="text" class="field" name="middlename" placeholder="Middlename" value="{{ $students->middlename }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="field" name="lastname" placeholder="Surname">
+                    <input type="text" class="field" name="lastname" placeholder="Surname" value="{{ $students->lastname }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="address" class="addressfield" placeholder="Address">
+                    <input type="text" name="address" class="addressfield" placeholder="Address" value="{{ $students->address }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="gurdain_name" class="addressfield" placeholder="Gurdain name">
+                    <input type="text" name="gurdain_name" class="addressfield" placeholder="Gurdain name" value="{{ $students->gurdain_name }}">
                 </div>
                 {{-- <div class="inputfielddob"> 
                     <input type="day" name="name" class="field" placeholder="day">
              
                 </div>  --}}
                 <div class="inputfield">
-                  <span style="margin-right:20px;">  Date Of Birth </span>  <input type="date" style="width:250px;" name="dob" class="field" placeholder="month">
+                  <span style="margin-right:20px;">  Date Of Birth </span>  <input type="date" style="width:250px;" name="dob" value="{{ $students->dob }}" class="field" placeholder="month">
                 </div>
             
             </div>
@@ -390,13 +391,13 @@ width: 400px;
             {{-- </div> --}}
             <div class="second">
                 <div class="inputfield">
-                    <input type="email" name="email" class="addressfield" placeholder="Email address">
+                    <input type="email" name="email" class="addressfield" placeholder="Email address" value="{{ $students->email }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="contact" class="addressfield" placeholder="Phone no">
+                    <input type="text" name="contact" class="addressfield" placeholder="Phone no" value="{{ $students->contact }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="gurdain_no" class="addressfield" placeholder="Gurdain/Local gurdain number">
+                    <input type="text" name="gurdain_no" class="addressfield" placeholder="Gurdain/Local gurdain number" value="{{ $students->gurdain_no }}">
                 </div>
                 <div class="inputfield">
                     <span>Maritial status </span>
@@ -426,7 +427,7 @@ width: 400px;
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input class="slcfield" style="" type="text" name="slcboard" placeholder="HMG / PCL">
+                    <input class="slcfield" style="" type="text" name="slcboard" value="{{ $students->slcboard }}" placeholder="HMG / PCL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
@@ -438,11 +439,11 @@ width: 400px;
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="slcgrade" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" value="{{ $students->slc_score }}" name="slcgrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="slcpassoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" value="{{ $students->slc_passoutyear }}" name="slcpassoutyear" placeholder="Management">
                 </div>
           
             
@@ -459,7 +460,7 @@ width: 400px;
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input style="width:200px;" class="field" type="text" name="plus2board" placeholder="HSEB / A LEVEL">
+                    <input style="width:200px;" value="{{ $students->plus2board }}" class="field" type="text" name="plus2board" placeholder="HSEB / A LEVEL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
@@ -471,11 +472,11 @@ width: 400px;
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="plus2grade" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" value="{{ $students->plus2_score }}" name="plus2grade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="plus2passoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" value="{{ $students->plus2_passoutyear }}" name="plus2passoutyear" placeholder="Management">
                 </div>
           
             </div>
@@ -486,7 +487,7 @@ width: 400px;
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input style="width:200px;" class="field" type="text" name="bachelorboard" placeholder="TU,PU,KU">
+                    <input style="width:200px;" class="field" type="text" value="{{ $students->bachelorboard }}" name="bachelorboard" placeholder="TU,PU,KU">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
@@ -498,11 +499,11 @@ width: 400px;
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="bachelorgrade" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" name="bachelorgrade" value="{{ $students->bachelor_score }}" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="bachelorpassoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" name="bachelorpassoutyear" value="{{ $students->bachelor_passoutyear }}" placeholder="Management">
                 </div>
           
             </div>
@@ -513,7 +514,7 @@ width: 400px;
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input style="width:200px;" class="field" type="text" name="masterboard" placeholder="TU,PU,KU">
+                    <input style="width:200px;" class="field" type="text" value="{{ $students->masterboard }}" name="masterboard" placeholder="TU,PU,KU">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
@@ -525,11 +526,11 @@ width: 400px;
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="mastergrade" placeholder="CGPA / GRADE">
+                    <input style="width:200px;" class="field" type="text" value="{{ $students->master_score }}" name="mastergrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="masterpassoutyear" placeholder="Management">
+                    <input style="width:200px;" type="month" class="field" value="{{ $students->master_passoutyear }}" name="masterpassoutyear" placeholder="Management">
                 </div>
           
             </div>
@@ -544,11 +545,11 @@ width: 400px;
             </div> -->
             <div class="first">
                 <div class="inputfield">
-                    <input class="addressfield" type="text" name="interest_country" placeholder="Intrested Country"><br>
+                    <input class="addressfield" type="text" name="interest_country" value="{{ $students->interest_country }}" placeholder="Intrested Country"><br>
                     <label>please select interested country</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="addressfield" name="interest_course" placeholder="Interest Course"><br>
+                    <input type="text" class="addressfield" name="interest_course" value="{{ $students->interest_course }}" placeholder="Interest Course"><br>
                     <label>please select interested course</label>
                 </div>
                 <div class="inputfield">
@@ -576,15 +577,15 @@ width: 400px;
             {{-- </div> --}}
             <div class="second">
                 <div class="inputfield">
-                    <input type="text" name="interest_city" class="addressfield" placeholder="Interest City"><br>
+                    <input type="text" name="interest_city" class="addressfield" value="{{ $students->interest_city }}" placeholder="Interest City"><br>
                     <label>please select interested city</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="interestcityremark" class="addressfield" placeholder="Remark"><br>
+                    <input type="text" name="interestcityremark" class="addressfield" value="{{ $students->interestcityremark }}" placeholder="Remark"><br>
                     <label>please consider any alternative possibilities that you may wish to investigate further</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="gap" class="addressfield" placeholder="enter gapif any">
+                    <input type="text" name="gap" class="addressfield" placeholder="enter gapif any" value="{{ $students->gap }}">
                     <br><label>Please mention Gap between education (if any) </label>
                 </div>
               
@@ -613,11 +614,11 @@ width: 400px;
                     <label>please select from above option</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="addressfield" name="test_score" placeholder="select score"><br>
+                    <input type="text" class="addressfield" value="{{ $students->test_score }}" name="test_score" placeholder="select score"><br>
                     <label>please select interested course</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
+                    <input type="text" name="test_issue_Date" value="{{ $students->test_issue_date }}" class="addressfield" placeholder="select test given year"><br>
                     <label>Test given year</label>
                 </div>
             
@@ -627,22 +628,22 @@ width: 400px;
                  {{-- <h1>  Personal details </h1> --}}
                 {{-- </div> --}}
             {{-- </div> --}}
-            <!-- <div class="secondsidedesign">
+            <div class="secondsidedesign">
                 {{-- <div class="sidetext"> --}}
                  <h2> Experience Information </h2>
                 {{-- </div> --}}
-            </div> -->
+            </div>
             <div class="second">
                 <div class="inputfield">
-                    <input class="addressfield" type="text" name="work_experience" placeholder="work experience"><br>
+                    <input class="addressfield" type="text" value="{{ $students->work_experience }}" name="work_experience" placeholder="work experience"><br>
                     <label>please enter your work experience if any</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="addressfield" name="work_description" placeholder="job description"><br>
+                    <input type="text" class="addressfield" value="{{ $students->work_description }}" name="work_description" placeholder="job description"><br>
                     <label>please enter job description</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="work_duration" class="addressfield" placeholder="Duration"><br>
+                    <input type="text" name="work_duration" class="addressfield" value="{{ $students->work_duration }}" placeholder="Duration"><br>
                     <label>please enter your work duration</label>
                 </div>
             </div>
@@ -675,7 +676,7 @@ width: 400px;
       
             <div class="second">
                 <div class="inputfield">
-                    <input class="addressfield" type="text" name="visa_rejection_detail" placeholder="reason for visa rejection"><br>
+                    <input class="addressfield" type="text" name="visa_rejection_detail" value="{{ $students->visa_rejection_detail }}" placeholder="reason for visa rejection"><br>
                     <label>please describe reason for visa rejection</label>
                 </div>
             
@@ -683,7 +684,7 @@ width: 400px;
         </div>
         <div class="personaldetail" style="background-color : white;justify-content:center;">
         <div style="display: flex;flex-direction:column;align-items:center;justify-content:center;">
-            <a id="start-camera" style="padding:5px;margin:60px;height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Start Camera</a>
+            <a id="start-camera" style="padding:5px;height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Start Camera</a>
             <a style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</a>
     </div>
             <div class="first">

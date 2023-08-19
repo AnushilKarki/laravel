@@ -151,7 +151,7 @@ flex-wrap:wrap;
           <input type="submit" placeholder="search">
               </form>
               <div class="part">
-                <button class="add" type="button"><a href="/new">Add new student</a> </button>
+                <button class="add" type="button"><a href="/applicant">Add new student</a> </button>
               </div>
         <div>
           <h3 style="text-align:center;">Today's Remainder</h3>
