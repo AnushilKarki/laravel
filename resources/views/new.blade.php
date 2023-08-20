@@ -56,7 +56,7 @@ td, th {
 <th> {{$students['status']}}</th>
 </tr>
   <tr>
-    <td>Name: {{ $students['name'] }} </td>
+    <td>Name: {{ $students['firstname'].' '.$students['lastname'] }} </td>
     <td>email: {{$students['email']}}</td>
     <td>Interest Country: {{ $students['interest_country'] }}</td>
     <td>Work Experience: {{ $students['work_experience'] }}</td>
@@ -74,7 +74,7 @@ td, th {
 <td>Test Preparation: {{ $students['test_preparation'] }}</td>
 <td>Test score: {{ $students['test_score'] }}</td>
 <td>Test issue date: {{ $students['test_issue_date'] }}</td>
-<td>Highest acheived: {{ $students['highest_acheived'] }}</td>
+<!-- <td>Highest acheived: {{ $students['highest_acheived'] }}</td> -->
 <td>Counseled By: {{ $students['counseled_by'] }}</td>
 <td>Remark: {{ $students['remark'] }}</td>
     </tr>
