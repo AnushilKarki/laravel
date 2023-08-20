@@ -160,6 +160,7 @@ flex-wrap:wrap;
               <th>id</th>
               <th>Student name</th>
               <th>student id </th>
+              <th>Student phone no</th>
               <th>Reaminder date</th>
               <th>Remainder detail</th>
               <th>Status </th>
@@ -174,8 +175,9 @@ flex-wrap:wrap;
               <td>
 {{$i}}
               </td>
+              <td>{{$remainder->student->firstname.' '.$remainder->student->lastname ?? 'n/a'}} </td>
               <td>{{ $remainder->student->studentid ?? 'n/a' }}</td>
-              <td>{{$remainder->student->name ?? 'n/a'}} </td>
+              <td>{{ $remainder->student->contact ?? 'n/a' }}</td>
               <td>{{ $remainder->followup_date ?? 'n/a' }}</td>
               <td>{{$remainder->followup_detail ?? 'n/a'}} </td>
               <td>{{$remainder->status ==1 ? 'active' : 'not active'}} </td>
