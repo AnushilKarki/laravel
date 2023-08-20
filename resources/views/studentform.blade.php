@@ -360,16 +360,16 @@ width: 400px;
             </div> -->
             <div class="first">
                 <div class="inputfield">
-                    <input class="field" type="text" name="firstname" placeholder="Firstname">
+                    <input class="field" type="text" name="firstname" placeholder="Firstname" required>
                 </div>
                 <div class="inputfield">
                     <input type="text" class="field" name="middlename" placeholder="Middlename">
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="field" name="lastname" placeholder="Surname">
+                    <input type="text" class="field" name="lastname" placeholder="Surname" required>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="address" class="addressfield" placeholder="Address">
+                    <input type="text" name="address" class="addressfield" placeholder="Address" required>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="gurdain_name" class="addressfield" placeholder="Gurdain name">
@@ -393,7 +393,7 @@ width: 400px;
                     <input type="email" name="email" class="addressfield" placeholder="Email address">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="contact" class="addressfield" placeholder="Phone no">
+                    <input type="text" name="contact" class="addressfield" placeholder="Phone no" required>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="gurdain_no" class="addressfield" placeholder="Gurdain/Local gurdain number">
@@ -554,12 +554,13 @@ width: 400px;
                 <div class="inputfield">
                     <!-- <input type="text" name="intake" class="addressfield" placeholder="Address"><br> -->
                     
-                    <select style="width:200px;" name="intake" class="field">
-                    <option value="">Prefered intake</option>
+                    <!-- <select style="width:200px;" name="intake" class="field"> -->
+                    <!-- <option value="">Prefered intake</option>
                         <option value="jan_intake">Jan intake</option>
                         <option value="september_intake">September Intake</option>
-                    </select><br>
-                    <label>select from the above options</label>
+                    </select><br> -->
+                    <input type="text" name="intake" class="field"/><br>>
+                    <label>enter intake you want to apply</label>
                 </div>
           
                 {{-- <div class="inputfielddob"> 
@@ -600,7 +601,7 @@ width: 400px;
             </div> -->
             <div class="first">
                 <div class="inputfield">
-                <select style="width:200px;" placeholder="plese select prefered english proficiency test" name="test_preparation" class="field">
+                <select style="width:200px;" placeholder="plese select prefered english proficiency test" name="test_preparation" class="addressfield">
                 <option>select prefered english proficiency test</option>
                         <option value="ielts">ielts </option>
                         <option value="ielts_ukvi"> ielts_ukvi</option>

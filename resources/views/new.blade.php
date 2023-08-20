@@ -45,7 +45,10 @@ td, th {
         </style>
 </head>
 <body>
-   
+<div class="logo" style="text-align:center;">
+                <img src="logo.png" style="width:150px;" alt="logo"/>
+                
+            </div>
  <h2 style="text-align: center;">SajiloVisa Applicant Details</h2>
 <table style="width:100%;margin:5px;">
 <tr>
