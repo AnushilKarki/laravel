@@ -740,12 +740,12 @@ public function studentaddnewstudent(Request $request){
 
     // create remainder
     // 
-    $authid = Auth()->id();
-    $studentid = $student->id;
-    $students = Student::where('id',$studentid)->first()->toArray();
-    // dd($students);
-    $pdf = Pdf::loadView('new', compact('students'));
-    return $pdf->stream();
+    // $authid = Auth()->id();
+    // $studentid = $student->id;
+    // $students = Student::where('id',$studentid)->first()->toArray();
+    // // dd($students);
+    // $pdf = Pdf::loadView('new', compact('students'));
+    // return $pdf->stream();
     // $remainder = Remainder::create([
     //     'student_id'=>$studentid,
     //     'user_id'=>$authid,

@@ -60,6 +60,8 @@
             }
             .slc{
                 min-width:480px; 
+                display: flex;
+                justify-content: center;
                 /* background-color: #23A8E0;  */
             }
             .plus2{
@@ -545,7 +547,7 @@ width: 400px;
             <div class="first">
                 <div class="inputfield">
                     <input class="addressfield" type="text" name="interest_country" placeholder="Intrested Country"><br>
-                    <label>please seleenter your interested country</label>
+                    <label>please enter your interested country</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" class="addressfield" name="interest_course" placeholder="Interest Course"><br>
@@ -578,7 +580,7 @@ width: 400px;
             <div class="second">
                 <div class="inputfield">
                     <input type="text" name="interest_city" class="addressfield" placeholder="Interest City"><br>
-                    <label>please select interested city</label>
+                    <label>please select your interested city</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="interestcityremark" class="addressfield" placeholder="Remark"><br>
@@ -619,7 +621,7 @@ width: 400px;
                 </div>
                 <div class="inputfield">
                     <input type="month" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
-                    <label>plese enter yorr Test given year</label>
+                    <label>plese enter your Test given year</label>
                 </div>
             
             </div>
@@ -684,8 +686,8 @@ width: 400px;
         </div>
         <div class="personaldetail" style="background-color : white;justify-content:center;">
         <div style="display: flex;flex-direction:column;align-items:center;justify-content:center;">
-            <a id="start-camera" style="padding:5px;margin:20px;height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"><span style="text-align:center;padding:10px;vertical-align:baseline;">Start Camera</span></a>
-            <a style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</a>
+            <a id="start-camera" style="padding:5px;margin:20px;height:40px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"><span style="text-align:center;padding:10px;vertical-align:baseline;">Start Camera</span></a>
+            <a style="height:40px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</a>
     </div>
             <div class="first">
                 <div class="inputfield">
