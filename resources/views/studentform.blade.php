@@ -257,7 +257,7 @@ width: 145px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 17px;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -272,7 +272,7 @@ width: 145px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -287,7 +287,7 @@ width: 400px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 17px;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -353,11 +353,11 @@ width: 400px;
         </div>
 
         <div class="personaldetail">
-            <div class="sidedesign">
+            {{-- <div class="sidedesign">
                 <div class="sidetext"> 
                  <h1>  Personal details </h1>
                  </div> 
-            </div> 
+            </div>  --}}
             <div class="first">
                 <div class="inputfield">
                     <input class="field" type="text" name="firstname" placeholder="Firstname" required>

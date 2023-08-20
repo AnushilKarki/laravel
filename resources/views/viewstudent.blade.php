@@ -164,11 +164,11 @@ flex-wrap:wrap;
               <th>Remainder detail</th>
               <th>Status </th>
             </tr>
-          
-            @foreach ($remainders as $remainder)
             <?php 
             $i = 1;
           ?>
+            @foreach ($remainders as $remainder)
+           
           
             <tr>
               <td>
