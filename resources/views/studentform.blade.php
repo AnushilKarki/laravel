@@ -116,7 +116,7 @@
             }
             .personaldetail {
                 display : flex;
-                flex-direction: column;
+                flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
@@ -745,7 +745,7 @@ width: 400px;
     </div>
     </div>
     <div style="text-align: center;">
-    <button class="" style="height:70px;width:30%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="submit">Submit</button>
+    <button class="" style="height:70px;width:30%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="submit" onclick="alert('thank you for applyng with sajilovisa')">Submit</button>
     </div>
     </form>
     {{-- <button type="botton" id="start-camera">Start Camera</button>

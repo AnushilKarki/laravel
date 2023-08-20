@@ -752,6 +752,7 @@ public function studentaddnewstudent(Request $request){
     //     'followup_date'=> '',
     //     'followup_detail'=> ''
     // ]);
-    return redirect()->route('studentdata');
+    $data = 'Thank you for submitting Application with us';
+    return redirect()->route('studentform',compact('data'));
     }
 }

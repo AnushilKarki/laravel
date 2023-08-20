@@ -65,7 +65,7 @@ Route::get('/applicant',function(){
 
 Route::get('/studentform',function(){
     return view('studentform');
-});
+})->name('studentform');
 Route::post('store/ramainder/{id}',[RemainderController::class,'storeremainder'])->name('addremainder');
 Route::put('edit/remainder/{id}',[RemainderController::class,'editremainder'])->name('editremainder');
 Route::delete('delete/remainder/{id}',[RemainderController::class,'deleteremainder'])->name('deleteremainder');
