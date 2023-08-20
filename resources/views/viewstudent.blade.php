@@ -175,7 +175,7 @@ flex-wrap:wrap;
               <td>
 {{$i}}
               </td>
-              <td>{{ $remainder->student->firstname.' '.$remainder->student->lastname ?? $remainder->student->name }} </td>
+              <td>{{ $remainder->student->firstname.' '.$remainder->student->lastname ?? ''.$remainder->student->name }} </td>
               <td>{{ $remainder->student->studentid ?? 'n/a' }}</td>
               <td>{{ $remainder->student->contact ?? 'n/a' }}</td>
               <td>{{ $remainder->followup_date ?? 'n/a' }}</td>
