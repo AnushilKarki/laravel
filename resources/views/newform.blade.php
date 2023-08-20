@@ -257,7 +257,7 @@ width: 145px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 17px;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -272,7 +272,7 @@ width: 145px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 17px;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -287,7 +287,7 @@ width: 400px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 17px;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -353,11 +353,11 @@ width: 400px;
         </div>
 
         <div class="personaldetail">
-         <div class="sidedesign">
+         {{-- <div class="sidedesign">
                 <div class="sidetext"> 
                  <h1>  Personal details </h1>
                  </div> 
-            </div> 
+            </div>  --}}
             <div class="first">
                 <div class="inputfield">
                     <input class="field" type="text" name="firstname" placeholder="Firstname">
@@ -414,11 +414,11 @@ width: 400px;
         {{-- Academic details --}}
 
         <div class="personaldetail">
-             <div class="secondsidedesign">
+             {{-- <div class="secondsidedesign">
                  <div class="sidetext"> 
                  <h1>  Academic details </h1>
                 </div> 
-            </div> 
+            </div>  --}}
             <div class="slc">
                 <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
@@ -537,11 +537,11 @@ width: 400px;
         {{-- course detailas  --}}
         
         <div class="personaldetail">
-             <div class="sidedesign">
+             {{-- <div class="sidedesign">
                  <div class="sidetext"> 
                  <h1>  Course details </h1>
                  </div> 
-            </div> 
+            </div>  --}}
             <div class="first">
                 <div class="inputfield">
                     <input class="addressfield" type="text" name="interest_country" placeholder="Intrested Country"><br>
@@ -593,11 +593,11 @@ width: 400px;
         {{-- test information --}}
 
         <div class="personaldetail">
-             <div class="sidedesign" style="height:470px;">
+             {{-- <div class="sidedesign" style="height:470px;">
                  <div class="sidetext"> 
                  <h1>  Test Information </h1>
                  </div>
-            </div> 
+            </div>  --}}
             <div class="first">
                 <div class="inputfield">
                 <select style="width:200px;" placeholder="plese select prefered english proficiency test" name="test_preparation" class="field">
@@ -627,11 +627,11 @@ width: 400px;
                  {{-- <h1>  Personal details </h1> --}}
                 {{-- </div> --}}
             {{-- </div> --}}
-             <div class="secondsidedesign">
+             {{-- <div class="secondsidedesign">
                  <div class="sidetext"> 
                  <h2> Experience Information </h2>
                  </div> 
-            </div>
+            </div> --}}
             <div class="second">
                 <div class="inputfield">
                     <input class="addressfield" type="text" name="work_experience" placeholder="work experience"><br>
