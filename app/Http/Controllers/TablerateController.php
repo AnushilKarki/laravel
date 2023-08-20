@@ -47,15 +47,10 @@ $age = $diff->y + 1;
 	} 
    
     public function import(Request $request){
-      
-
         $request->validate([
                 'excel_file' => 'required|mimes:xls,xlsx',
             ]);
-    
-    
-            // 
-    
+
      $file = $request->file('excel_file');
     
             // Load the Excel file

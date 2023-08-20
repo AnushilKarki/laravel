@@ -257,7 +257,7 @@ width: 145px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -272,7 +272,7 @@ width: 145px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -287,7 +287,7 @@ width: 400px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 11px;
 
   padding: 7px 0;
   background: transparent;
@@ -422,7 +422,7 @@ width: 400px;
             </div> -->
             <div class="slc">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -455,7 +455,7 @@ width: 400px;
             {{-- </div> --}}
             <div class="plus2">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">+2 / HCL</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">+2 / HCL</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -482,7 +482,7 @@ width: 400px;
             </div>
             <div class="bachelor">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Bachelor</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Bachelor</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -509,7 +509,7 @@ width: 400px;
             </div>
             <div class="master">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Master</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Master</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -553,14 +553,14 @@ width: 400px;
                     <label>please select interested course</label>
                 </div>
                 <div class="inputfield">
-                    <!-- <input type="text" name="intake" class="addressfield" placeholder="Address"><br> -->
+                     <input type="text" name="intake" class="addressfield" placeholder="Address" value="{{$students->intake}}"><br>
                     
-                    <select style="width:200px;" name="intake" class="field">
+                    {{-- <select style="width:200px;" name="intake" class="field">
                     <option value="">Prefered intake</option>
                         <option value="jan_intake">Jan intake</option>
                         <option value="september_intake">September Intake</option>
-                    </select><br>
-                    <label>select from the above options</label>
+                    </select><br> --}}
+                    <label>please enter the intake you want to apply </label>
                 </div>
           
                 {{-- <div class="inputfielddob"> 
@@ -619,7 +619,7 @@ width: 400px;
                 </div>
                 <div class="inputfield">
                     <input type="text" name="test_issue_Date" value="{{ $students->test_issue_date }}" class="addressfield" placeholder="select test given year"><br>
-                    <label>Test given year</label>
+                    <label>please enter Test given year</label>
                 </div>
             
             </div>
@@ -628,11 +628,11 @@ width: 400px;
                  {{-- <h1>  Personal details </h1> --}}
                 {{-- </div> --}}
             {{-- </div> --}}
-            <div class="secondsidedesign">
+            {{-- <div class="secondsidedesign"> --}}
                 {{-- <div class="sidetext"> --}}
-                 <h2> Experience Information </h2>
+                 {{-- <h2> Experience Information </h2> --}}
                 {{-- </div> --}}
-            </div>
+            {{-- </div> --}}
             <div class="second">
                 <div class="inputfield">
                     <input class="addressfield" type="text" value="{{ $students->work_experience }}" name="work_experience" placeholder="work experience"><br>
@@ -684,8 +684,8 @@ width: 400px;
         </div>
         <div class="personaldetail" style="background-color : white;justify-content:center;">
         <div style="display: flex;flex-direction:column;align-items:center;justify-content:center;">
-            <a id="start-camera" style="padding:5px;height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Start Camera</a>
-            <a style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</a>
+            <a id="start-camera" style="padding:5px;height:40px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Start Camera</a>
+            <a style="height:40px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</a>
     </div>
             <div class="first">
                 <div class="inputfield">

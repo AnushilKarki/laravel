@@ -210,10 +210,10 @@ return view('addstudent',compact('msg'));
     $student->major_subject = $request->major_subject;
     $student->save();
     $data =$request->image;
-    
-    $data = base64_decode($data);
-    
-    file_put_contents($student->studentid.'.png', $data);
+    if($data!=NULL){
+        $data = base64_decode($data);  
+        file_put_contents($student->studentid.'.png', $data);
+    }
    $newuser = \App\Models\User::create([
         'name'=>$studentid,
         // 'email'=>$request->email,
@@ -321,9 +321,9 @@ return view('addstudent',compact('msg'));
 
     //     $student->counseled_by = $request->counseled_by;
     //     $student->major_subject = $request->major_subject; 
-    $student->firstname = $request->firstname;
-    $student->middlename = $request->middlename;
-    $student->lastname = $request->lastname;
+    // $student->firstname = $request->firstname;
+    // $student->middlename = $request->middlename;
+    // $student->lastname = $request->lastname;
 
     $student->intake = $request->intake;
     $student->interest_city = $request->interest_city;
@@ -389,12 +389,10 @@ $student->slcboard = $request->slcboard;
   $student->major_subject = $request->major_subject; 
         $student->save();
         $data =$request->image;
-        if($data){
-            $data = base64_decode($data);
-        
+        if($data!=NULL){
+            $data = base64_decode($data);  
             file_put_contents($student->studentid.'.png', $data);
         }
-      
         return redirect()->route('studentdata');
     }
     public function delete($id)
@@ -727,10 +725,12 @@ public function studentaddnewstudent(Request $request){
     $student->major_subject = $request->major_subject;
     $student->save();
     $data =$request->image;
+    if($data!=NULL){
+        $data = base64_decode($data);
     
-    $data = base64_decode($data);
-    
-    file_put_contents($student->studentid.'.png', $data);
+        file_put_contents($student->studentid.'.png', $data);
+    }
+
    $newuser = \App\Models\User::create([
         'name'=>$studentid,
         // 'email'=>$request->email,
