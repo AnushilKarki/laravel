@@ -180,27 +180,29 @@ flex-wrap:wrap;
 
         <th>status : {{$students['status']}}</th>
         </tr>
+        <tr>
+          <td>Name: {{ $students['firstname'].' '.$students['lastname'] }} </td>
+          <td>email: {{$students['email']}}</td>
+          <td>Interest Country: {{ $students['interest_country'] }}</td>
+          <td>Work Experience: {{ $students['work_experience'] }}</td>
+          <td>Marital status: {{$students['marital_status']}}</td>
+          </tr>
           <tr>
-            <td>Name: {{ $students['name'] }} </td>
-            <td>email: {{$students['email']}}</td>
-            <td>Interest Country: {{ $students['interest_country'] }}</td>
-            <td>Work Experience: {{ $students['work_experience'] }}</td>
-            <td>Marital status: {{$students['marital_status']}}</td>
-            </tr>
-            <tr>
-              <td>Contact: {{ $students['contact'] }}</td>
-        <td>Address: {{ $students['address'] }}</td>
-        <td>Dob: {{ $students['dob'] }}</td>
-        <td>Interest Course: {{ $students['interest_course'] }}</td>
-        <td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
-            </tr>
-            <tr>
-        <td>Major Subject: {{$students['major_subject']}}</td>
-        <td>Test Preparation: {{ $students['test_preparation'] }}</td>
-        <!-- <td>Highest acheived: {{ $students['highest_acheived'] }}</td> -->
-        <!-- <td>Counseled By: {{ $students['counseled_by'] }}</td> -->
-        <td>Remark: {{ $students['remark'] }}</td>
-            </tr>
+            <td>Contact: {{ $students['contact'] }}</td>
+      <td>Address: {{ $students['address'] }}</td>
+      <td>Dob: {{ $students['dob'] }}</td>
+      <td>Interest Course: {{ $students['interest_course'] }}</td>
+      <td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
+          </tr>
+          <tr>
+      <!-- <td>Major Subject: {{$students['major_subject']}}</td> -->
+      <td>Test Preparation: {{ $students['test_preparation'] }}</td>
+      <td>Test score: {{ $students['test_score'] }}</td>
+      <td>Test issue date: {{ $students['test_issue_date'] }}</td>
+      <!-- <td>Highest acheived: {{ $students['highest_acheived'] }}</td> -->
+      <td>Counseled By: {{ $students['counseled_by'] }}</td>
+      <td>Remark: {{ $students['remark'] }}</td>
+          </tr>
         </table>
         {{-- <div class="part">
           <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>

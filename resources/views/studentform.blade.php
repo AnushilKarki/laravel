@@ -257,7 +257,7 @@ width: 145px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 17px;
 
   padding: 7px 0;
   background: transparent;
@@ -287,7 +287,7 @@ width: 400px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 17px;
 
   padding: 7px 0;
   background: transparent;
@@ -353,11 +353,11 @@ width: 400px;
         </div>
 
         <div class="personaldetail">
-            <!-- <div class="sidedesign">
-                {{-- <div class="sidetext"> --}}
+            <div class="sidedesign">
+                <div class="sidetext"> 
                  <h1>  Personal details </h1>
-                {{-- </div> --}}
-            </div> -->
+                 </div> 
+            </div> 
             <div class="first">
                 <div class="inputfield">
                     <input class="field" type="text" name="firstname" placeholder="Firstname" required>
@@ -421,7 +421,7 @@ width: 400px;
             </div> -->
             <div class="slc">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -454,7 +454,7 @@ width: 400px;
             {{-- </div> --}}
             <div class="plus2">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">+2 / HCL</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">+2 / HCL</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -481,7 +481,7 @@ width: 400px;
             </div>
             <div class="bachelor">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Bachelor</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Bachelor</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -508,7 +508,7 @@ width: 400px;
             </div>
             <div class="master">
                 <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:30px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Master</label><br>
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Master</label><br>
                    
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
@@ -545,11 +545,11 @@ width: 400px;
             <div class="first">
                 <div class="inputfield">
                     <input class="addressfield" type="text" name="interest_country" placeholder="Intrested Country"><br>
-                    <label>please select interested country</label>
+                    <label>please seleenter your interested country</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" class="addressfield" name="interest_course" placeholder="Interest Course"><br>
-                    <label>please select interested course</label>
+                    <label>please enter your interested course</label>
                 </div>
                 <div class="inputfield">
                     <!-- <input type="text" name="intake" class="addressfield" placeholder="Address"><br> -->
@@ -559,7 +559,7 @@ width: 400px;
                         <option value="jan_intake">Jan intake</option>
                         <option value="september_intake">September Intake</option>
                     </select><br> -->
-                    <input type="text" name="intake" class="field"/><br>>
+                    <input type="text" name="intake" class="field" placeholder="i.e jan intake"/><br>
                     <label>enter intake you want to apply</label>
                 </div>
           
@@ -611,15 +611,15 @@ width: 400px;
                         <option value="gre">gre </option>
                     </select><br>
                     <!-- <input class="addressfield" type="text" name="test_preparation" placeholder="Select your english language profiencency test"><br> -->
-                    <label>please select from above option</label>
+                    <label>please select test from above option</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" class="addressfield" name="test_score" placeholder="select score"><br>
-                    <label>please select interested course</label>
+                    <label>please enter your interested course</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
-                    <label>Test given year</label>
+                    <label>plese enter yorr Test given year</label>
                 </div>
             
             </div>
@@ -640,7 +640,7 @@ width: 400px;
                 </div>
                 <div class="inputfield">
                     <input type="text" class="addressfield" name="work_description" placeholder="job description"><br>
-                    <label>please enter job description</label>
+                    <label>please enter your job description</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="work_duration" class="addressfield" placeholder="Duration"><br>
@@ -663,7 +663,7 @@ width: 400px;
                     <option value="yes">yes </option>
                         <option value="no"> no</option>
                     </select><br>
-                    <label>please select if your visa is rejected </label>
+                    <label>please select if your visa is rejected or not </label>
                 </div>
          
             
@@ -677,7 +677,7 @@ width: 400px;
             <div class="second">
                 <div class="inputfield">
                     <input class="addressfield" type="text" name="visa_rejection_detail" placeholder="reason for visa rejection"><br>
-                    <label>please describe reason for visa rejection</label>
+                    <label>please describe reason for your visa rejection</label>
                 </div>
             
             </div>
