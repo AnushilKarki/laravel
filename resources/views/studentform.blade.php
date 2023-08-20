@@ -615,10 +615,10 @@ width: 400px;
                 </div>
                 <div class="inputfield">
                     <input type="text" class="addressfield" name="test_score" placeholder="select score"><br>
-                    <label>please enter your interested course</label>
+                    <label>please enter your test score</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
+                    <input type="month" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
                     <label>plese enter yorr Test given year</label>
                 </div>
             
