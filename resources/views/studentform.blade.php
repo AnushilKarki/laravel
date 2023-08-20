@@ -335,7 +335,7 @@ width: 400px;
     </style>
 </head>
 <body>
-    <form action="{{route('addnewstudent')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('student.addnewstudent')}}" method="POST" enctype="multipart/form-data">
         @csrf
     <div class="main">
 
@@ -593,11 +593,11 @@ width: 400px;
         {{-- test information --}}
 
         <div class="personaldetail">
-            <div class="sidedesign" style="height:470px;">
+            <!-- <div class="sidedesign" style="height:470px;">
                 {{-- <div class="sidetext"> --}}
                  <h1>  Test Information </h1>
                 {{-- </div> --}}
-            </div>
+            </div> -->
             <div class="first">
                 <div class="inputfield">
                 <select style="width:200px;" placeholder="plese select prefered english proficiency test" name="test_preparation" class="field">
@@ -683,7 +683,7 @@ width: 400px;
         </div>
         <div class="personaldetail" style="background-color : white;justify-content:center;">
         <div style="display: flex;flex-direction:column;align-items:center;justify-content:center;">
-            <a id="start-camera" style="padding:5px;margin:60px;height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Start Camera</a>
+            <a id="start-camera" style="padding:5px;margin:20px;height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"><span style="text-align:center;padding:10px;vertical-align:baseline;">Start Camera</span></a>
             <a style="height:70px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</a>
     </div>
             <div class="first">
@@ -742,7 +742,7 @@ width: 400px;
     </div>
     </div>
     <div style="text-align: center;">
-    <input class="" style="height:70px;width:30%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="submit"/>
+    <button class="" style="height:70px;width:30%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="submit">Submit</button>
     </div>
     </form>
     {{-- <button type="botton" id="start-camera">Start Camera</button>

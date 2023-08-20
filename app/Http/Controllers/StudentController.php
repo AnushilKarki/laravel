@@ -610,4 +610,148 @@ public function pdfexport($id){
     return $pdf->stream();
 // return $pdf->download('student.pdf');
 }
+public function studentaddnewstudent(Request $request){
+    //    dd($request);
+        $sid = Carbon::now();
+        $month = $sid->month;
+        $year = substr(($sid->year),1);
+ 
+        $value = cache('applicantid');
+        if($value){
+            $y = cache('year');
+            $m = cache('month');
+            if($sid->year == $y && $sid->month == $m){
+                Cache::increment('applicantid');
+            }else {
+                Cache::flush();
+                Cache::put('year', $sid->year);
+                Cache::put('month', $sid->month);
+                Cache::put('applicantid', 1);
+            }
+        }else {
+           Cache::put('applicantid', 1);
+           Cache::put('year', $sid->year);
+           Cache::put('month', $sid->month);
+        }
+        $value = cache('applicantid');
+
+        if($value<10){
+            if($month<10){
+                $studentid = 'svd-'.$year.'0'.$month.'00'.$value;
+            }else {
+                $studentid = 'svd-'.$year.$month.'00'.$value;
+            }
+        }else if($value>=10 && $value<100){
+            if($month<10){
+                $studentid = 'svd-'.$year.'0'.$month.'0'.$value;
+            }else {
+                $studentid = 'svd-'.$year.$month.'0'.$value;
+            }
+        }else {
+            if($month<10){
+                $studentid = 'svd-'.$year.'0'.$month.$value;
+            }else {
+                $studentid = 'svd-'.$year.$month.$value;
+            }
+        }
+       
+        // dd($studentid);
+      $student = new Student;
+
+      $student->firstname = $request->firstname;
+      $student->middlename = $request->middlename;
+      $student->lastname = $request->lastname;
+
+      $student->intake = $request->intake;
+      $student->interest_city = $request->interest_city;
+      $student->interestcityremark = $request->interestcityremark;
+      $student->gap = $request->gap;
+      $student->test_issue_date = $request->test_issue_Date;
+      $student->work_description = $request->work_description;
+      $student->work_duration = $request->work_duration;
+      $student->visa_rejection_detail =$request->visa_rejection_detail;
+    //   $data =$request->image;
+    
+    //   $data = base64_decode($data);
+      
+    //   file_put_contents('test.png', $data);
+        // if($request->has('name')){
+            $student->profile_picture = $studentid.'.png';
+            $student->name = $request->name;
+            $student->firstname = $request->firstname;
+            $student->middlename = $request->middlename;
+            $student->lastname = $request->lastname;
+            $student->studentid = $studentid;
+            $student->contact = $request->contact;
+            $student->address = $request->address;
+            $student->highest_acheived = $request->highest_acheived;
+            $student->gurdain_name = $request->gurdain_name;
+            $student->gurdain_no = $request->gurdain_no;
+            $student->interest_city = $request->interest_city;
+    //    }
+    $student->cgpa = $request->cgpa;
+    $student->test_preparation = $request->test_preparation;
+    $student->test_score = $request->test_score;
+    $student->interest_country = $request->interest_country;
+    $student->interest_course = $request->interest_course;
+    $student->visa_rejection = $request->visa_rejection;
+    $student->work_experience = $request->work_experience;
+    $student->calldetail = $request->calldetail;
+    $student->email = $request->email; 
+    $student->status = $request->status; 
+    $student->remark = $request->remark;   
+    //after update 
+    $student->dob = $request->dob;
+    $student->marital_status = $request->marital_status;
+
+    $student->slcboard = $request->slcboard;
+    $student->slcstream = $request->slcstream;
+    $student->plus2board = $request->plus2board;
+    $student->plus2stream = $request->plus2stream;
+    $student->bachelorboard = $request->bachelorboard;
+    $student->bachelorstream = $request->bachelorstream;
+    $student->masterboard = $request->masterboard;
+    $student->masterstream = $request->masterstream;
+    $student->master_score = $request->mastergrade;
+    $student->bachelor_score = $request->bachelorgrade;
+    $student->plus2_score = $request->plus2grade;
+    $student->slc_score = $request->slcgrade;
+
+    $student->master_passoutyear = $request->masterpassoutyear;
+    $student->bachelor_passoutyear = $request->bachelorpassoutyear;
+    $student->plus2_passoutyear = $request->plus2passoutyear;
+    $student->slc_passoutyear = $request->slcpassoutyear;
+
+   
+    $student->counseled_by = $request->counseled_by;
+    $student->major_subject = $request->major_subject;
+    $student->save();
+    $data =$request->image;
+    
+    $data = base64_decode($data);
+    
+    file_put_contents($student->studentid.'.png', $data);
+   $newuser = \App\Models\User::create([
+        'name'=>$studentid,
+        // 'email'=>$request->email,
+        'password'=> bcrypt('sajilo@123'),
+            'is_change'=> 0
+    ]);
+
+    // create remainder
+    // 
+    $authid = Auth()->id();
+    $studentid = $student->id;
+    $students = Student::where('id',$studentid)->first()->toArray();
+    // dd($students);
+    $pdf = Pdf::loadView('new', compact('students'));
+    return $pdf->stream();
+    // $remainder = Remainder::create([
+    //     'student_id'=>$studentid,
+    //     'user_id'=>$authid,
+    //     'followup_date'=> '',
+    //     'followup_detail'=> ''
+    // ]);
+    return redirect()->route('studentdata');
+    }
 }

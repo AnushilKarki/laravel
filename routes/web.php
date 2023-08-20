@@ -35,6 +35,7 @@ Route::get('/view/student/{id}',[StudentController::class,'view'])->name('viewst
 Route::put('/update/student/{id}',[StudentController::class,'update'])->name('updatestudent');
 Route::post('searchstudent',[StudentController::class,'searchStudent'])->name('searchstudent')->middleware('auth');
 Route::post('addnewstudent',[StudentController::class,'addnewstudent'])->name('addnewstudent')->middleware('auth');
+Route::post('student/addnewstudent',[StudentController::class,'studentaddnewstudent'])->name('student.addnewstudent');
 Route::get('studentdata',[StudentController::class,'studentdata'])->name('studentdata')->middleware('auth');
 Route::get('/emailform',function(){
     return view('email');
