@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Applicant form</title>
     <style>
+        .bottomtext {
+            color: #23A8E0;
+            font-size: 14px;
+        }
           .main {
             display: flex;
             flex-direction: column;
@@ -25,24 +29,35 @@
         .logo {
             /* border: 3px solid rosybrown; */
             text-align:center;
-            border-radius: 12px;
+            /* border-radius: 12px; */
             padding: 5px;
         }
         .headertext {
             /* border: 3px solid rosybrown; */
             text-align:center;
             border-radius: 12px;
+            /* background: linear-gradient( #23A8E0, #F89939); */
             padding: 5px;
+            /* width:210px; */
             display:flex;
             justify-content: center;
         }
+        .text {
+    background-color: white;
+    color:black;
+    border-radius: 50px;
+  padding: 10px;
+
+  font-size:20px;
+}
         .header {
-            border: 3px solid rosybrown;
             text-align:center;
-            border-radius: 12px;
-            padding: 5px;
-            font-size:25px;
-            border-color: #23A8E0 black #F89939 black; /* red top, green right, blue bottom and yellow left */
+            color: black;
+          background-image:linear-gradient( #23A8E0, #F89939); 
+            border-image-slice: 1;
+            border-radius: 50px;
+            padding: 3px;
+      
         }
         .personaldetail {
             /* border: 3px solid rosybrown; */
@@ -53,24 +68,153 @@
             background-color: #E9E8E8;
             /* align-items: stretch; */
         }
-        @media only screen and (max-width : 1220px ){
-        
+        /* @media only screen and (max-width : 1250px ){
+            .first {
+                width:400px;
+
+            }
+            .second {
+                width:400px;
+            }
+        } */
+        @media only screen and (min-width : 1250px ){
+            .first {
+            /* background-color: pink; */
+            min-width:500px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        .second {
+            /* background-color: green; */
+            min-width:500px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        .slc {
+            /* background-color: pink; */
+            min-width:220px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+        .plus2 {
+            /* background-color: green; */
+            min-width:220px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        .bachelor {
+            /* background-color: pink; */
+            min-width:220px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+        .master {
+            /* background-color: green; */
+            min-width:220px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        }
+        @media only screen and (min-width: 850px) {
+            .first {
+            /* background-color: pink; */
+            width:300px;
+            margin-right:5px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        .second {
+            /* background-color: green; */
+            width:300px;
+            margin-right:5px;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 10px;
+        }
+        .slc {
+            /* background-color: pink; */
+            width:130px;
+            margin: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 5px;
+        }
+        .plus2 {
+            /* background-color: green; */
+            width:120px;
+            margin: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 5px;
+        }
+        .bachelor {
+            /* background-color: pink; */
+            width:120px;
+            margin: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5px;
+        }
+        .master {
+            /* background-color: green; */
+            width:120px;
+            margin: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            padding: 5px;
+        }
+        }
+        @media only screen and (max-width : 850px ){
+            .visaflex {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height:350px;
+            }
+            #academicdesign {
+                margin-left: 20px;
+            }
             .slcfield {
                 width:400px;
             }
             .slc{
-                min-width:480px; 
+                width:450px; 
                 /* background-color: #23A8E0;  */
             }
             .plus2{
-                min-width:480px; 
+                width:450px; 
                 /* background-color: #23A8E0;  */
             }
             .bachelor{
-                min-width:480px; 
+                width:450px; 
                 /* background-color: #23A8E0;  */
             }  .master{
-                min-width:480px; 
+                width:450px; 
                 /* background-color: #23A8E0;  */
             }
             .slcinputfield {
@@ -193,15 +337,16 @@ background-image: linear-gradient(#23A8E0,white);
   }
         .first {
             /* background-color: pink; */
-            width:500px;
+            max-width:450px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
+            flex-shrink: 1;
             padding: 10px;
         }
         .second {
             /* background-color: green; */
-            width:500px;
+            max-width:450px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -210,7 +355,7 @@ background-image: linear-gradient(#23A8E0,white);
         }
         .slc {
             /* background-color: pink; */
-            width:250px;
+            max-width:220px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -219,7 +364,7 @@ background-image: linear-gradient(#23A8E0,white);
         }
         .plus2 {
             /* background-color: green; */
-            width:250px;
+            max-width:220px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -228,7 +373,7 @@ background-image: linear-gradient(#23A8E0,white);
         }
         .bachelor {
             /* background-color: pink; */
-            width:250px;
+            max-width:220px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -236,7 +381,7 @@ background-image: linear-gradient(#23A8E0,white);
         }
         .master {
             /* background-color: green; */
-            width:250px;
+            max-width:220px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -283,7 +428,7 @@ width: 145px;
             margin-bottom: 10px;
             /* padding: 10px; */
             font-family: inherit;
-width: 400px;
+width: 300px;
   border: none;
   border-bottom: 2px solid grey;
   outline: none;
@@ -332,6 +477,24 @@ width: 400px;
             flex-direction: column;
             flex-wrap: wrap;
         }
+        input[type='text'] { font-size: 14px; }
+        ::-webkit-input-placeholder {
+
+  font-size: 11px;
+}
+::-moz-placeholder {
+
+  font-size: 11px;
+}
+:-ms-input-placeholder {
+
+  font-size: 11px;
+}
+::placeholder {
+  /* color: peachpuff; */
+  font-size: 11px;
+}
+
     </style>
 </head>
 <body>
@@ -348,16 +511,18 @@ width: 400px;
 
         <div class="headertext">
             <div class="header">
-        Add New Applicant
+        <div class="text">
+            Add New Applicant
+        </div>
             </div>
         </div>
 
         <div class="personaldetail">
-         {{-- <div class="sidedesign">
-                <div class="sidetext"> 
-                 <h1>  Personal details </h1>
+         <div class="sidedesign">
+                <div class="" style="writing-mode: vertical-rl; transform: rotate(-180deg);font-size:25px;" > 
+                 <span>  Personal details </span>
                  </div> 
-            </div>  --}}
+            </div> 
             <div class="first">
                 <div class="inputfield">
                     <input class="field" type="text" name="firstname" placeholder="Firstname">
@@ -413,153 +578,211 @@ width: 400px;
         </div>
         {{-- Academic details --}}
 
-        <div class="personaldetail">
-             {{-- <div class="secondsidedesign">
-                 <div class="sidetext"> 
-                 <h1>  Academic details </h1>
-                </div> 
-            </div>  --}}
-            <div class="slc">
-                <div class="slcinputfield" style="text-align: left;">
+        <div class="personaldetail" style="background-color: #F7F7F7;">
+             <div class="secondsidedesign" id="academicdesign">
+                <div class="" style="writing-mode: vertical-rl; transform: rotate(-180deg);font-size:25px;" > 
+                    <span>  Academic details </span>
+                    </div> 
+            </div> 
+            <div class="slc" style="">
+                {{-- <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">SLC / SEE</label><br>
                    
+                </div> --}}
+                <div class="headertext">
+                    <div class="header">
+                <div class="text">
+                 SLC / SEE
+                </div>
+                    </div>
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input class="slcfield" style="" type="text" name="slcboard" placeholder="HMG / PCL">
+                    <input class="slcfield" style="width:120px;background:white;border-radius:50px;padding:10px;" type="text" name="slcboard" placeholder="HMG / PCL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
-                    <select style="width:200px;" name="slcstream" class="field">
+                    <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="slcstream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="slcgrade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" step="any" name="slcgrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="slcpassoutyear" placeholder="Management">
+                    {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="slcpassoutyear" placeholder="Management"> --}}
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field" placeholder="YYYY" min="1990" max="2023">
                 </div>
           
             
             </div>
-            {{-- <div class="sidedesignsecond"> --}}
-                {{-- <div class="sidetext"> --}}
-                 {{-- <h1>  Personal details </h1> --}}
-                {{-- </div> --}}
-            {{-- </div> --}}
+         
             <div class="plus2">
-                <div class="slcinputfield" style="text-align: left;">
+                {{-- <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">+2 / HCL</label><br>
                    
+                </div> --}}
+                <div class="headertext">
+                    <div class="header">
+                <div class="text">
+                 +2 / HCL
+                </div>
+                    </div>
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input style="width:200px;" class="field" type="text" name="plus2board" placeholder="HSEB / A LEVEL">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" name="plus2board" placeholder="HSEB / A LEVEL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
-                    <select style="width:200px;" name="plus2stream" class="field">
+                    <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="plus2stream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="plus2grade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" step="any" name="plus2grade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="plus2passoutyear" placeholder="Management">
+                    {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="plus2passoutyear" placeholder="Management"> --}}
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field" placeholder="YYYY" min="1990" max="2023">
                 </div>
           
             </div>
             <div class="bachelor">
-                <div class="slcinputfield" style="text-align: left;">
+                {{-- <div class="slcinputfield" style="text-align: left;">
                     <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Bachelor</label><br>
                    
+                </div> --}}
+                <div class="headertext">
+                    <div class="header">
+                <div class="text">
+                Bachelor
+                </div>
+                    </div>
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input style="width:200px;" class="field" type="text" name="bachelorboard" placeholder="TU,PU,KU">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" name="bachelorboard" placeholder="TU,PU,KU">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
-                    <select style="width:200px;" name="bachelorstream" class="field">
+                    <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="bachelorstream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
+                        <option value="arts">Arts</option>
+                        <option value="it">Information Technology</option>
+                        <option value="socialscience">Social Science</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="bachelorgrade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" step="any" name="bachelorgrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="bachelorpassoutyear" placeholder="Management">
+                    {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="bachelorpassoutyear" placeholder="Management"> --}}
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field" placeholder="YYYY" min="1990" max="2023">
                 </div>
           
             </div>
             <div class="master">
-                <div class="slcinputfield" style="text-align: left;">
-                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Master</label><br>
+                {{-- <div class="slcinputfield" style="text-align: left;">
+                    <label style="margin:5px;padding:10px;border: 1px solid;font-size:20px; background-image:linear-gradient( #23A8E0, #F89939); padding:3px;border-radius:50px;">Master</label><br>
                    
+                </div> --}}
+                <div class="headertext">
+                    <div class="header">
+                <div class="text">
+                Master
+                </div>
+                    </div>
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
-                    <label>Board</label><br>
-                    <input style="width:200px;" class="field" type="text" name="masterboard" placeholder="TU,PU,KU">
+                    <label style="font-size:15px;">Board</label><br>
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" name="masterboard" placeholder="TU,PU,KU">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="masterstream" placeholder="Management"> --}}
-                    <select style="width:200px;" name="slcstream" class="field">
+                    <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="slcstream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
+                        <option value="arts">Arts</option>
+                        <option value="it">Information Technology</option>
+                        <option value="socialscience">Social Science</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:200px;" class="field" type="text" name="mastergrade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" step="any" name="mastergrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
-                    <input style="width:200px;" type="month" class="field" name="masterpassoutyear" placeholder="Management">
+                    {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="masterpassoutyear" placeholder="Management"> --}}
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field" placeholder="YYYY" min="1990" max="2023">
                 </div>
           
             </div>
         </div>
         {{-- course detailas  --}}
         
-        <div class="personaldetail">
-             {{-- <div class="sidedesign">
-                 <div class="sidetext"> 
-                 <h1>  Course details </h1>
-                 </div> 
-            </div>  --}}
+        <div class="personaldetail" style="background-color: #F7F7F7;">
+             <div class="sidedesign">
+                <div class="" style="writing-mode: vertical-rl; transform: rotate(-180deg);font-size:25px;" > 
+                    <span>  Course details </span>
+                    </div> 
+            </div> 
             <div class="first">
                 <div class="inputfield">
-                    <input class="addressfield" type="text" name="interest_country" placeholder="Intrested Country"><br>
-                    <label>please enter your interested country</label>
+                    {{-- <input class="addressfield" type="text" name="interest_country" placeholder="Intrested Country"><br> --}}
+                    <select style="" placeholder="please select intrested country" name="interest_country" class="addressfield">
+                        <option>Interested Country </option>  
+                        <option value="USA">USA </option>
+                            <option value="UK"> UK</option>
+                            <option value="AUSTRALIA">AUSTRALIA </option>
+                            <option value="JAPAN"> JAPAN </option>
+                            <option value="INDIA">INDIA </option>
+                            <option value="GERMANY"> GERMANY</option>
+                            <option value="OTHERS">OTHERS </option>
+                        </select><br>
+                    <label class="bottomtext">select from the above optionsy</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" class="addressfield" name="interest_course" placeholder="Interest Course"><br>
-                    <label>please enter your interested course</label>
+                    <label class="bottomtext">please enter your interested course</label>
                 </div>
                 <div class="inputfield">
-                     <input type="text" name="intake" class="addressfield" placeholder="ie. jan intake"><br> 
-                    
+                     {{-- <input type="text" name="intake" class="addressfield" placeholder="ie. jan intake"><br>  --}}
+                     <select style="" placeholder="plese select intake" name="intake" class="addressfield">
+                        <option>Prefered intake </option>  
+                        <option value="jan">Jan </option>
+                            <option value="feb"> Feb</option>
+                            <option value="mar">Mar </option>
+                            <option value="apr"> Apr </option>
+                            <option value="May">May </option>
+                            <option value="jun"> Jun</option>
+                            <option value="jul">Jul </option>
+                            <option value="aug"> Aug </option>
+                            <option value="sep">Sep </option>
+                            <option value="oct"> Oct</option>
+                            <option value="nov">Nov </option>
+                            <option value="dec"> Dec </option>
+                        </select><br>
                     {{-- <select style="width:200px;" name="intake" class="field">
                     <option value="">Prefered intake</option>
                         <option value="jan_intake">Jan intake</option>
                         <option value="september_intake">September Intake</option>
                     </select><br> --}}
-                    <label>please enter your intake</label>
+                    <label class="bottomtext">select from the option above</label>
                 </div>
           
                 {{-- <div class="inputfielddob"> 
@@ -577,30 +800,30 @@ width: 400px;
             <div class="second">
                 <div class="inputfield">
                     <input type="text" name="interest_city" class="addressfield" placeholder="Interest City"><br>
-                    <label>please select interested city</label>
+                    <label class="bottomtext">please enter interested city</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="interestcityremark" class="addressfield" placeholder="Remark"><br>
-                    <label>please consider any alternative possibilities that you may wish to investigate further</label>
+                    <label class="bottomtext">please consider any alternative possibilities that you may wish to investigate further</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="gap" class="addressfield" placeholder="enter gapif any">
-                    <br><label>Please mention Gap between education (if any) </label>
+                    <br><label class="bottomtext">Please mention Gap between education (if any) </label>
                 </div>
               
             </div>
         </div>
         {{-- test information --}}
 
-        <div class="personaldetail">
-             {{-- <div class="sidedesign" style="height:470px;">
-                 <div class="sidetext"> 
-                 <h1>  Test Information </h1>
-                 </div>
-            </div>  --}}
-            <div class="first">
+        <div class="personaldetail" style="background-color: white;">
+             <div class="sidedesign" style="height:450px;">
+                <div class="" style="writing-mode: vertical-rl; transform: rotate(-180deg);font-size:25px;" > 
+                    <span>  Test Information </span>
+                    </div> 
+            </div> 
+            <div class="first" style="background-color: #F7F7F7;opacity:0.8;">
                 <div class="inputfield">
-                <select style="width:200px;" placeholder="plese select prefered english proficiency test" name="test_preparation" class="field">
+                <select style="" placeholder="plese select prefered english proficiency test" name="test_preparation" class="addressfield">
                 <option>select prefered english proficiency test</option>
                         <option value="ielts">ielts </option>
                         <option value="ielts_ukvi"> ielts_ukvi</option>
@@ -610,15 +833,15 @@ width: 400px;
                         <option value="gre">gre </option>
                     </select><br>
                     <!-- <input class="addressfield" type="text" name="test_preparation" placeholder="Select your english language profiencency test"><br> -->
-                    <label>please select from above option</label>
+                    <label class="bottomtext"> select from the option above</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="addressfield" name="test_score" placeholder="select score"><br>
-                    <label>please enter interested course</label>
+                    <input type="number" step="any" class="addressfield" name="test_score" placeholder="select score"><br>
+                    <label class="bottomtext">enter your test score</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
-                    <label>please enter Test given year</label>
+                    <input type="year" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
+                    <label class="bottomtext"> enter Test given year</label>
                 </div>
             
             </div>
@@ -627,42 +850,48 @@ width: 400px;
                  {{-- <h1>  Personal details </h1> --}}
                 {{-- </div> --}}
             {{-- </div> --}}
-             {{-- <div class="secondsidedesign">
-                 <div class="sidetext"> 
-                 <h2> Experience Information </h2>
-                 </div> 
-            </div> --}}
-            <div class="second">
+             <div class="secondsidedesign" style="margin-left:5px;">
+                <div class="" style="writing-mode: vertical-rl; transform: rotate(-180deg);font-size:25px;" > 
+                    <span>  Experience Information </span>
+                    </div> 
+            </div>
+            <div class="second" style="background-color: #F7F7F7;opacity:0.8;">
                 <div class="inputfield">
-                    <input class="addressfield" type="text" name="work_experience" placeholder="work experience"><br>
-                    <label>please enter your work experience if any</label>
+                    {{-- <input class="addressfield" type="text" name="work_experience" placeholder="work experience"><br> --}}
+                    <select style="" placeholder="" name="work_experience" class="addressfield">
+                        <option value="">Work Experience </option>  
+                        <option value="yes">yes </option>
+                            <option value="no"> no</option>
+                        </select><br>
+                    <label class="bottomtext"> select from the above options</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" class="addressfield" name="work_description" placeholder="job description"><br>
-                    <label>please enter job description</label>
+                    <label class="bottomtext">please enter job description</label>
                 </div>
                 <div class="inputfield">
                     <input type="text" name="work_duration" class="addressfield" placeholder="Duration"><br>
-                    <label>please enter your work duration</label>
+                    <label class="bottomtext">please enter your work duration</label>
                 </div>
             </div>
         </div>
         {{-- visa hostory  --}}
-        <div class="personaldetail">
-             <div class="sidedesign" style="height:200px;">
-                 <div class="sidetext"> 
-                 <h1> Visa History </h1>
-                 </div> 
+        <div class="personaldetail" style="border:1px solid transparency;background:linear-gradient( #23A8E0, #F89939);border-radius:50px;align-items:center;padding:3px;">
+            <div class="visaflex" style="display:flex;flex-wrap:wrap;background:white;border-radius:50px;width:100%;align-items:center;">
+             <div class="sidedesign" style="border:none;background:none;height:100%;">
+                <div class="" style="writing-mode: vertical-rl; transform: rotate(-180deg);font-size:25px;text-align:left;" > 
+                    <span style="text-align: left;margin:10px;">  Visa History </span>
+                    </div> 
             </div>
             <div class="first">
                 <div class="inputfield">
                     <!-- <input class="addressfield" type="text" name="rejection" placeholder=" visa rejection"><br> -->
-                    <select style="width:200px;" placeholder="plese enter visa rejection" name="visa_rejection" class="field">
+                    <select style="" placeholder="plese enter visa rejection" name="visa_rejection" class="addressfield">
                     <option value="">visa rejection </option>  
                     <option value="yes">yes </option>
                         <option value="no"> no</option>
                     </select><br>
-                    <label>please select if your visa is rejected </label>
+                    <label class="bottomtext">please select if your visa is rejected </label>
                 </div>
          
             
@@ -676,15 +905,16 @@ width: 400px;
             <div class="second">
                 <div class="inputfield">
                     <input class="addressfield" type="text" name="visa_rejection_detail" placeholder="reason for visa rejection"><br>
-                    <label>please describe reason for visa rejection</label>
+                    <label class="bottomtext">please describe reason for visa rejection</label>
                 </div>
             
             </div>
         </div>
-        <div class="personaldetail" style="background-color : white;justify-content:center;">
+        </div>
+        <div class="personaldetail" style="background-color : white;justify-content:center;align-items:center;">
         <div style="display: flex;flex-direction:column;align-items:center;justify-content:center;">
-            <a id="start-camera" style="padding:5px;margin:60px;height:40px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;">Start Camera</a>
-            <a style="height:40px;width:100%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 1px solid;font-size:20px;background-color:#23A8E0;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;" type="botton" id="click-photo">Click Photo</a>
+            <a id="start-camera" style="padding:5px;width:100%;text-align:center;margin-top:15px;font-size:20px;;"><img src="unnamed.png" width="150"></a>
+            <a style="margin-bottom:30px;width:100%;text-align:center;margin-top:25px;margin:5px;padding:5px;font-size:20px;" type="botton" id="click-photo"><img src="camera.png" width="100"></a>
     </div>
             <div class="first">
                 <div class="inputfield">
@@ -714,7 +944,7 @@ width: 400px;
         <div class="first">
             <div class="inputfield">
                 <input class="addressfield" type="text" name="assigned_counsellor" placeholder="Assigned Cousellor"><br>
-                <label>please select Assigned Cousellor</label>
+                <label class="bottomtext">please select Assigned Cousellor</label>
             </div>
      
         
@@ -723,7 +953,7 @@ width: 400px;
         <div class="second">
             <div class="inputfield">
                 <input class="addressfield" type="text" name="counsellor" placeholder="Counsellor"><br>
-                <label>please select Counsellor </label>
+                <label class="bottomtext">please select Counsellor </label>
             </div>
         
         </div>
