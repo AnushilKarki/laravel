@@ -847,7 +847,8 @@ width: 300px;
                     <label class="bottomtext">enter your test score</label>
                 </div>
                 <div class="inputfield">
-                    <input type="year" value="{{ $students->test_issue_date }}" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
+                    {{-- <input type="year" value="{{ $students->test_issue_date }}" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br> --}}
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" value="{{ $students->test_issue_date }}" name="test_issue_date" id="test_issue_date" class="field" placeholder="YYYY" min="1990" max="2023"><br>
                     <label class="bottomtext"> enter Test given year</label>
                 </div>
             

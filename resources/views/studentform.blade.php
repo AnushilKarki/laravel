@@ -751,6 +751,7 @@ width: 300px;
                         <option>Interested Country </option>  
                         <option value="USA">USA </option>
                             <option value="UK"> UK</option>
+                            <option value="CANADA">CANADA </option>
                             <option value="AUSTRALIA">AUSTRALIA </option>
                             <option value="JAPAN"> JAPAN </option>
                             <option value="INDIA">INDIA </option>
@@ -843,7 +844,7 @@ width: 300px;
                     <label class="bottomtext">enter your test score</label>
                 </div>
                 <div class="inputfield">
-                    <input type="year" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" name="test_issue_date" id="test_issue_date" class="field" placeholder="YYYY" min="1990" max="2023"><br>
                     <label class="bottomtext"> enter Test given year</label>
                 </div>
             
