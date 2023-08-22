@@ -174,35 +174,48 @@ flex-wrap:wrap;
           <div>counseled by : {{$students->counseled_by}}</div>
                       </div>
        </div> --}}
-       <table style="width:80%;margin:5px;">
+       <table style="width:100%;margin:5px;">
         <tr>
-        <th>Applicant id: {{ $students['studentid'] }}</th>
-
-        <th>status : {{$students['status']}}</th>
+        <th> {{ $students['studentid'] }}</th>
+        <th> {{$students['status']}}</th>
         </tr>
-        <tr>
-          <td>Name: {{ $students['firstname'].' '.$students['lastname'] }} </td>
-          <td>email: {{$students['email']}}</td>
-          <td>Interest Country: {{ $students['interest_country'] }}</td>
-          <td>Work Experience: {{ $students['work_experience'] }}</td>
-          <td>Marital status: {{$students['marital_status']}}</td>
-          </tr>
           <tr>
+            <td>Name: {{ $students['firstname'].' '.$students['lastname'] }} </td>
+            <td>email: {{$students['email']}}</td>
+            <td>address: {{$students['address']}}</td>
+            <td>Dob: {{ $students['dob'] }}</td>
             <td>Contact: {{ $students['contact'] }}</td>
-      <td>Address: {{ $students['address'] }}</td>
-      <td>Dob: {{ $students['dob'] }}</td>
-      <td>Interest Course: {{ $students['interest_course'] }}</td>
-      <td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
-          </tr>
-          <tr>
-      <!-- <td>Major Subject: {{$students['major_subject']}}</td> -->
-      <td>Test Preparation: {{ $students['test_preparation'] }}</td>
-      <td>Test score: {{ $students['test_score'] }}</td>
-      <td>Test issue date: {{ $students['test_issue_date'] }}</td>
-      <!-- <td>Highest acheived: {{ $students['highest_acheived'] }}</td> -->
-      <td>Counseled By: {{ $students['counseled_by'] }}</td>
-      <td>Remark: {{ $students['remark'] }}</td>
-          </tr>
+            <td>Marital status: {{$students['marital_status']}}</td>
+            </tr>
+            <tr>
+              <td>Intake : {{$students['intake'] }}</td>
+              <td>Gurdain name : {{$students['gurdain_name']}} </td>
+              <td>Gurdain conatct : {{$students['gurdain_no']}} </td>
+              <td>Interest Country: {{ $students['interest_country'] }}</td>
+              <td>Interest City: {{ $students['interest_city'] }}</td>
+              <td>city remark : {{ $students['interestcityremark'] }}</td>
+        
+            </tr>
+            <tr>
+              <td>Gap : {{ $students['gap'] }}</td>
+              <td>Work Experience: {{ $students['work_experience'] }}</td>
+              <td>Work Description: {{ $students['work_description'] }}</td>
+              <td>Work duration: {{ $students['work_duration'] }}</td>
+              <td>Interest Course: {{ $students['interest_course'] }}</td>
+         
+            
+              <td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
+            
+            </tr>
+            <tr>
+              <td>Visa Rejection Detail : {{ $students['visa_rejection_detail'] }}</td>
+        <td>Test Preparation: {{ $students['test_preparation'] }}</td>
+        <td>Test score: {{ $students['test_score'] }}</td>
+        <td>Test issue date: {{ $students['test_issue_date'] }}</td>
+        <!-- <td>Highest acheived: {{ $students['highest_acheived'] }}</td> -->
+        <td>Counseled By: {{ $students['counseled_by'] }}</td>
+        <td>Remark: {{ $students['remark'] }}</td>
+            </tr>
         </table>
         {{-- <div class="part">
           <button class="add" type="button"><a href="/addnewstudent">Add new student</a> </button>
@@ -228,6 +241,7 @@ flex-wrap:wrap;
              <td></td>
               </tr>
          <tr>
+
          @if($students['slcboard'])
       <tr>
     <td></td>
@@ -266,7 +280,7 @@ flex-wrap:wrap;
                     <td>2.</td>
                     <td>Test Examination </td>
                     <td>overall score</td>
-                    <td>not less then score</td>
+                    {{-- <td>not less then score</td> --}}
                     <td>issue date</td>
                     <td></td>
                 </tr>

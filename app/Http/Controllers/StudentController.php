@@ -108,7 +108,7 @@ return view('addstudent',compact('msg'));
                 $studentid = 'svd-'.$year.$month.$value;
             }
         }
-       
+
         // dd($studentid);
       $student = new Student;
 
@@ -236,7 +236,7 @@ return view('addstudent',compact('msg'));
     public function edit($id){
         $students = Student::where('id',$id)->first();
         // return view('editApplicant',compact('students'));
-        return view('editnewform',compact('students'));
+        return view('editnewformapplicant',compact('students'));
     }
     public function view($id){
         $students = Student::where('id',$id)->first();

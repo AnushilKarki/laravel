@@ -501,13 +501,14 @@ width: 300px;
     </style>
 </head>
 <body>
-    <form action="{{route('addnewstudent')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('updatestudent',$students->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
     <div class="main">
 
         <div class="logoimage">
             <div class="logo">
-                <img src="logo.png" style="width:150px;" alt="logo"/>
+                <img src="/logo.png" style="width:150px;" alt="logo"/>
                 
             </div>
         </div>
@@ -515,7 +516,7 @@ width: 300px;
         <div class="headertext">
             <div class="header">
         <div class="text">
-            Add New Applicant
+            Edit Applicant
         </div>
             </div>
         </div>
@@ -528,26 +529,26 @@ width: 300px;
             </div> 
             <div class="first">
                 <div class="inputfield">
-                    <input class="field" type="text" name="firstname" placeholder="Firstname">
+                    <input class="field" type="text" name="firstname" placeholder="Firstname" value="{{ $students->firstname }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="field" name="middlename" placeholder="Middlename">
+                    <input type="text" class="field" name="middlename" placeholder="Middlename" value="{{ $students->middlename }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="field" name="lastname" placeholder="Surname">
+                    <input type="text" class="field" name="lastname" placeholder="Surname" value="{{ $students->lastname }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="address" class="addressfield" placeholder="Address">
+                    <input type="text" name="address" class="addressfield" placeholder="Address" value="{{ $students->address }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="gurdain_name" class="addressfield" placeholder="Gurdain name">
+                    <input type="text" name="gurdain_name" class="addressfield" placeholder="Gurdain name" value="{{ $students->gurdain_name }}">
                 </div>
                 {{-- <div class="inputfielddob"> 
                     <input type="day" name="name" class="field" placeholder="day">
              
                 </div>  --}}
                 <div class="inputfield">
-                  <span style="margin-right:20px;">  Date Of Birth </span>  <input type="date" style="width:250px;" name="dob" class="field" placeholder="month">
+                  <span style="margin-right:20px;">  Date Of Birth </span>  <input type="date" style="width:250px;" name="dob" value="{{ $students->dob }}" class="field" placeholder="month">
                 </div>
             
             </div>
@@ -558,22 +559,23 @@ width: 300px;
             {{-- </div> --}}
             <div class="second">
                 <div class="inputfield">
-                    <input type="email" name="email" class="addressfield" placeholder="Email address">
+                    <input type="email" name="email" class="addressfield" placeholder="Email address" value="{{ $students->email }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="contact" class="addressfield" placeholder="Phone no">
+                    <input type="text" name="contact" class="addressfield" placeholder="Phone no" value="{{ $students->contact }}">
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="gurdain_no" class="addressfield" placeholder="Gurdain/Local gurdain number">
+                    <input type="text" name="gurdain_no" class="addressfield" placeholder="Gurdain/Local gurdain number" value="{{ $students->gurdain_no }}">
                 </div>
                 <div class="inputfield">
                     <span>Maritial status </span>
                     {{-- <input type="text" name="name" class="addressfield" placeholder="maritalstatus"> --}}
-                    <input type="checkbox" id="single" class="marital" name="marital_status" value="single">
+              
+                    <input type="checkbox" id="single" class="marital" name="marital_status" value="single" {{$students->marital_status == 'single' ? 'checked="checked"' : null }}>
                     <label for="single"> Single </label>
-                    <input type="checkbox" id="married" name="marital_status" value="married" class="marital">
+                    <input type="checkbox" id="married" name="marital_status" value="married" class="marital" {{$students->marital_status == 'married' ? 'checked="checked"' : null }}>
                     <label for="married"> Married </label>
-                    <input type="checkbox" id="divorced" name="marital_status" value="divorced" class="marital">
+                    <input type="checkbox" id="divorced" name="marital_status" value="divorced" class="marital"{{$students->marital_status == 'divorced' ? 'checked="checked"' : null }}>
                     <label for="divorced"> Divorced </label>
 
                 </div>
@@ -599,26 +601,27 @@ width: 300px;
                 </div>
                     </div>
                 </div>
+             
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input class="slcfield" style="width:120px;background:white;border-radius:50px;padding:10px;" type="text" id="slcboard" name="slcboard" placeholder="HMG / PCL">
+                    <input value="{{$students->slcboard}}" class="slcfield" style="width:120px;background:white;border-radius:50px;padding:10px;" type="text" id="slcboard" name="slcboard" placeholder="HMG / PCL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
                     <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="slcstream" id="slcstream" class="field">
-                        <option value="science">Science</option>
-                        <option value="management">Management</option>
+                        <option value="science"{{ $students->slcstream == 'science' ? 'selected="selected"': null }}>Science</option>
+                        <option value="management"{{ $students->slcstream == 'management' ? 'selected="selected"' : null }}>Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" id="slcgrade" step="any" name="slcgrade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" value="{{ $students->slc_score }}" id="slcgrade" step="any" name="slcgrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
                     {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="slcpassoutyear" placeholder="Management"> --}}
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field" name="slcpassoutyear" id="slcpassoutyear" placeholder="YYYY" min="1990" max="2023" onchange="myplus2()">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" value="{{ $students->slc_passoutyear }}" class="field" name="slcpassoutyear" id="slcpassoutyear" placeholder="YYYY" min="1990" max="2023" onchange="myplus2()">
                 </div>
           
             
@@ -638,24 +641,24 @@ width: 300px;
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" id="plus2board" name="plus2board" placeholder="HSEB / A LEVEL">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" value="{{ $students->plus2board }}" id="plus2board" name="plus2board" placeholder="HSEB / A LEVEL">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
                     <select style="width:120px;background:white;border-radius:50px;padding:10px;" id="plus2stream" name="plus2stream" class="field">
-                        <option value="science">Science</option>
-                        <option value="management">Management</option>
+                        <option value="science" {{ $students->plus2stream == 'science' ? 'selected="selected"' : null }}>Science</option>
+                        <option value="management"{{ $students->plus2stream == 'management' ? 'selected="selected"' : null }}>Management</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" id="plus2grade" step="any" name="plus2grade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" value="{{ $students->plus2_score }}" class="field" type="number" id="plus2grade" step="any" name="plus2grade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
                     {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="plus2passoutyear" placeholder="Management"> --}}
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field"name="plus2passoutyear" id="plus2passoutyear" placeholder="YYYY" min="1990" max="2023" onchange="mybachelor()">
+                    <input value="{{ $students->plus2_passoutyear }}" style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field"name="plus2passoutyear" id="plus2passoutyear" placeholder="YYYY" min="1990" max="2023" onchange="mybachelor()">
                 </div>
           
             </div>
@@ -673,27 +676,27 @@ width: 300px;
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label>Board</label><br>
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" id="bachelorboard" name="bachelorboard" placeholder="TU,PU,KU">
+                    <input value="{{ $students->bachelorboard }}" style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" id="bachelorboard" name="bachelorboard" placeholder="TU,PU,KU">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
                     <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="bachelorstream" id="bachelorstream" class="field">
-                        <option value="science">Science</option>
-                        <option value="management">Management</option>
-                        <option value="arts">Arts</option>
-                        <option value="it">Information Technology</option>
-                        <option value="socialscience">Social Science</option>
+                        <option value="science" {{ $students->bachelorstream == 'science' ? 'selected="selected"' : null }}>Science</option>
+                        <option value="management" {{ $students->bachelorstream == 'management' ? 'selected="selected"' : null }}>Management</option>
+                        <option value="arts" {{ $students->bachelorstream == 'arts' ? 'selected="selected"': null }}>Arts</option>
+                        <option value="it" {{ $students->bachelorstream == 'it' ? 'selected="selected"': null }}>Information Technology</option>
+                        <option value="socialscience" {{ $students->bachelorstream == 'socialscience' ? 'selected="selected"' : null}}>Social Science</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" step="any" id="bachelorgrade" name="bachelorgrade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" value="{{ $students->bachelor_score }}" step="any" id="bachelorgrade" name="bachelorgrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
                     {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="bachelorpassoutyear" placeholder="Management"> --}}
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field" name="bachelorpassoutyear" id="bachelorpassoutyear" placeholder="YYYY" min="1990" max="2023" onchange="mymaster()">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" class="field" value="{{ $students->bachelor_passoutyear }}" name="bachelorpassoutyear" id="bachelorpassoutyear" placeholder="YYYY" min="1990" max="2023" onchange="mymaster()">
                 </div>
           
             </div>
@@ -711,27 +714,27 @@ width: 300px;
                 </div>
                 <div class="slcinputfield" style="margin-top: 10px;">
                     <label style="font-size:15px;">Board</label><br>
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" id="masterboard" name="masterboard" placeholder="TU,PU,KU">
+                    <input value="{{ $students->masterboard }}" style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="text" id="masterboard" name="masterboard" placeholder="TU,PU,KU">
                 </div>
                 <div class="slcinputfield">
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="masterstream" placeholder="Management"> --}}
-                    <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="masterstream" id="masterstream" class="field">
-                        <option value="science">Science</option>
-                        <option value="management">Management</option>
-                        <option value="arts">Arts</option>
-                        <option value="it">Information Technology</option>
-                        <option value="socialscience">Social Science</option>
+                    <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="bachelorstream" id="bachelorstream" class="field">
+                        <option value="science" {{ $students->bachelorstream == 'science' ? 'selected="selected"' : null }}>Science</option>
+                        <option value="management" {{ $students->bachelorstream == 'management' ? 'selected="selected"' : null }}>Management</option>
+                        <option value="arts" {{ $students->bachelorstream == 'arts' ? 'selected="selected"': null }}>Arts</option>
+                        <option value="it" {{ $students->bachelorstream == 'it' ? 'selected="selected"': null }}>Information Technology</option>
+                        <option value="socialscience" {{ $students->bachelorstream == 'socialscience' ? 'selected="selected"' : null}}>Social Science</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
                     <label>CGPA / GRADE</label><br>
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" class="field" type="number" step="any" id="mastergrade" name="mastergrade" placeholder="CGPA / GRADE">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" value="{{ $students->master_score }}" class="field" type="number" step="any" id="mastergrade" name="mastergrade" placeholder="CGPA / GRADE">
                 </div>
                 <div class="slcinputfield">
                     <label>Pass out year</label><br>
                     {{-- <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="month" class="field" name="masterpassoutyear" placeholder="Management"> --}}
-                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" name="masterpassoutyear" id="masterpassoutyear" class="field" placeholder="YYYY" min="1990" max="2023">
+                    <input style="width:120px;background:white;border-radius:50px;padding:10px;" type="number" value="{{ $students->master_passoutyear }}" name="masterpassoutyear" id="masterpassoutyear" class="field" placeholder="YYYY" min="1990" max="2023">
                 </div>
           
             </div>
@@ -749,36 +752,37 @@ width: 300px;
                     {{-- <input class="addressfield" type="text" name="interest_country" placeholder="Intrested Country"><br> --}}
                     <select style="" placeholder="please select intrested country" name="interest_country" class="addressfield">
                         <option>Interested Country </option>  
-                        <option value="USA">USA </option>
-                            <option value="UK"> UK</option>
-                            <option value="AUSTRALIA">AUSTRALIA </option>
-                            <option value="JAPAN"> JAPAN </option>
-                            <option value="INDIA">INDIA </option>
-                            <option value="GERMANY"> GERMANY</option>
-                            <option value="OTHERS">OTHERS </option>
+                        <option value="USA" {{ $students->interest_country == 'USA' ? 'selected="selected"' : null }}>USA </option>
+                            <option value="UK"  {{ $students->interest_country == 'UK' ? 'selected="selected"' : null }}> UK</option>
+                            <option value="CANADA"  {{ $students->interest_country == 'CANADA' ? 'selected="selected"' : null }}> CANADA</option>
+                            <option value="AUSTRALIA"  {{ $students->interest_country == 'AUSTRALIA' ? 'selected="selected"' : null }}>AUSTRALIA </option>
+                            <option value="JAPAN" {{ $students->interest_country == 'JAPAN' ? 'selected="selected"' : null }}> JAPAN </option>
+                            <option value="INDIA" {{ $students->interest_country == 'INDIA' ? 'selected="selected"' : null }}>INDIA </option>
+                            <option value="GERMANY" {{ $students->interest_country == 'GERMANY' ? 'selected="selected"' : null }}> GERMANY</option>
+                            <option value="OTHERS"  {{ $students->interest_country == 'OTHERS' ? 'selected="selected"' : null }}>OTHERS </option>
                         </select><br>
                     <label class="bottomtext">select from the above optionsy</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="addressfield" name="interest_course" placeholder="Interest Course"><br>
+                    <input type="text" value="{{ $students->interest_course }}" class="addressfield" name="interest_course" placeholder="Interest Course"><br>
                     <label class="bottomtext">please enter your interested course</label>
                 </div>
                 <div class="inputfield">
                      {{-- <input type="text" name="intake" class="addressfield" placeholder="ie. jan intake"><br>  --}}
                      <select style="" placeholder="plese select intake" name="intake" class="addressfield">
                         <option>Prefered intake </option>  
-                        <option value="jan">Jan </option>
-                            <option value="feb"> Feb</option>
-                            <option value="mar">Mar </option>
-                            <option value="apr"> Apr </option>
-                            <option value="May">May </option>
-                            <option value="jun"> Jun</option>
-                            <option value="jul">Jul </option>
-                            <option value="aug"> Aug </option>
-                            <option value="sep">Sep </option>
-                            <option value="oct"> Oct</option>
-                            <option value="nov">Nov </option>
-                            <option value="dec"> Dec </option>
+                        <option value="jan" {{ $students->intake == 'jan' ? 'selected="selected"' : null }}>Jan </option>
+                            <option value="feb"  {{ $students->intake == 'feb' ? 'selected="selected"' : null }}> Feb</option>
+                            <option value="mar" {{ $students->intake == 'mar' ? 'selected="selected"' : null }}>Mar </option>
+                            <option value="apr"  {{ $students->intake == 'apr' ? 'selected="selected"' : null }}> Apr </option>
+                            <option value="may"  {{ $students->intake == 'may' ? 'selected="selected"' : null }}>May </option>
+                            <option value="jun" {{ $students->intake == 'jun' ? 'selected="selected"' : null }}> Jun</option>
+                            <option value="jul" {{ $students->intake == 'jul' ? 'selected="selected"' : null }}>Jul </option>
+                            <option value="aug" {{ $students->intake == 'aug' ? 'selected="selected"' : null }}> Aug </option>
+                            <option value="sep" {{ $students->intake == 'sep' ? 'selected="selected"' : null }}>Sep </option>
+                            <option value="oct" {{ $students->intake == 'oct' ? 'selected="selected"' : null }}> Oct</option>
+                            <option value="nov" {{ $students->intake == 'nov' ? 'selected="selected"' : null }}>Nov </option>
+                            <option value="dec" {{ $students->intake == 'dec' ? 'selected="selected"' : null }}> Dec </option>
                         </select><br>
                     {{-- <select style="width:200px;" name="intake" class="field">
                     <option value="">Prefered intake</option>
@@ -802,15 +806,15 @@ width: 300px;
             {{-- </div> --}}
             <div class="second">
                 <div class="inputfield">
-                    <input type="text" name="interest_city" class="addressfield" placeholder="Interest City"><br>
+                    <input type="text" name="interest_city" value="{{ $students->interest_city }}" class="addressfield" placeholder="Interest City"><br>
                     <label class="bottomtext">please enter interested city</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="interestcityremark" class="addressfield" placeholder="Remark"><br>
+                    <input type="text" name="interestcityremark"  value="{{ $students->interestcityremark }}" class="addressfield" placeholder="Remark"><br>
                     <label class="bottomtext">please consider any alternative possibilities that you may wish to investigate further</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="gap" class="addressfield" placeholder="enter gapif any">
+                    <input type="text" value="{{ $students->gap }}" name="gap" class="addressfield" placeholder="enter gapif any">
                     <br><label class="bottomtext">Please mention Gap between education (if any) </label>
                 </div>
               
@@ -828,22 +832,22 @@ width: 300px;
                 <div class="inputfield">
                 <select style="" placeholder="plese select prefered english proficiency test" name="test_preparation" class="addressfield">
                 <option>select prefered english proficiency test</option>
-                        <option value="ielts">ielts </option>
-                        <option value="ielts_ukvi"> ielts_ukvi</option>
-                        <option value="pte"> pte</option>
-                        <option value="toefl"> toefl</option>
-                        <option value="sat">sat </option>
-                        <option value="gre">gre </option>
+                        <option value="ielts"  {{ $students->test_preparation == 'ielts' ? 'selected="selected"' : null }}>ielts </option>
+                        <option value="ielts_ukvi"{{ $students->test_preparation == 'ielts_ukvi' ? 'selected="selected"' : null }}> ielts_ukvi</option>
+                        <option value="pte"{{ $students->test_preparation == 'pte' ? 'selected="selected"' : null }}> pte</option>
+                        <option value="toefl"{{ $students->test_preparation == 'toefl' ? 'selected="selected"' : null }}> toefl</option>
+                        <option value="sat"{{ $students->test_preparation == 'sat' ? 'selected="selected"' : null }}>sat </option>
+                        <option value="gre" {{ $students->test_preparation == 'gre' ? 'selected="selected"' : null }}>gre </option>
                     </select><br>
                     <!-- <input class="addressfield" type="text" name="test_preparation" placeholder="Select your english language profiencency test"><br> -->
                     <label class="bottomtext"> select from the option above</label>
                 </div>
                 <div class="inputfield">
-                    <input type="number" step="any" class="addressfield" name="test_score" placeholder="select score"><br>
+                    <input type="number" value="{{ $students->test_score }}" step="any" class="addressfield" name="test_score" placeholder="select score"><br>
                     <label class="bottomtext">enter your test score</label>
                 </div>
                 <div class="inputfield">
-                    <input type="year" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
+                    <input type="year" value="{{ $students->test_issue_date }}" name="test_issue_Date" class="addressfield" placeholder="select test given year"><br>
                     <label class="bottomtext"> enter Test given year</label>
                 </div>
             
@@ -863,17 +867,17 @@ width: 300px;
                     {{-- <input class="addressfield" type="text" name="work_experience" placeholder="work experience"><br> --}}
                     <select style="" placeholder="" name="work_experience" class="addressfield">
                         <option value="">Work Experience </option>  
-                        <option value="yes">yes </option>
-                            <option value="no"> no</option>
+                        <option value="yes" {{ $students->work_experience == 'yes' ? 'selected="selected"' : null }}>yes </option>
+                            <option value="no" {{ $students->work_experience == 'no' ? 'selected="selected"' : null }}> no</option>
                         </select><br>
                     <label class="bottomtext"> select from the above options</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" class="addressfield" name="work_description" placeholder="job description"><br>
+                    <input type="text" value="{{ $students->work_description }}" class="addressfield" name="work_description" placeholder="job description"><br>
                     <label class="bottomtext">please enter job description</label>
                 </div>
                 <div class="inputfield">
-                    <input type="text" name="work_duration" class="addressfield" placeholder="Duration"><br>
+                    <input type="text" value="{{ $students->work_duration }}" name="work_duration" class="addressfield" placeholder="Duration"><br>
                     <label class="bottomtext">please enter your work duration</label>
                 </div>
             </div>
@@ -891,8 +895,8 @@ width: 300px;
                     <!-- <input class="addressfield" type="text" name="rejection" placeholder=" visa rejection"><br> -->
                     <select style="" placeholder="plese enter visa rejection" name="visa_rejection" class="addressfield">
                     <option value="">visa rejection </option>  
-                    <option value="yes">yes </option>
-                        <option value="no"> no</option>
+                    <option value="yes" {{ $students->visa_rejection == 'yes' ? 'selected="selected"' : null }}>yes </option>
+                        <option value="no"{{ $students->visa_rejection == 'no' ? 'selected="selected"' : null }}> no</option>
                     </select><br>
                     <label class="bottomtext">please select if your visa is rejected </label>
                 </div>
@@ -907,7 +911,7 @@ width: 300px;
       
             <div class="second">
                 <div class="inputfield">
-                    <input class="addressfield" type="text" name="visa_rejection_detail" placeholder="reason for visa rejection"><br>
+                    <input class="addressfield" value="{{ $students->visa_rejection_detail }}" type="text" name="visa_rejection_detail" placeholder="reason for visa rejection"><br>
                     <label class="bottomtext">please describe reason for visa rejection</label>
                 </div>
             
@@ -916,8 +920,8 @@ width: 300px;
         </div>
         <div class="personaldetail" style="background-color : white;justify-content:center;align-items:center;">
         <div style="display: flex;flex-direction:column;align-items:center;justify-content:center;">
-            <a id="start-camera" style="padding:5px;width:100%;text-align:center;margin-top:15px;font-size:20px;;"><img src="unnamed.png" width="150"></a>
-            <a style="margin-bottom:30px;width:100%;text-align:center;margin-top:25px;margin:5px;padding:5px;font-size:20px;" type="botton" id="click-photo"><img src="camera.png" width="100"></a>
+            <a id="start-camera" style="padding:5px;width:100%;text-align:center;margin-top:15px;font-size:20px;;"><img src="/unnamed.png" width="150"></a>
+            <a style="margin-bottom:30px;width:100%;text-align:center;margin-top:25px;margin:5px;padding:5px;font-size:20px;" type="botton" id="click-photo"><img src="/camera.png" width="100"></a>
     </div>
             <div class="first">
                 <div class="inputfield">
@@ -950,7 +954,7 @@ width: 300px;
                     <label class="bottomtext">please select Assigned Cousellor</label>
                 </div>
                 <div class="inputfield">
-                    <input class="addressfield" type="text" name="calldetail" placeholder="call detail"><br>
+                    <input class="addressfield" type="text" name="calldetail" value="{{$students->calldetail}}" placeholder="call detail"><br>
                     <label class="bottomtext">please enter applicant call details</label>
                 </div>
             
@@ -966,7 +970,7 @@ width: 300px;
         </div>
     {{-- <div class="personaldetail" style="background-color : white;"> --}}
         <div class="official" style="margin-top: 40px;text-align:center;">
-            <input type="text" name="remark" placeholder="remark" style="height:100px;width:90%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 3px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"/>
+            <input type="text" value="{{ $students->remark }}" name="remark" placeholder="remark" style="height:100px;width:90%;text-align:center;margin-top:15px;margin:5px;padding:5px;border: 3px solid;font-size:20px;border-color: #23A8E0 #23A8E0 #F89939 #F89939;border-radius:50px;"/>
             {{-- <h3>Remark</h3> --}}
         </div>
     {{-- </div> --}}

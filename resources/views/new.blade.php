@@ -58,19 +58,33 @@ td, th {
   <tr>
     <td>Name: {{ $students['firstname'].' '.$students['lastname'] }} </td>
     <td>email: {{$students['email']}}</td>
-    <td>Interest Country: {{ $students['interest_country'] }}</td>
-    <td>Work Experience: {{ $students['work_experience'] }}</td>
+    <td>address: {{$students['address']}}</td>
+    <td>Dob: {{ $students['dob'] }}</td>
+    <td>Contact: {{ $students['contact'] }}</td>
     <td>Marital status: {{$students['marital_status']}}</td>
     </tr>
     <tr>
-      <td>Contact: {{ $students['contact'] }}</td>
-<td>Address: {{ $students['address'] }}</td>
-<td>Dob: {{ $students['dob'] }}</td>
-<td>Interest Course: {{ $students['interest_course'] }}</td>
-<td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
+      <td>Intake : {{$students['intake'] }}</td>
+      <td>Gurdain name : {{$students['gurdain_name']}} </td>
+      <td>Gurdain conatct : {{$students['gurdain_no']}} </td>
+      <td>Interest Country: {{ $students['interest_country'] }}</td>
+      <td>Interest City: {{ $students['interest_city'] }}</td>
+      <td>city remark : {{ $students['interestcityremark'] }}</td>
+
     </tr>
     <tr>
-<!-- <td>Major Subject: {{$students['major_subject']}}</td> -->
+      <td>Gap : {{ $students['gap'] }}</td>
+      <td>Work Experience: {{ $students['work_experience'] }}</td>
+      <td>Work Description: {{ $students['work_description'] }}</td>
+      <td>Work duration: {{ $students['work_duration'] }}</td>
+      <td>Interest Course: {{ $students['interest_course'] }}</td>
+ 
+    
+      <td>Visa Rejection: {{ $students['visa_rejection'] }}</td>
+    
+    </tr>
+    <tr>
+      <td>Visa Rejection Detail : {{ $students['visa_rejection_detail'] }}</td>
 <td>Test Preparation: {{ $students['test_preparation'] }}</td>
 <td>Test score: {{ $students['test_score'] }}</td>
 <td>Test issue date: {{ $students['test_issue_date'] }}</td>
@@ -116,7 +130,8 @@ td, th {
     
       <tr>
      <td>1.</td>
-     <td>Academic Qualification</td>
+     <td>Board</td>
+     <td>Stream </td>
      <td>grade/score</td>
      <td>date of completion</td>
      <td></td>
@@ -125,6 +140,7 @@ td, th {
       <tr>
     <td></td>
     <td>{{ $students['slcboard'] }}</td>
+    <td>{{ $students['slcstream'] }}</td>
     <td>{{ $students['slc_score'] }}</td>
     <td>{{ $students['slc_passoutyear'] }}</td>
       </tr>
@@ -134,6 +150,7 @@ td, th {
 
         <td></td>
         <td>{{ $students['plus2board'] }}</td>
+        <td>{{ $students['plus2stream'] }}</td>
         <td>{{ $students['plus2_score'] }}</td>
         <td>{{ $students['plus2_passoutyear'] }}</td>
           </tr>
@@ -142,6 +159,7 @@ td, th {
           <tr>
             <td></td>
             <td>{{ $students['bachelorboard'] }}</td>
+            <td>{{ $students['bachelorstream'] }}</td>
             <td>{{ $students['bachelor_score'] }}</td>
             <td>{{ $students['bachelor_passoutyear'] }}</td>
               </tr>
@@ -150,6 +168,7 @@ td, th {
               <tr>
                 <td></td>
                 <td>{{ $students['masterboard'] }}</td>
+                <td>{{ $students['masterstream'] }}</td>
                 <td>{{ $students['master_score'] }}</td>
                 <td>{{ $students['master_passoutyear'] }}</td>
                   </tr>
@@ -158,7 +177,7 @@ td, th {
             <td>2.</td>
             <td>Test Examination </td>
             <td>overall score</td>
-            <td>not less then score</td>
+            {{-- <td>not less then score</td> --}}
             <td>issue date</td>
             <td></td>
         </tr>
