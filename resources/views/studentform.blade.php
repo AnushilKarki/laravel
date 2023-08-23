@@ -607,8 +607,8 @@ width: 300px;
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
                     <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="slcstream" id="slcstream" class="field">
-                        <option value="science">Science</option>
-                        <option value="management">Management</option>
+                        <option value="others">Others</option>
+                        {{-- <option value="management">Management</option> --}}
                     </select>
                 </div>
                 <div class="slcinputfield">
@@ -646,6 +646,8 @@ width: 300px;
                     <select style="width:120px;background:white;border-radius:50px;padding:10px;" id="plus2stream" name="plus2stream" class="field">
                         <option value="science">Science</option>
                         <option value="management">Management</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="nurse">Nurse</option>
                     </select>
                 </div>
                 <div class="slcinputfield">

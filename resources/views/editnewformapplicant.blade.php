@@ -610,8 +610,8 @@ width: 300px;
                     <label>Stream</label><br>
                     {{-- <input type="text" class="field" name="name" placeholder="Management"> --}}
                     <select style="width:120px;background:white;border-radius:50px;padding:10px;" name="slcstream" id="slcstream" class="field">
-                        <option value="science"{{ $students->slcstream == 'science' ? 'selected="selected"': null }}>Science</option>
-                        <option value="management"{{ $students->slcstream == 'management' ? 'selected="selected"' : null }}>Management</option>
+                        <option value="others"{{ $students->slcstream == 'others' ? 'selected="selected"': null }}>Others</option>
+                        {{-- <option value="management"{{ $students->slcstream == 'management' ? 'selected="selected"' : null }}>Management</option> --}}
                     </select>
                 </div>
                 <div class="slcinputfield">
@@ -649,6 +649,8 @@ width: 300px;
                     <select style="width:120px;background:white;border-radius:50px;padding:10px;" id="plus2stream" name="plus2stream" class="field">
                         <option value="science" {{ $students->plus2stream == 'science' ? 'selected="selected"' : null }}>Science</option>
                         <option value="management"{{ $students->plus2stream == 'management' ? 'selected="selected"' : null }}>Management</option>
+                        <option value="diploma" {{ $students->plus2stream == 'diploma' ? 'selected="selected"' : null }}>Diploma</option>
+                        <option value="nursing"{{ $students->plus2stream == 'nursing' ? 'selected="selected"' : null }}>Nursing</option>
                     </select>
                 </div>
                 <div class="slcinputfield">
