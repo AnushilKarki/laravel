@@ -80,7 +80,7 @@
         @media only screen and (min-width : 1250px ){
             .first {
             /* background-color: pink; */
-            min-width:500px;
+            width:500px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -89,7 +89,7 @@
         }
         .second {
             /* background-color: green; */
-            min-width:500px;
+            width:500px;
             margin: 10px;
             display: flex;
             flex-wrap: wrap;

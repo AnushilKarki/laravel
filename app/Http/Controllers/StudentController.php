@@ -61,7 +61,7 @@ return view('addstudent',compact('msg'));
             $search = $request->search;
             $studentscount = Student::count();
             $remainders = Remainder::where('user_id',auth()->id())->where('status',1)->whereDate('followup_date',today())->get();
-            $students = Student::where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('contact','like','%'.$search.'%')->orWhere('studentid','like','%'.$search.'%')->simplePaginate(15);
+            $students = Student::where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('contact','like','%'.$search.'%')->orWhere('studentid','like','%'.$search.'%')->orWhere('lastname','like','%'.$search.'%')->orWhere('middlename','like','%'.$search.'%')->orWhere('firtname','like','%'.$search.'%')->simplePaginate(15);
             return view('viewstudent',compact('students','studentscount','remainders'));
         }
     public function addnewstudent(Request $request){

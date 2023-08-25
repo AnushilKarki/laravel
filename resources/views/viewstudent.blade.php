@@ -217,7 +217,7 @@ flex-wrap:wrap;
   <tr>
     <td class="id">{{$id}}</td>
     <td>{{$d['studentid']}}</td>
-    <td>{{ $d['name'] }}</td>
+    <td>{{ $d['firstname'].$d['lastname'] ?? $d['name'] }}</td>
     <td>{{ $d['email'] }}</td>
  
     <td>{{ $d['address'] }}</td>
