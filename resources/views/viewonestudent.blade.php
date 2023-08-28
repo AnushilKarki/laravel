@@ -298,14 +298,14 @@ flex-wrap:wrap;
                   </div>
         <div class="heading">
           <div>
-            <h3 style="text-align:center;">All Remainder</h3>
+            <h3 style="text-align:center;">All Reminder</h3>
             <table>
               <tr>
                 <th>id</th>
                 <th>Student name</th>
                 <th>student id </th>
-                <th>Reaminder date</th>
-                <th>Remainder detail</th>
+                <th>Reminder date</th>
+                <th>Reminder detail</th>
                 <th>Status </th>
                 <th></th>
               </tr>
@@ -324,7 +324,7 @@ flex-wrap:wrap;
                 <td>{{ $remainder->followup_date ?? 'n/a' }}</td>
                 <td>{{$remainder->followup_detail ?? 'n/a'}} </td>
                 <td>{{$remainder->status ==1 ? 'active' : 'not active'}} </td>
-                <td>  <a href="{{ route('editviewremainder',$remainder->id) }}">  <img src="edit.png" style="width:15px;"/></a> </td>
+                <td>  <a href="{{ route('editviewremainder',$remainder->id) }}">  <img src="edit.png" style="width:15px;" alt="edit"/></a> </td>
               </tr>
               <?php 
               $i = $i +1;

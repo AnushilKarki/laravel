@@ -154,7 +154,7 @@ flex-wrap:wrap;
                 <button class="add" type="button"><a href="/applicant">Add new student</a> </button>
               </div>
         <div>
-          <h3 style="text-align:center;">Today's Remainder</h3>
+          <h3 style="text-align:center;">Today's Reminder</h3>
           <table>
             <tr>
               <th>id</th>
@@ -162,7 +162,7 @@ flex-wrap:wrap;
               <th>student id </th>
               <th>Student phone no</th>
               <th>Reaminder date</th>
-              <th>Remainder detail</th>
+              <th>Reminder detail</th>
               <th>Status </th>
             </tr>
             <?php 
